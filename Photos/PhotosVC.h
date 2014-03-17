@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  PhotosVC.h
 //  Photos
 //
 //  Created by tag_mac_05 on 14-3-17.
@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface SecondViewController : UIViewController
+#import <AssetsLibrary/AssetsLibrary.h>
+@interface PhotosVC : UIViewController
 
 @end

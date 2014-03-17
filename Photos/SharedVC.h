@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  SharedVC.h
 //  Photos
 //
 //  Created by tag_mac_05 on 14-3-17.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
+@interface SharedVC : UIViewController
 
 @end
