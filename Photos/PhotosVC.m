@@ -73,9 +73,23 @@
                            usingBlock:^(ALAssetsGroup *group, BOOL *stop)
      {
          groupNumber = groupNumber + 1;
-         NSLog(@"%d",groupNumber);
+//         NSLog(@"%ld",(long)groupNumber);
          // Within the group enumeration block, filter to enumerate just photos.
          [group setAssetsFilter:[ALAssetsFilter allAssets]];
+         
+         if (group.editable) {
+             NSLog(@"yes");
+             
+         }else
+         {
+             NSLog(@"no");
+
+         }
+         NSLog(@"%@",[group valueForProperty:ALAssetsGroupPropertyName]);
+         NSLog(@"%@",[group valueForProperty:ALAssetsGroupPropertyType]);
+         NSLog(@"%@",[group valueForProperty:ALAssetsGroupPropertyPersistentID]);
+         NSLog(@"%@",[group valueForProperty:ALAssetsGroupPropertyURL]);
+         
          
          // For this example, we're only interested in the first item.
          [group enumerateAssetsAtIndexes:[NSIndexSet indexSetWithIndex:0]
