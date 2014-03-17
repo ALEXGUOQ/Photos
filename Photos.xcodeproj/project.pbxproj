@@ -24,6 +24,8 @@
 		65D0291A18D6FFBC00F09F16 /* SharedVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D0291918D6FFBC00F09F16 /* SharedVC.m */; };
 		65D0292118D7000300F09F16 /* AlbumsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D0292018D7000300F09F16 /* AlbumsVC.m */; };
 		65D0292318D704DF00F09F16 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D0292218D704DF00F09F16 /* AssetsLibrary.framework */; };
+		E45FCB4118D7388500D05CFF /* Layouts.m in Sources */ = {isa = PBXBuildFile; fileRef = E45FCB4018D7388500D05CFF /* Layouts.m */; };
+		E45FCB4518D73AE400D05CFF /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E45FCB4418D73AE400D05CFF /* ImageCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,10 @@
 		65D0291F18D7000300F09F16 /* AlbumsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumsVC.h; sourceTree = "<group>"; };
 		65D0292018D7000300F09F16 /* AlbumsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumsVC.m; sourceTree = "<group>"; };
 		65D0292218D704DF00F09F16 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		E45FCB3F18D7388500D05CFF /* Layouts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Layouts.h; sourceTree = "<group>"; };
+		E45FCB4018D7388500D05CFF /* Layouts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Layouts.m; sourceTree = "<group>"; };
+		E45FCB4318D73AE400D05CFF /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = "<group>"; };
+		E45FCB4418D73AE400D05CFF /* ImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +128,8 @@
 		65D028E318D6FDF300F09F16 /* Photos */ = {
 			isa = PBXGroup;
 			children = (
+				E45FCB4218D73AC400D05CFF /* Views */,
+				E45FCB3E18D7387400D05CFF /* Layout */,
 				65D0291E18D6FFCE00F09F16 /* VCS */,
 				65D028EC18D6FDF300F09F16 /* AppDelegate.h */,
 				65D028ED18D6FDF300F09F16 /* AppDelegate.m */,
@@ -172,6 +180,24 @@
 				65D0292018D7000300F09F16 /* AlbumsVC.m */,
 			);
 			name = VCS;
+			sourceTree = "<group>";
+		};
+		E45FCB3E18D7387400D05CFF /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				E45FCB3F18D7388500D05CFF /* Layouts.h */,
+				E45FCB4018D7388500D05CFF /* Layouts.m */,
+			);
+			name = Layout;
+			sourceTree = "<group>";
+		};
+		E45FCB4218D73AC400D05CFF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E45FCB4318D73AE400D05CFF /* ImageCell.h */,
+				E45FCB4418D73AE400D05CFF /* ImageCell.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +300,8 @@
 				65D028EE18D6FDF300F09F16 /* AppDelegate.m in Sources */,
 				65D0291A18D6FFBC00F09F16 /* SharedVC.m in Sources */,
 				65D0291718D6FFAF00F09F16 /* PhotosVC.m in Sources */,
+				E45FCB4518D73AE400D05CFF /* ImageCell.m in Sources */,
+				E45FCB4118D7388500D05CFF /* Layouts.m in Sources */,
 				65D0292118D7000300F09F16 /* AlbumsVC.m in Sources */,
 				65D028EA18D6FDF300F09F16 /* main.m in Sources */,
 			);
@@ -482,6 +510,7 @@
 				65D0291118D6FDF300F09F16 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		65D0291218D6FDF300F09F16 /* Build configuration list for PBXNativeTarget "PhotosTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +519,7 @@
 				65D0291418D6FDF300F09F16 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
