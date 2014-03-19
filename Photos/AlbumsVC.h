@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface AlbumsVC : UIViewController 
+#import <AssetsLibrary/AssetsLibrary.h>
+@interface AlbumsVC : UIViewController <UITableViewDataSource>
 {
     IBOutlet UITableView *myTableView;
     
-    NSMutableArray *groupArray;
+    NSMutableArray *groupInfo;
     
     
     

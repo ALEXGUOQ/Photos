@@ -48,6 +48,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="p50-7q-gN5" id="X5g-XF-GSE"/>
+                            <outlet property="delegate" destination="p50-7q-gN5" id="Hqw-yR-S4f"/>
+                        </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Item" id="aPb-ZI-T5n"/>
                     <navigationItem key="navigationItem" id="d20-dX-zbx"/>

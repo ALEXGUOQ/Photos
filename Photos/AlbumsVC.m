@@ -40,7 +40,30 @@
 #pragma mark - Model
 -(void)configModel
 {
+    groupInfo = [[NSMutableArray alloc] init];
+    [self loadGroupInfo];
+}
 
+-(void)loadGroupInfo
+{
+    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+    
+    // Enumerate just the photos and videos group by using ALAssetsGroupSavedPhotos.
+    [library enumerateGroupsWithTypes:ALAssetsGroupAll
+                           usingBlock:^(ALAssetsGroup *group, BOOL *stop)
+     {
+         if (group) {
+             [groupInfo addObject:group];
+             [myTableView reloadData];
+         }
+        
+
+     }
+                            failureBlock: ^(NSError *error)
+     {
+         // Typically you should handle an error more gracefully than this.
+         NSLog(@"No groups");
+     }];
 }
 #pragma mark - View
 -(void)configView
@@ -106,7 +129,10 @@
 #pragma mark - UIAlertViewDelegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    
+    if (buttonIndex==1) {
+//        确定
+        
+    }
 }
 
 - (BOOL)alertViewShouldEnableFirstOtherButton:(UIAlertView *)alertView
@@ -119,6 +145,28 @@
     return YES;
 }
 
+#pragma mark - UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSLog(@"count:%d",[groupInfo count]);
+    return [groupInfo count];
+}
+
+// Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
+// Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *reuseId = @"UITableViewCell";
+    UITableViewCell *cell;
+//    cell = [tableView dequeueReusableCellWithIdentifier:reuseId forIndexPath:indexPath];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseId];
+    }
+    ALAssetsGroup *group = groupInfo[indexPath.row];
+    cell.imageView.image = [UIImage imageWithCGImage:group.posterImage];
+    return cell;
+}
 
 /*
 #pragma mark - Navigation
