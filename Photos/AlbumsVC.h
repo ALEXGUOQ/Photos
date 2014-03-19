@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AlbumsVC : UIViewController
-
+@interface AlbumsVC : UIViewController 
+{
+    UITableView *myTableView;
+    
+    NSMutableArray *groupArray;
+    
+    
+    
+    UIAlertView *alert;
+}
 @end
