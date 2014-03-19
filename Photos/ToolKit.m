@@ -9,6 +9,14 @@
 #import "ToolKit.h"
 
 @implementation ToolKit
+
++(UIUserInterfaceIdiom)deviceIdiom
+{
+    UIDevice *decive = [UIDevice currentDevice];
+    UIUserInterfaceIdiom interface = decive.userInterfaceIdiom;
+    return interface;
+}
+
 +(BOOL)isIphone
 {
     UIDevice *decive = [UIDevice currentDevice];
