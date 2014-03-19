@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--View Controller - Item 1-->
+        <!--PhotosVC - Item 1-->
         <scene sceneID="RUn-jP-9uf">
             <objects>
-                <viewController id="mhM-8p-yDp" sceneMemberID="viewController">
+                <viewController id="mhM-8p-yDp" customClass="PhotosVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="l6A-Nl-sSc"/>
                         <viewControllerLayoutGuide type="bottom" id="d4V-ba-Oos"/>
@@ -36,7 +36,7 @@
         <scene sceneID="nru-ot-1Iy">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="r02-kZ-VP9" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="AnU-0t-OAn">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "Layouts.h"
-@interface PhotosVC : UIViewController <UICollectionViewDataSource>
+@interface PhotosVC : UIViewController 
 {
     NSMutableArray *allImageInfo;
     UICollectionView *myCollectionView;
