@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		659F0EC718D98259001A6195 /* ToolKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F0EC618D98259001A6195 /* ToolKit.m */; };
+		659F0ECE18D98B5B001A6195 /* PhotoTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F0ECD18D98B5B001A6195 /* PhotoTabbar.m */; };
 		65A1D28B18D7E55700CDF709 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65A1D28A18D7E55700CDF709 /* Main_iPad.storyboard */; };
 		65D028DE18D6FDF300F09F16 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D028DD18D6FDF300F09F16 /* Foundation.framework */; };
 		65D028E018D6FDF300F09F16 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D028DF18D6FDF300F09F16 /* CoreGraphics.framework */; };
@@ -43,6 +44,8 @@
 /* Begin PBXFileReference section */
 		659F0EC518D98259001A6195 /* ToolKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolKit.h; sourceTree = "<group>"; };
 		659F0EC618D98259001A6195 /* ToolKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolKit.m; sourceTree = "<group>"; };
+		659F0ECC18D98B5B001A6195 /* PhotoTabbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoTabbar.h; sourceTree = "<group>"; };
+		659F0ECD18D98B5B001A6195 /* PhotoTabbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoTabbar.m; sourceTree = "<group>"; };
 		65A1D28A18D7E55700CDF709 /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPad.storyboard; sourceTree = "<group>"; };
 		65D028DA18D6FDF300F09F16 /* Photos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65D028DD18D6FDF300F09F16 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -194,6 +197,8 @@
 				65D0291918D6FFBC00F09F16 /* SharedVC.m */,
 				65D0291F18D7000300F09F16 /* AlbumsVC.h */,
 				65D0292018D7000300F09F16 /* AlbumsVC.m */,
+				659F0ECC18D98B5B001A6195 /* PhotoTabbar.h */,
+				659F0ECD18D98B5B001A6195 /* PhotoTabbar.m */,
 			);
 			name = VCS;
 			sourceTree = "<group>";
@@ -320,6 +325,7 @@
 				65D0291718D6FFAF00F09F16 /* PhotosVC.m in Sources */,
 				E45FCB4518D73AE400D05CFF /* ImageCell.m in Sources */,
 				E45FCB4118D7388500D05CFF /* Layouts.m in Sources */,
+				659F0ECE18D98B5B001A6195 /* PhotoTabbar.m in Sources */,
 				65D0292118D7000300F09F16 /* AlbumsVC.m in Sources */,
 				65D028EA18D6FDF300F09F16 /* main.m in Sources */,
 			);

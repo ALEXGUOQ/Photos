@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="u1e-5L-l1D"/>
+                    <tabBarItem key="tabBarItem" title="照片" image="first" id="u1e-5L-l1D"/>
                     <navigationItem key="navigationItem" id="smC-D8-UnF"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>
@@ -40,7 +40,7 @@
             </objects>
             <point key="canvasLocation" x="720" y="-258"/>
         </scene>
-        <!--AlbumsVC - Item-->
+        <!--AlbumsVC - 相簿-->
         <scene sceneID="LM6-Pw-GLw">
             <objects>
                 <viewController id="p50-7q-gN5" customClass="AlbumsVC" sceneMemberID="viewController">
@@ -53,7 +53,7 @@
                             <outlet property="delegate" destination="p50-7q-gN5" id="Hqw-yR-S4f"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="aPb-ZI-T5n"/>
+                    <tabBarItem key="tabBarItem" title="相簿" image="first" id="aPb-ZI-T5n"/>
                     <navigationItem key="navigationItem" id="d20-dX-zbx"/>
                     <connections>
                         <outlet property="myTableView" destination="KtG-VY-Pb0" id="bQS-Fb-MTE"/>
@@ -92,7 +92,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="Z7h-1E-pvt"/>
+                    <tabBarItem key="tabBarItem" title="共享" image="second" id="Z7h-1E-pvt"/>
                     <navigationItem key="navigationItem" id="kpc-t1-3ta"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qq-4t-Ow8" sceneMemberID="firstResponder"/>
@@ -115,10 +115,10 @@
             </objects>
             <point key="canvasLocation" x="720" y="414"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Photo Tabbar-->
         <scene sceneID="Vex-rW-GRa">
             <objects>
-                <tabBarController id="8YX-ce-x5E" sceneMemberID="viewController">
+                <tabBarController id="8YX-ce-x5E" customClass="PhotoTabbar" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="weJ-Eu-eEB"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="JQR-rB-NYL">
