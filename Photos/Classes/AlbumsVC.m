@@ -7,7 +7,7 @@
 //
 
 #import "AlbumsVC.h"
-
+#import "ImageTableViewCell.h"
 @interface AlbumsVC ()
 
 @end
@@ -79,6 +79,9 @@
 {
     [self configTitleAndBarButtons];
     [self configAlert];
+    
+    
+    [myTableView registerClass:[ImageTableViewCell class] forCellReuseIdentifier:@"ImageTableViewCell"];
 }
 -(void)configTitleAndBarButtons
 {
@@ -164,10 +167,7 @@
 {
     cell.imageView.frame = CGRectMake(8, 4, 70, 74);
 }
-- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath*)indexPath NS_AVAILABLE_IOS(6_0)
-{
-    cell.imageView.frame = CGRectMake(8, 4, 70, 74);
-}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 //    2*80=160   14/2 = 7
@@ -184,20 +184,22 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *reuseId = @"UITableViewCell";
-    UITableViewCell *cell;
-//    cell = [tableView dequeueReusableCellWithIdentifier:reuseId forIndexPath:indexPath];
+    static NSString *reuseId = @"ImageTableViewCell";
+    ImageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseId forIndexPath:indexPath];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseId];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell = [[ImageTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseId];
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
         
     }
     ALAssetsGroup *group = groupInfo[indexPath.row];
     
     
-    
-//    cell.imageView.image = [UIImage imageWithCGImage:group.posterImage];
-    cell.imageView.backgroundColor = [UIColor redColor];
+
+    cell.imageView.image = [UIImage imageWithCGImage:group.posterImage];
+    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+//    cell.imageView.image = [UIImage imageNamed:@"test.png"];
+//    UIViewContentMode mode = cell.imageView.contentMode;
+//    UIImageView *a = [[UIImageView alloc] init];
     cell.textLabel.text = [group valueForProperty:ALAssetsGroupPropertyName];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",[group numberOfAssets]];
     

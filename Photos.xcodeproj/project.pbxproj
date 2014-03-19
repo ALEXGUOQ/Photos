@@ -15,13 +15,15 @@
 		65B3B62118D99D4600417292 /* PhotoTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B3B61718D99D4600417292 /* PhotoTabbar.m */; };
 		65B3B62218D99D4600417292 /* SharedVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B3B61918D99D4600417292 /* SharedVC.m */; };
 		65B3B62318D99D4600417292 /* ToolKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B3B61B18D99D4600417292 /* ToolKit.m */; };
+		65B3B62818D99DBB00417292 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B3B62718D99DBB00417292 /* test.png */; };
+		65B3B62B18D99E8900417292 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65B3B62A18D99E8900417292 /* Main.storyboard */; };
+		65B3B62E18D9A06600417292 /* ImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B3B62D18D9A06600417292 /* ImageTableViewCell.m */; };
 		65D028DE18D6FDF300F09F16 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D028DD18D6FDF300F09F16 /* Foundation.framework */; };
 		65D028E018D6FDF300F09F16 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D028DF18D6FDF300F09F16 /* CoreGraphics.framework */; };
 		65D028E218D6FDF300F09F16 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D028E118D6FDF300F09F16 /* UIKit.framework */; };
 		65D028E818D6FDF300F09F16 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65D028E618D6FDF300F09F16 /* InfoPlist.strings */; };
 		65D028EA18D6FDF300F09F16 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D028E918D6FDF300F09F16 /* main.m */; };
 		65D028EE18D6FDF300F09F16 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D028ED18D6FDF300F09F16 /* AppDelegate.m */; };
-		65D028F118D6FDF300F09F16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65D028EF18D6FDF300F09F16 /* Main.storyboard */; };
 		65D028F918D6FDF300F09F16 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65D028F818D6FDF300F09F16 /* Images.xcassets */; };
 		65D0290018D6FDF300F09F16 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D028FF18D6FDF300F09F16 /* XCTest.framework */; };
 		65D0290118D6FDF300F09F16 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D028DD18D6FDF300F09F16 /* Foundation.framework */; };
@@ -57,6 +59,10 @@
 		65B3B61918D99D4600417292 /* SharedVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedVC.m; sourceTree = "<group>"; };
 		65B3B61A18D99D4600417292 /* ToolKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolKit.h; sourceTree = "<group>"; };
 		65B3B61B18D99D4600417292 /* ToolKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolKit.m; sourceTree = "<group>"; };
+		65B3B62718D99DBB00417292 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
+		65B3B62A18D99E8900417292 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Photos/Main.storyboard; sourceTree = SOURCE_ROOT; };
+		65B3B62C18D9A06600417292 /* ImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTableViewCell.h; sourceTree = "<group>"; };
+		65B3B62D18D9A06600417292 /* ImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTableViewCell.m; sourceTree = "<group>"; };
 		65D028DA18D6FDF300F09F16 /* Photos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65D028DD18D6FDF300F09F16 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		65D028DF18D6FDF300F09F16 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -67,7 +73,6 @@
 		65D028EB18D6FDF300F09F16 /* Photos-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Photos-Prefix.pch"; sourceTree = "<group>"; };
 		65D028EC18D6FDF300F09F16 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		65D028ED18D6FDF300F09F16 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		65D028F018D6FDF300F09F16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		65D028F818D6FDF300F09F16 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		65D028FE18D6FDF300F09F16 /* PhotosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		65D028FF18D6FDF300F09F16 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -115,7 +120,8 @@
 		65B3B61C18D99D4600417292 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				65D028EF18D6FDF300F09F16 /* Main.storyboard */,
+				65B3B62A18D99E8900417292 /* Main.storyboard */,
+				65B3B62718D99DBB00417292 /* test.png */,
 				65A1D28A18D7E55700CDF709 /* Main_iPad.storyboard */,
 			);
 			path = Resources;
@@ -152,6 +158,8 @@
 			children = (
 				65B3B61018D99D4600417292 /* ImageCell.h */,
 				65B3B61118D99D4600417292 /* ImageCell.m */,
+				65B3B62C18D9A06600417292 /* ImageTableViewCell.h */,
+				65B3B62D18D9A06600417292 /* ImageTableViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -306,9 +314,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				65D028F918D6FDF300F09F16 /* Images.xcassets in Resources */,
+				65B3B62B18D99E8900417292 /* Main.storyboard in Resources */,
+				65B3B62818D99DBB00417292 /* test.png in Resources */,
 				65A1D28B18D7E55700CDF709 /* Main_iPad.storyboard in Resources */,
 				65D028E818D6FDF300F09F16 /* InfoPlist.strings in Resources */,
-				65D028F118D6FDF300F09F16 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +343,7 @@
 				65B3B61E18D99D4600417292 /* ImageCell.m in Sources */,
 				65B3B62218D99D4600417292 /* SharedVC.m in Sources */,
 				65B3B62318D99D4600417292 /* ToolKit.m in Sources */,
+				65B3B62E18D9A06600417292 /* ImageTableViewCell.m in Sources */,
 				65B3B61D18D99D4600417292 /* AlbumsVC.m in Sources */,
 				65D028EA18D6FDF300F09F16 /* main.m in Sources */,
 			);
@@ -364,15 +374,6 @@
 				65D028E718D6FDF300F09F16 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		65D028EF18D6FDF300F09F16 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				65D028F018D6FDF300F09F16 /* Base */,
-			);
-			name = Main.storyboard;
-			path = ..;
 			sourceTree = "<group>";
 		};
 		65D0290818D6FDF300F09F16 /* InfoPlist.strings */ = {
