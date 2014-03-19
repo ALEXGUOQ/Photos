@@ -1,4 +1,4 @@
-//
+//  相簿
 //  AlbumsVC.h
 //  Photos
 //
@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <AssetsLibrary/AssetsLibrary.h>
-@interface AlbumsVC : UIViewController <UITableViewDataSource>
+@interface AlbumsVC : UIViewController <UITableViewDataSource,UITableViewDelegate>
 {
+    
+    
+    ALAssetsLibrary *library;
     IBOutlet UITableView *myTableView;
     
     NSMutableArray *groupInfo;

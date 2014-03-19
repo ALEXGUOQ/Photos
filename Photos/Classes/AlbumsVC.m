@@ -27,7 +27,7 @@
 {
     self = [super initWithCoder:coder];
     if (self) {
-
+        [self configModel];
     }
     return self;
 }
@@ -35,7 +35,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self configModel];
+    
     [self configView];
 
 }
@@ -49,13 +49,14 @@
 -(void)configModel
 {
     groupInfo = [[NSMutableArray alloc] init];
+    library = [[ALAssetsLibrary alloc] init];
     [self loadGroupInfo];
 }
 
 -(void)loadGroupInfo
 {
-    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
     
+    [groupInfo removeAllObjects];
     // Enumerate just the photos and videos group by using ALAssetsGroupSavedPhotos.
     [library enumerateGroupsWithTypes:ALAssetsGroupAll
                            usingBlock:^(ALAssetsGroup *group, BOOL *stop)
@@ -139,7 +140,13 @@
 {
     if (buttonIndex==1) {
 //        确定
-        
+        UITextField *textField = [alert textFieldAtIndex:0];
+        [library addAssetsGroupAlbumWithName:textField.text resultBlock:^(ALAssetsGroup *group) {
+            
+        } failureBlock:^(NSError *error) {
+            
+        }];
+
     }
 }
 
@@ -152,11 +159,23 @@
     }
     return YES;
 }
-
+#pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    cell.imageView.frame = CGRectMake(8, 4, 70, 74);
+}
+- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath*)indexPath NS_AVAILABLE_IOS(6_0)
+{
+    cell.imageView.frame = CGRectMake(8, 4, 70, 74);
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+//    2*80=160   14/2 = 7
+    return 87;
+}
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"count:%d",[groupInfo count]);
     return [groupInfo count];
 }
 
@@ -170,9 +189,19 @@
 //    cell = [tableView dequeueReusableCellWithIdentifier:reuseId forIndexPath:indexPath];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseId];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        
     }
     ALAssetsGroup *group = groupInfo[indexPath.row];
-    cell.imageView.image = [UIImage imageWithCGImage:group.posterImage];
+    
+    
+    
+//    cell.imageView.image = [UIImage imageWithCGImage:group.posterImage];
+    cell.imageView.backgroundColor = [UIColor redColor];
+    cell.textLabel.text = [group valueForProperty:ALAssetsGroupPropertyName];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",[group numberOfAssets]];
+    
+
     return cell;
 }
 

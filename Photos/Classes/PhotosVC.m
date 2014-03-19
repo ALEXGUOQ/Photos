@@ -30,10 +30,11 @@
     
 
 
-    return;
+    
+    
     // Get the assets library
     ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-    
+    return;
     // Enumerate just the photos and videos group by using ALAssetsGroupSavedPhotos.
     [library enumerateGroupsWithTypes:ALAssetsGroupAll
                            usingBlock:^(ALAssetsGroup *group, BOOL *stop)
