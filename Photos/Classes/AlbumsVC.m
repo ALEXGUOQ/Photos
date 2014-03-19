@@ -188,9 +188,10 @@
     ImageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseId forIndexPath:indexPath];
     if (!cell) {
         cell = [[ImageTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseId];
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+       
         
     }
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     ALAssetsGroup *group = groupInfo[indexPath.row];
     
     
