@@ -51,8 +51,8 @@
               
               // The end of the enumeration is signaled by asset == nil.
               if (alAsset) {
-                  ALAssetRepresentation *representation = [alAsset defaultRepresentation];
-                  NSDictionary *imageMetadata = [representation metadata];
+//                  ALAssetRepresentation *representation = [alAsset defaultRepresentation];
+//                  NSDictionary *imageMetadata = [representation metadata];
                   // Do something interesting with the metadata.
               }
           }];

@@ -55,7 +55,9 @@
 
 -(void)loadGroupInfo
 {
+//    NSLog(@"%@",[self groupsForType:ALAssetsGroupAll]);
     
+ 
     [groupInfo removeAllObjects];
     // Enumerate just the photos and videos group by using ALAssetsGroupSavedPhotos.
     [library enumerateGroupsWithTypes:ALAssetsGroupAll
@@ -63,6 +65,47 @@
      {
          if (group) {
              [groupInfo addObject:group];
+         }else
+         {
+             NSInteger saveIndex = -1;
+             NSInteger photoStreamIndex = -1;
+             for (int i=0;i<[groupInfo count];i++) {
+                 ALAssetsGroup *g = groupInfo[i];
+                 NSNumber *type = [g valueForProperty:ALAssetPropertyType];
+                 if ([type integerValue]==ALAssetsGroupSavedPhotos) {
+                     saveIndex = i;
+                 }
+                 
+                 if ([type integerValue]==ALAssetsGroupPhotoStream) {
+                     photoStreamIndex = i;
+                 }
+             }
+             
+             NSArray *array = [groupInfo sortedArrayWithOptions:NSSortStable usingComparator:^NSComparisonResult(ALAssetsGroup *obj1, ALAssetsGroup *obj2) {
+                 NSInteger type1 = [[obj1 valueForProperty:ALAssetPropertyType] integerValue];
+                 NSInteger type2 = [[obj2 valueForProperty:ALAssetPropertyType] integerValue];
+                 
+
+                 if (type1<type2) {
+                     
+//                     升序
+                     return NSOrderedAscending;
+                 }else
+                 {
+                     
+//                     降序
+                     return NSOrderedDescending;
+                 }
+
+                 
+             }];
+             [groupInfo removeAllObjects];
+             [groupInfo addObjectsFromArray:array];
+             
+//             [groupInfo repl]
+             
+             
+             
              [myTableView reloadData];
          }
         
@@ -74,6 +117,8 @@
          NSLog(@"No groups");
      }];
 }
+
+
 #pragma mark - View
 -(void)configView
 {
@@ -201,6 +246,7 @@
 //    cell.imageView.image = [UIImage imageNamed:@"test.png"];
 //    UIViewContentMode mode = cell.imageView.contentMode;
 //    UIImageView *a = [[UIImageView alloc] init];
+    NSLog(@"%@",[group valueForProperty:ALAssetsGroupPropertyType]);
     cell.textLabel.text = [group valueForProperty:ALAssetsGroupPropertyName];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",[group numberOfAssets]];
     
