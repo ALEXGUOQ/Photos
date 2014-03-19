@@ -61,8 +61,9 @@
     UIBarButtonItem *rightbuttonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(reciveEditButton:)];
     self.navigationItem.rightBarButtonItem = rightbuttonItem;
     
-    myTableView = [[UITableView alloc] initWithFrame:self.view.frame];
-    [self.view addSubview:myTableView];
+//    myTableView = [[UITableView alloc] initWithFrame:self.view.frame];
+//    [self.view addSubview:myTableView];
+//    NSLog(@"%@",myTableView);
     
 }
 -(void)configAlert
@@ -117,6 +118,8 @@
     }
     return YES;
 }
+
+
 /*
 #pragma mark - Navigation
 

@@ -44,17 +44,16 @@
         <scene sceneID="LM6-Pw-GLw">
             <objects>
                 <viewController id="p50-7q-gN5" customClass="AlbumsVC" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="DKp-za-rli"/>
-                        <viewControllerLayoutGuide type="bottom" id="urH-0u-H60"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="wf9-DL-D4r">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="KtG-VY-Pb0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </tableView>
                     <tabBarItem key="tabBarItem" title="Item" id="aPb-ZI-T5n"/>
                     <navigationItem key="navigationItem" id="d20-dX-zbx"/>
+                    <connections>
+                        <outlet property="myTableView" destination="KtG-VY-Pb0" id="bQS-Fb-MTE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fbw-it-otY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

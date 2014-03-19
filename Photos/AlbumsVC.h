@@ -10,7 +10,7 @@
 
 @interface AlbumsVC : UIViewController 
 {
-    UITableView *myTableView;
+    IBOutlet UITableView *myTableView;
     
     NSMutableArray *groupArray;
     
