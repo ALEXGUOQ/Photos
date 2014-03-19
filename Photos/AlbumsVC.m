@@ -73,7 +73,7 @@
 }
 -(void)configTitleAndBarButtons
 {
-    self.title = @"相册";
+    self.title = @"相簿";
     UIBarButtonItem *leftbuttonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(reciveAddButton:)];
     
     self.navigationItem.leftBarButtonItem = leftbuttonItem;

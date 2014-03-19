@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		659F0EC718D98259001A6195 /* ToolKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F0EC618D98259001A6195 /* ToolKit.m */; };
 		65A1D28B18D7E55700CDF709 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65A1D28A18D7E55700CDF709 /* Main_iPad.storyboard */; };
 		65D028DE18D6FDF300F09F16 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D028DD18D6FDF300F09F16 /* Foundation.framework */; };
 		65D028E018D6FDF300F09F16 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D028DF18D6FDF300F09F16 /* CoreGraphics.framework */; };
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		659F0EC518D98259001A6195 /* ToolKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolKit.h; sourceTree = "<group>"; };
+		659F0EC618D98259001A6195 /* ToolKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolKit.m; sourceTree = "<group>"; };
 		65A1D28A18D7E55700CDF709 /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPad.storyboard; sourceTree = "<group>"; };
 		65D028DA18D6FDF300F09F16 /* Photos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65D028DD18D6FDF300F09F16 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -96,6 +99,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		659F0EC418D9822D001A6195 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				659F0EC518D98259001A6195 /* ToolKit.h */,
+				659F0EC618D98259001A6195 /* ToolKit.m */,
+			);
+			name = Support;
+			sourceTree = "<group>";
+		};
 		65D028D118D6FDF300F09F16 = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +142,7 @@
 		65D028E318D6FDF300F09F16 /* Photos */ = {
 			isa = PBXGroup;
 			children = (
+				659F0EC418D9822D001A6195 /* Support */,
 				E45FCB4218D73AC400D05CFF /* Views */,
 				E45FCB3E18D7387400D05CFF /* Layout */,
 				65D0291E18D6FFCE00F09F16 /* VCS */,
@@ -303,6 +316,7 @@
 			files = (
 				65D028EE18D6FDF300F09F16 /* AppDelegate.m in Sources */,
 				65D0291A18D6FFBC00F09F16 /* SharedVC.m in Sources */,
+				659F0EC718D98259001A6195 /* ToolKit.m in Sources */,
 				65D0291718D6FFAF00F09F16 /* PhotosVC.m in Sources */,
 				E45FCB4518D73AE400D05CFF /* ImageCell.m in Sources */,
 				E45FCB4118D7388500D05CFF /* Layouts.m in Sources */,
