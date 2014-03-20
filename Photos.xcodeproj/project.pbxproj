@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		65A1D28B18D7E55700CDF709 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65A1D28A18D7E55700CDF709 /* Main_iPad.storyboard */; };
+		65A396DE18DABE30005BA532 /* Default@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 65A396DD18DABE30005BA532 /* Default@2x~iphone.png */; };
 		65B3B61D18D99D4600417292 /* AlbumsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B3B60F18D99D4600417292 /* AlbumsVC.m */; };
 		65B3B61E18D99D4600417292 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B3B61118D99D4600417292 /* ImageCell.m */; };
 		65B3B61F18D99D4600417292 /* Layouts.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B3B61318D99D4600417292 /* Layouts.m */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		65A1D28A18D7E55700CDF709 /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main_iPad.storyboard; path = ../Main_iPad.storyboard; sourceTree = "<group>"; };
+		65A396DD18DABE30005BA532 /* Default@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x~iphone.png"; sourceTree = "<group>"; };
 		65B3B60E18D99D4600417292 /* AlbumsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumsVC.h; sourceTree = "<group>"; };
 		65B3B60F18D99D4600417292 /* AlbumsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumsVC.m; sourceTree = "<group>"; };
 		65B3B61018D99D4600417292 /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 		65B3B61C18D99D4600417292 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				65A396DD18DABE30005BA532 /* Default@2x~iphone.png */,
 				65F4D02D18DABADC0058B561 /* Photos-Guides@2x.png */,
 				65F4D02E18DABADC0058B561 /* Photos-NotificationCenter@2x.png */,
 				65F4D02F18DABADC0058B561 /* Photos-settings@2x.png */,
@@ -325,6 +328,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65A396DE18DABE30005BA532 /* Default@2x~iphone.png in Resources */,
 				65F4D03118DABADC0058B561 /* Photos-Guides@2x.png in Resources */,
 				65F4D03418DABADC0058B561 /* Photos@2x~iphone.png in Resources */,
 				65D028F918D6FDF300F09F16 /* Images.xcassets in Resources */,
