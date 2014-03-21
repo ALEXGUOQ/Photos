@@ -99,8 +99,10 @@
 
                  
              }];
+             
              [groupInfo removeAllObjects];
              [groupInfo addObjectsFromArray:array];
+             [groupInfo exchangeObjectAtIndex:0 withObjectAtIndex:1];
              
 //             [groupInfo repl]
              
