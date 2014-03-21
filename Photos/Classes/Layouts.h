@@ -10,5 +10,9 @@
 
 @interface Layouts : NSObject
 
+//一行四个
 +(UICollectionViewFlowLayout*)flowLayoutFourEachLine;
+
+//全屏
++(UICollectionViewFlowLayout*)flowLayoutFullScreen;
 @end

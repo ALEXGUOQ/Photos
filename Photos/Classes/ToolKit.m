@@ -17,6 +17,12 @@
     return interface;
 }
 
+
++(CGFloat)screenHeight
+{
+    UIScreen *sc = [UIScreen mainScreen];
+    return CGRectGetHeight(sc.bounds);
+}
 +(BOOL)isIphone
 {
     UIDevice *decive = [UIDevice currentDevice];

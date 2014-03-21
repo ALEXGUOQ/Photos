@@ -10,6 +10,10 @@
 
 @interface ToolKit : NSObject
 
+
++(CGFloat)screenHeight;
+
+
 //用来区分是iPhone还是iPad
 +(BOOL)isIphone;
 @end
