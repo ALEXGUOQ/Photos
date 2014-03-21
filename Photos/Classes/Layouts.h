@@ -10,5 +10,5 @@
 
 @interface Layouts : NSObject
 
-+(UICollectionViewFlowLayout*)flowLayout;
++(UICollectionViewFlowLayout*)flowLayoutFourEachLine;
 @end

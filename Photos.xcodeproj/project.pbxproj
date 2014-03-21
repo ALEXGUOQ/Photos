@@ -36,6 +36,7 @@
 		65F4D03218DABADC0058B561 /* Photos-NotificationCenter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65F4D02E18DABADC0058B561 /* Photos-NotificationCenter@2x.png */; };
 		65F4D03318DABADC0058B561 /* Photos-settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65F4D02F18DABADC0058B561 /* Photos-settings@2x.png */; };
 		65F4D03418DABADC0058B561 /* Photos@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 65F4D03018DABADC0058B561 /* Photos@2x~iphone.png */; };
+		E453A1D618DC8DFD00CDCE79 /* GroupDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E453A1D518DC8DFD00CDCE79 /* GroupDetailVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,8 @@
 		65F4D02E18DABADC0058B561 /* Photos-NotificationCenter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Photos-NotificationCenter@2x.png"; sourceTree = "<group>"; };
 		65F4D02F18DABADC0058B561 /* Photos-settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Photos-settings@2x.png"; sourceTree = "<group>"; };
 		65F4D03018DABADC0058B561 /* Photos@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Photos@2x~iphone.png"; sourceTree = "<group>"; };
+		E453A1D418DC8DFD00CDCE79 /* GroupDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupDetailVC.h; sourceTree = "<group>"; };
+		E453A1D518DC8DFD00CDCE79 /* GroupDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupDetailVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +156,8 @@
 				65B3B61918D99D4600417292 /* SharedVC.m */,
 				65B3B60E18D99D4600417292 /* AlbumsVC.h */,
 				65B3B60F18D99D4600417292 /* AlbumsVC.m */,
+				E453A1D418DC8DFD00CDCE79 /* GroupDetailVC.h */,
+				E453A1D518DC8DFD00CDCE79 /* GroupDetailVC.m */,
 			);
 			name = VCS;
 			sourceTree = "<group>";
@@ -363,6 +368,7 @@
 				65B3B61E18D99D4600417292 /* ImageCell.m in Sources */,
 				65B3B62218D99D4600417292 /* SharedVC.m in Sources */,
 				65B3B62318D99D4600417292 /* ToolKit.m in Sources */,
+				E453A1D618DC8DFD00CDCE79 /* GroupDetailVC.m in Sources */,
 				65B3B62E18D9A06600417292 /* ImageTableViewCell.m in Sources */,
 				65B3B61D18D99D4600417292 /* AlbumsVC.m in Sources */,
 				65D028EA18D6FDF300F09F16 /* main.m in Sources */,

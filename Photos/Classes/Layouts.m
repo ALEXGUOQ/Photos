@@ -9,7 +9,7 @@
 #import "Layouts.h"
 
 @implementation Layouts
-+(UICollectionViewFlowLayout*)flowLayout
++(UICollectionViewFlowLayout*)flowLayoutFourEachLine
 {
     
 //     6 + 4x = 320
