@@ -19,6 +19,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+
     }
     return self;
 }
@@ -29,7 +30,7 @@
     // Do any additional setup after loading the view.
     
 
-
+//        NSLog(@"%ld",(long)NSIntegerMax);
     
     
     // Get the assets library

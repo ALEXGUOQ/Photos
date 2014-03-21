@@ -93,7 +93,10 @@
              
              [groupInfo removeAllObjects];
              [groupInfo addObjectsFromArray:array];
-             [groupInfo exchangeObjectAtIndex:0 withObjectAtIndex:1];
+             if ([groupInfo count]>2) {
+                [groupInfo exchangeObjectAtIndex:0 withObjectAtIndex:1];
+             }
+             
              
 //             [groupInfo repl]
              
@@ -123,7 +126,7 @@
 }
 -(void)configTitleAndBarButtons
 {
-    
+    self.title = @"相簿";
     UIBarButtonItem *leftbuttonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(reciveAddButton:)];
     
     self.navigationItem.leftBarButtonItem = leftbuttonItem;
@@ -233,32 +236,10 @@
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     ALAssetsGroup *group = groupInfo[indexPath.row];
-    
+    [cell loadData:group];
     
 
-    cell.imageView.image = [UIImage imageWithCGImage:group.posterImage];
-    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
-//    NSLog(@"%@",[group valueForProperty:ALAssetsGroupPropertyType]);
-    NSInteger type = [[group valueForProperty:ALAssetsGroupPropertyType] integerValue];
-    switch (type) {
-        case ALAssetsGroupPhotoStream:
-        {
-        cell.textLabel.text = @"我的照片流";
-        }
-            break;
-        case ALAssetsGroupSavedPhotos:
-        {
-        cell.textLabel.text = @"胶卷相机";
-        }break;
-            
-        default:
-        {
-        cell.textLabel.text = [group valueForProperty:ALAssetsGroupPropertyName];
-        }
-            break;
-    }
-    NSLog(@"%d",[group numberOfAssets]);
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",[group numberOfAssets]];
+    
     
 
     return cell;

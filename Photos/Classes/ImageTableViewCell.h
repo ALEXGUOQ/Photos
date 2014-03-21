@@ -10,6 +10,8 @@
 
 @interface ImageTableViewCell : UITableViewCell
 {
+    UILabel *groupName;
     UILabel *subTitle;
 }
+-(void)loadData:(ALAssetsGroup*)group;
 @end
