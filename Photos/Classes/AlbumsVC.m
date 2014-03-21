@@ -14,15 +14,6 @@
 
 @implementation AlbumsVC
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-        
-    }
-    return self;
-}
 - (instancetype)initWithCoder:(NSCoder *)coder
 {
     self = [super initWithCoder:coder];
@@ -233,11 +224,13 @@
 {
     static NSString *reuseId = @"ImageTableViewCell";
     ImageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseId forIndexPath:indexPath];
+    
     if (!cell) {
-        cell = [[ImageTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseId];
+        cell = [[ImageTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseId];
        
         
     }
+    
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     ALAssetsGroup *group = groupInfo[indexPath.row];
     
@@ -245,11 +238,26 @@
 
     cell.imageView.image = [UIImage imageWithCGImage:group.posterImage];
     cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
-//    cell.imageView.image = [UIImage imageNamed:@"test.png"];
-//    UIViewContentMode mode = cell.imageView.contentMode;
-//    UIImageView *a = [[UIImageView alloc] init];
-    NSLog(@"%@",[group valueForProperty:ALAssetsGroupPropertyType]);
-    cell.textLabel.text = [group valueForProperty:ALAssetsGroupPropertyName];
+//    NSLog(@"%@",[group valueForProperty:ALAssetsGroupPropertyType]);
+    NSInteger type = [[group valueForProperty:ALAssetsGroupPropertyType] integerValue];
+    switch (type) {
+        case ALAssetsGroupPhotoStream:
+        {
+        cell.textLabel.text = @"我的照片流";
+        }
+            break;
+        case ALAssetsGroupSavedPhotos:
+        {
+        cell.textLabel.text = @"胶卷相机";
+        }break;
+            
+        default:
+        {
+        cell.textLabel.text = [group valueForProperty:ALAssetsGroupPropertyName];
+        }
+            break;
+    }
+    NSLog(@"%d",[group numberOfAssets]);
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",[group numberOfAssets]];
     
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		65A1D28B18D7E55700CDF709 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65A1D28A18D7E55700CDF709 /* Main_iPad.storyboard */; };
+		65A396DE18DABE30005BA532 /* Default@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 65A396DD18DABE30005BA532 /* Default@2x~iphone.png */; };
 		65B3B61D18D99D4600417292 /* AlbumsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B3B60F18D99D4600417292 /* AlbumsVC.m */; };
 		65B3B61E18D99D4600417292 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B3B61118D99D4600417292 /* ImageCell.m */; };
 		65B3B61F18D99D4600417292 /* Layouts.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B3B61318D99D4600417292 /* Layouts.m */; };
@@ -31,6 +32,10 @@
 		65D0290A18D6FDF300F09F16 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65D0290818D6FDF300F09F16 /* InfoPlist.strings */; };
 		65D0290C18D6FDF300F09F16 /* PhotosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D0290B18D6FDF300F09F16 /* PhotosTests.m */; };
 		65D0292318D704DF00F09F16 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D0292218D704DF00F09F16 /* AssetsLibrary.framework */; };
+		65F4D03118DABADC0058B561 /* Photos-Guides@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65F4D02D18DABADC0058B561 /* Photos-Guides@2x.png */; };
+		65F4D03218DABADC0058B561 /* Photos-NotificationCenter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65F4D02E18DABADC0058B561 /* Photos-NotificationCenter@2x.png */; };
+		65F4D03318DABADC0058B561 /* Photos-settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65F4D02F18DABADC0058B561 /* Photos-settings@2x.png */; };
+		65F4D03418DABADC0058B561 /* Photos@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 65F4D03018DABADC0058B561 /* Photos@2x~iphone.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		65A1D28A18D7E55700CDF709 /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main_iPad.storyboard; path = ../Main_iPad.storyboard; sourceTree = "<group>"; };
+		65A396DD18DABE30005BA532 /* Default@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x~iphone.png"; sourceTree = "<group>"; };
 		65B3B60E18D99D4600417292 /* AlbumsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumsVC.h; sourceTree = "<group>"; };
 		65B3B60F18D99D4600417292 /* AlbumsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumsVC.m; sourceTree = "<group>"; };
 		65B3B61018D99D4600417292 /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = "<group>"; };
@@ -80,6 +86,10 @@
 		65D0290918D6FDF300F09F16 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		65D0290B18D6FDF300F09F16 /* PhotosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotosTests.m; sourceTree = "<group>"; };
 		65D0292218D704DF00F09F16 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		65F4D02D18DABADC0058B561 /* Photos-Guides@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Photos-Guides@2x.png"; sourceTree = "<group>"; };
+		65F4D02E18DABADC0058B561 /* Photos-NotificationCenter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Photos-NotificationCenter@2x.png"; sourceTree = "<group>"; };
+		65F4D02F18DABADC0058B561 /* Photos-settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Photos-settings@2x.png"; sourceTree = "<group>"; };
+		65F4D03018DABADC0058B561 /* Photos@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Photos@2x~iphone.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +130,11 @@
 		65B3B61C18D99D4600417292 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				65A396DD18DABE30005BA532 /* Default@2x~iphone.png */,
+				65F4D02D18DABADC0058B561 /* Photos-Guides@2x.png */,
+				65F4D02E18DABADC0058B561 /* Photos-NotificationCenter@2x.png */,
+				65F4D02F18DABADC0058B561 /* Photos-settings@2x.png */,
+				65F4D03018DABADC0058B561 /* Photos@2x~iphone.png */,
 				65B3B62A18D99E8900417292 /* Main.storyboard */,
 				65B3B62718D99DBB00417292 /* test.png */,
 				65A1D28A18D7E55700CDF709 /* Main_iPad.storyboard */,
@@ -313,10 +328,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65A396DE18DABE30005BA532 /* Default@2x~iphone.png in Resources */,
+				65F4D03118DABADC0058B561 /* Photos-Guides@2x.png in Resources */,
+				65F4D03418DABADC0058B561 /* Photos@2x~iphone.png in Resources */,
 				65D028F918D6FDF300F09F16 /* Images.xcassets in Resources */,
 				65B3B62B18D99E8900417292 /* Main.storyboard in Resources */,
 				65B3B62818D99DBB00417292 /* test.png in Resources */,
+				65F4D03218DABADC0058B561 /* Photos-NotificationCenter@2x.png in Resources */,
 				65A1D28B18D7E55700CDF709 /* Main_iPad.storyboard in Resources */,
+				65F4D03318DABADC0058B561 /* Photos-settings@2x.png in Resources */,
 				65D028E818D6FDF300F09F16 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
