@@ -16,14 +16,34 @@
     if (self) {
         // Initialization code
         imageView = [[UIImageView alloc] initWithFrame:frame];
+        
         [self.contentView addSubview:imageView];
+        
     }
     return self;
 }
--(void)setImage:(UIImage*)image
+
+-(void)layoutSubviews
 {
-    imageView.image = image;
+    [super layoutSubviews];
+    imageView.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame));
 }
+-(void)loadWithALAsset:(ALAsset*)asset
+{
+//    NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
+    UIImage *image = [UIImage imageWithCGImage:[asset thumbnail]];
+    if (image) {
+        imageView.image = image;
+    }else
+    {
+        NSLog(@"no image");
+    }
+    
+//    }];
+//    [[NSOperationQueue mainQueue] addOperation:operation];
+}
+
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

@@ -8,9 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GroupDetailVC : UIViewController
+
+typedef NS_ENUM(NSInteger, ImageMode) {
+    ImageModeSmall,         // slow at beginning and end
+    ImageModeBig
+};
+@interface GroupDetailVC : UIViewController <UICollectionViewDataSource,UICollectionViewDelegate>
 {
+    ImageMode imageMode;
+    
     UICollectionView *myCollectionView;
+    NSMutableArray *assetsInfoArray;
 }
 @property (nonatomic,retain) ALAssetsGroup *group;
 @end

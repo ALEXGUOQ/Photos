@@ -8,6 +8,7 @@
 
 #import "AlbumsVC.h"
 #import "ImageTableViewCell.h"
+#import "GroupDetailVC.h"
 @interface AlbumsVC ()
 
 @end
@@ -29,6 +30,12 @@
     
     [self configView];
 
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -204,9 +211,15 @@
     return YES;
 }
 #pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    GroupDetailVC *vc= [[GroupDetailVC alloc] init];
+    vc.group = groupInfo[indexPath.row];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    cell.imageView.frame = CGRectMake(8, 4, 70, 74);
+//    cell.imageView.frame = CGRectMake(8, 4, 70, 74);
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

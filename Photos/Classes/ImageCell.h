@@ -12,5 +12,6 @@
 {
     UIImageView *imageView;
 }
--(void)setImage:(UIImage*)image;
+-(void)loadWithALAsset:(ALAsset*)asset;
+
 @end
