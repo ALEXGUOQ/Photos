@@ -31,7 +31,8 @@
 		65D0292318D704DF00F09F16 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D0292218D704DF00F09F16 /* AssetsLibrary.framework */; };
 		E453A1D618DC8DFD00CDCE79 /* GroupDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E453A1D518DC8DFD00CDCE79 /* GroupDetailVC.m */; };
 		E453A1D718DC8F9F00CDCE79 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65D0290818D6FDF300F09F16 /* InfoPlist.strings */; };
-		E4A80DC918DD0782006BB4BC /* SAnimationTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A80DC818DD0782006BB4BC /* SAnimationTransition.m */; };
+		E484E0F518DD283800D71AF2 /* SWTTransitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = E484E0F418DD283800D71AF2 /* SWTTransitionController.m */; };
+		E484E0F818DD291100D71AF2 /* SWTTransitionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E484E0F718DD291100D71AF2 /* SWTTransitionLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,8 +89,10 @@
 		65F4D03018DABADC0058B561 /* Photos@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Photos@2x~iphone.png"; sourceTree = "<group>"; };
 		E453A1D418DC8DFD00CDCE79 /* GroupDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupDetailVC.h; sourceTree = "<group>"; };
 		E453A1D518DC8DFD00CDCE79 /* GroupDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupDetailVC.m; sourceTree = "<group>"; };
-		E4A80DC718DD0782006BB4BC /* SAnimationTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAnimationTransition.h; sourceTree = "<group>"; };
-		E4A80DC818DD0782006BB4BC /* SAnimationTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAnimationTransition.m; sourceTree = "<group>"; };
+		E484E0F318DD283800D71AF2 /* SWTTransitionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTTransitionController.h; sourceTree = "<group>"; };
+		E484E0F418DD283800D71AF2 /* SWTTransitionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTTransitionController.m; sourceTree = "<group>"; };
+		E484E0F618DD291100D71AF2 /* SWTTransitionLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTTransitionLayout.h; sourceTree = "<group>"; };
+		E484E0F718DD291100D71AF2 /* SWTTransitionLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTTransitionLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,7 @@
 		65B3B60D18D99D4600417292 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E484E0F218DD281600D71AF2 /* Control */,
 				65B3B62618D99D7500417292 /* View */,
 				65B3B62518D99D5D00417292 /* Model */,
 				65B3B62418D99D5200417292 /* VCS */,
@@ -167,8 +171,8 @@
 				65B3B61B18D99D4600417292 /* ToolKit.m */,
 				65B3B61218D99D4600417292 /* Layouts.h */,
 				65B3B61318D99D4600417292 /* Layouts.m */,
-				E4A80DC718DD0782006BB4BC /* SAnimationTransition.h */,
-				E4A80DC818DD0782006BB4BC /* SAnimationTransition.m */,
+				E484E0F618DD291100D71AF2 /* SWTTransitionLayout.h */,
+				E484E0F718DD291100D71AF2 /* SWTTransitionLayout.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -255,6 +259,15 @@
 				65D0290818D6FDF300F09F16 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E484E0F218DD281600D71AF2 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				E484E0F318DD283800D71AF2 /* SWTTransitionController.h */,
+				E484E0F418DD283800D71AF2 /* SWTTransitionController.m */,
+			);
+			name = Control;
 			sourceTree = "<group>";
 		};
 		E4A80DC618DCF75C006BB4BC /* Localization */ = {
@@ -364,11 +377,12 @@
 			files = (
 				65B3B62118D99D4600417292 /* PhotoTabbar.m in Sources */,
 				65B3B61F18D99D4600417292 /* Layouts.m in Sources */,
+				E484E0F518DD283800D71AF2 /* SWTTransitionController.m in Sources */,
 				65B3B62018D99D4600417292 /* PhotosVC.m in Sources */,
-				E4A80DC918DD0782006BB4BC /* SAnimationTransition.m in Sources */,
 				65D028EE18D6FDF300F09F16 /* AppDelegate.m in Sources */,
 				65B3B61E18D99D4600417292 /* ImageCell.m in Sources */,
 				65B3B62218D99D4600417292 /* SharedVC.m in Sources */,
+				E484E0F818DD291100D71AF2 /* SWTTransitionLayout.m in Sources */,
 				65B3B62318D99D4600417292 /* ToolKit.m in Sources */,
 				E453A1D618DC8DFD00CDCE79 /* GroupDetailVC.m in Sources */,
 				65B3B62E18D9A06600417292 /* ImageTableViewCell.m in Sources */,

@@ -9,7 +9,7 @@
 #import "GroupDetailVC.h"
 #import "Layouts.h"
 #import "ImageCell.h"
-#import "SAnimationTransition.h"
+
 @interface GroupDetailVC ()
 
 @end
@@ -95,11 +95,7 @@
     }
 }
 #pragma mark - UICollectionViewDelegate
-- (UICollectionViewTransitionLayout *)collectionView:(UICollectionView *)collectionView transitionLayoutForOldLayout:(UICollectionViewLayout *)fromLayout newLayout:(UICollectionViewLayout *)toLayout
-{
-    SAnimationTransition *transitionLayout = [[SAnimationTransition alloc] initWithCurrentLayout:fromLayout nextLayout:toLayout];
-    return transitionLayout;
-}
+
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {

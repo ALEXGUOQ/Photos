@@ -1,5 +1,5 @@
 //
-//  SAnimationTransition.h
+//  SWTTransitionLayout.h
 //  Photos
 //
 //  Created by song on 14-3-22.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SAnimationTransition : UICollectionViewTransitionLayout
-
+@interface SWTTransitionLayout : UICollectionViewTransitionLayout
+@property (nonatomic) UIOffset offset;
 @end
