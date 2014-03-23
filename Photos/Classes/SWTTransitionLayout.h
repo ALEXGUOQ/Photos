@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SWTTransitionLayout : UICollectionViewTransitionLayout
+NS_CLASS_AVAILABLE_IOS(7_0)@interface SWTTransitionLayout : UICollectionViewTransitionLayout
 @property (nonatomic) UIOffset offset;
 @end

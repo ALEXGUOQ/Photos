@@ -9,17 +9,11 @@
 #import <Foundation/Foundation.h>
 @import UIKit;
 
-@protocol SWTTransitionController <NSObject>
--(void)interactionBeganAtPoint:(CGPoint)p;
 
+@interface SWTTransitionController : NSObject <UIViewControllerAnimatedTransitioning>
+@property (nonatomic) BOOL isPushing;
 
-@end
-@interface SWTTransitionController : NSObject
+//UIViewControllerAnimatedTransitioning
+//UIViewControllerTransitioningDelegate
 
-@property (nonatomic) id <SWTTransitionController> delegate;
-@property (nonatomic) BOOL hasActiveInteraction;
-@property (nonatomic) UINavigationControllerOperation navigationOperation;
-@property (nonatomic) UICollectionView* collectionView;
-
--(instancetype)initWithCollectionView:(UICollectionView*)collectionView;
 @end

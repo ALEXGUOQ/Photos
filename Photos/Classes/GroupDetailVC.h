@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "SWTTransitionLayout.h"
 
 typedef NS_ENUM(NSInteger, ImageMode) {
     ImageModeSmall,         // slow at beginning and end
     ImageModeBig
 };
-@interface GroupDetailVC : UIViewController <UICollectionViewDataSource,UICollectionViewDelegate>
+@interface GroupDetailVC : UIViewController <UICollectionViewDataSource,UICollectionViewDelegate,UINavigationControllerDelegate>
 {
     ImageMode imageMode;
     

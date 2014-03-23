@@ -12,6 +12,7 @@
 - (void)setTransitionProgress:(CGFloat)transitionProgress
 {
     [super setTransitionProgress:transitionProgress];
+    NSLog(@"progress:%f",transitionProgress);
     CGFloat offsetH = [self valueForAnimatedKey:@"offsetH"];
     CGFloat offsetV = [self valueForAnimatedKey:@"offsetV"];
     _offset = UIOffsetMake(offsetH, offsetV);
@@ -20,6 +21,7 @@
 
 -(void)setOffset:(UIOffset)offset
 {
+    NSLog(@"%f,%f",offset.horizontal,offset.vertical);
     [self updateValue:offset.horizontal forAnimatedKey:@"offsetH"];
     [self updateValue:offset.vertical   forAnimatedKey:@"offsetV"];
     _offset = offset;

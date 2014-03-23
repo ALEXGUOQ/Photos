@@ -36,7 +36,7 @@
         imageView.image = image;
     }else
     {
-        NSLog(@"no image");
+//        NSLog(@"no image");
     }
     
 //    }];

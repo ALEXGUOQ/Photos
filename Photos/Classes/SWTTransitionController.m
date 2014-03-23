@@ -8,155 +8,52 @@
 
 #import "SWTTransitionController.h"
 #import "SWTTransitionLayout.h"
+#import "ToolKit.h"
 @interface SWTTransitionController()
-@property (nonatomic) SWTTransitionLayout* transitionLayout;
-@property (nonatomic) id <UIViewControllerContextTransitioning> context;
-@property (nonatomic) CGFloat initialPinchDistance;
-@property (nonatomic) CGPoint initialPinchPoint;
+
 
 @end
 
 @implementation SWTTransitionController
--(instancetype)initWithCollectionView:(UICollectionView*)collectionView
+
+#pragma mark - UIViewControllerAnimatedTransitioning
+
+- (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext
 {
-    self = [super init];
-    if (self) {
-        UIRotationGestureRecognizer *rotationGesture = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(reciveGestureRecognizer:)];
-        [collectionView addGestureRecognizer:rotationGesture];
+    return 2;
+}
+// This method can only  be a nop if the transition is interactive and not a percentDriven interactive transition.
+- (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext
+{
+    
+    CGFloat screenHeight = [ToolKit screenHeight];
+    UIViewController *fromController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+    UIViewController *toController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    UIView *from = [fromController view];
+    UIView *to = [toController view];
+    UIView *container = [transitionContext containerView];
+    
+    to.frame = container.bounds;
+    from.frame = container.bounds;
+    if (self.isPushing) {
         
-        UIPinchGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinch:)];
-        [collectionView addGestureRecognizer:pinchGesture];
-        self.collectionView = collectionView;
+        to.frame = CGRectMake(320, 0, 320, screenHeight);
+    }else
+    {
+        
     }
-    return self;
-}
-
--(void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
-{
-}
-
--(void)reciveGestureRecognizer:(UIGestureRecognizer*)recognizer
-{
     
-}
-
--(NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
-{
-    return 1.0;
-}
-
-- (void)startInteractiveTransition:(id <UIViewControllerContextTransitioning>)transitionContext
-{
-    self.context = transitionContext;
-    UICollectionViewController* fromCollectionViewController = (UICollectionViewController*)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    UICollectionViewController* toCollectionViewController   = (UICollectionViewController*)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    
-    self.transitionLayout = (SWTTransitionLayout*)[fromCollectionViewController.collectionView startInteractiveTransitionToCollectionViewLayout:toCollectionViewController.collectionViewLayout completion:^(BOOL didFinish, BOOL didComplete) {
-        [_context completeTransition:didComplete];
-        
-        if (didComplete)
-            self.collectionView.delegate = toCollectionViewController;
-        else
-            self.collectionView.delegate = fromCollectionViewController;
-        self.transitionLayout = nil;
-        self.context = nil;
-        self.hasActiveInteraction = FALSE;
+    [UIView animateKeyframesWithDuration:2 delay:0 options:0 animations:^{
+        if (self.isPushing) {
+            to.frame = CGRectMake(0, 0, 320, screenHeight);
+        }
+    } completion:^(BOOL finished) {
+            [transitionContext completeTransition:finished];
     }];
+    
 }
 
-
--(void)updateWithProgress:(CGFloat)progress andOffset:(UIOffset)offset
-{
-    if (_context==nil)
-    {
-        return;
-    }
-    
-    if ((progress != self.transitionLayout.transitionProgress) || !UIOffsetEqualToOffset(offset, self.transitionLayout.offset)) {
-        [self.transitionLayout setOffset:offset];
-        [self.transitionLayout setTransitionProgress:progress];
-        [self.transitionLayout invalidateLayout];
-        [_context updateInteractiveTransition:progress];
-    }
-}
+#pragma mark - UIViewControllerContextTransitioning
 
 
--(void)endInteractionWithSuccess:(BOOL)success
-{
-    if (_context==nil)
-    {
-        self.hasActiveInteraction = FALSE;
-        return;
-    }
-    if ((self.transitionLayout.transitionProgress > 0.5) && success)
-    {
-        [self.collectionView finishInteractiveTransition];
-        [_context finishInteractiveTransition];
-    }
-    else
-    {
-        [self.collectionView cancelInteractiveTransition];
-        [_context cancelInteractiveTransition];
-    }
-}
-
-
--(void)handlePinch:(UIPinchGestureRecognizer*)sender
-{
-    
-    if (sender.numberOfTouches < 2)
-    {
-        return;
-    }
-    CGPoint point1 = [sender locationOfTouch:0 inView:sender.view];
-    CGPoint point2 = [sender locationOfTouch:1 inView:sender.view];
-    CGFloat distance = sqrt((point1.x - point2.x) * (point1.x - point2.x) + (point1.y - point2.y) * (point1.y - point2.y));
-    CGPoint point = [sender locationInView:sender.view];
-    
-    if (sender.state == UIGestureRecognizerStateBegan)
-    {
-        if (self.hasActiveInteraction)
-        {
-            return;
-        }
-        self.initialPinchDistance = distance;
-        self.initialPinchPoint = point;
-        self.hasActiveInteraction = TRUE;
-        [self.delegate interactionBeganAtPoint:point];
-        return;
-    }
-    if (!self.hasActiveInteraction)
-    {
-        return;
-    }
-    
-    if (sender.state == UIGestureRecognizerStateChanged)
-    {
-        CGFloat offsetX = point.x - self.initialPinchPoint.x;
-        CGFloat offsetY = point.y - self.initialPinchPoint.y;
-        UIOffset offsetToUse = UIOffsetMake(offsetX, offsetY);
-        
-        CGFloat distanceDelta = distance - self.initialPinchDistance;
-        if (self.navigationOperation == UINavigationControllerOperationPop)
-        {
-            distanceDelta = -distanceDelta;
-        }
-        CGFloat dimension = sqrt(self.collectionView.bounds.size.width*self.collectionView.bounds.size.width + self.collectionView.bounds.size.height*self.collectionView.bounds.size.height);
-        CGFloat progress = MAX(MIN((distanceDelta / dimension), 1.0), 0.0);
-        [self updateWithProgress:progress andOffset:offsetToUse];
-        return;
-    }
-    
-    if (sender.state == UIGestureRecognizerStateEnded)
-    {
-        [self endInteractionWithSuccess:TRUE];
-        return;
-    }
-    
-    if (sender.state == UIGestureRecognizerStateCancelled)
-    {
-        [self endInteractionWithSuccess:FALSE];
-        return;
-    }
-}
 @end
