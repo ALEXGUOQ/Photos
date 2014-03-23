@@ -10,10 +10,9 @@
 @import UIKit;
 
 
-@interface SWTTransitionController : NSObject <UIViewControllerAnimatedTransitioning>
+@interface SWTTransitionController : NSObject <UIViewControllerAnimatedTransitioning,UIViewControllerInteractiveTransitioning>
 @property (nonatomic) BOOL isPushing;
+@property (nonatomic) CGRect animationRect;
 
-//UIViewControllerAnimatedTransitioning
-//UIViewControllerTransitioningDelegate
 
 @end

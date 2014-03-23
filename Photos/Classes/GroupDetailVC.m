@@ -11,22 +11,22 @@
 #import "ImageCell.h"
 #import "SWTTransitionController.h"
 #import "FullScreenCollectionVC.h"
+#import "AlbumsVC.h"
 @interface GroupDetailVC ()
 @property SWTTransitionController *transitionController;
 @end
 
 @implementation GroupDetailVC
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+
+- (id)initWithCollectionViewLayout:(UICollectionViewLayout *)layout
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithCollectionViewLayout:layout];
     if (self) {
-        // Custom initialization
         [self configModel];
     }
     return self;
 }
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -59,9 +59,10 @@
             [assetsInfoArray addObject:result];
         }else
         {
-            [myCollectionView reloadData];
+
+            [self.collectionView reloadData];
             NSInteger numberOfAsst = [_group numberOfAssets];
-            [myCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:numberOfAsst-1 inSection:0] atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
+            [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:numberOfAsst-1 inSection:0] atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
         }
     }];
 }
@@ -70,13 +71,7 @@
 {
     self.navigationController.delegate = self;
     imageMode = ImageModeSmall;
-    
-    myCollectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:[Layouts flowLayoutFourEachLine]];
-    myCollectionView.dataSource = self;
-    myCollectionView.delegate = self;
-    myCollectionView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:myCollectionView];
-    [myCollectionView registerClass:[ImageCell class] forCellWithReuseIdentifier:@"ImageCell"];
+    [self.collectionView registerClass:[ImageCell class] forCellWithReuseIdentifier:@"ImageCell"];
     
     
     self.title = [_group valueForProperty:ALAssetsGroupPropertyName];
@@ -89,12 +84,12 @@
         
         
         
-            [myCollectionView setCollectionViewLayout:[Layouts flowLayoutFullScreen] animated:YES completion:^(BOOL finished) {
+            [self.collectionView setCollectionViewLayout:[Layouts flowLayoutFullScreen] animated:YES completion:^(BOOL finished) {
                 if (finished) {
                     
                 }
             }];
-        [myCollectionView reloadData];
+        [self.collectionView reloadData];
         
     }else
     {
@@ -103,17 +98,34 @@
 }
 
 #pragma mark - UINavigationControllerDelegate
-
+- (id <UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController
+                          interactionControllerForAnimationController:(id <UIViewControllerAnimatedTransitioning>) animationController
+{
+    return nil;
+}
 - (id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
                                    animationControllerForOperation:(UINavigationControllerOperation)operation
                                                 fromViewController:(UIViewController *)fromVC
                                                   toViewController:(UIViewController *)toVC
 {
-    if ([fromVC isEqual:self]) {
+    
+//    UIViewControllerAnimatedTransitioning
+    if ([fromVC isKindOfClass:[GroupDetailVC class]] && [toVC isKindOfClass:[FullScreenCollectionVC class ]]) {
         self.transitionController.isPushing = YES;
+        return self.transitionController;
     }
     
-    return self.transitionController;
+    if ([fromVC isKindOfClass:[FullScreenCollectionVC class]] && [toVC isKindOfClass:[GroupDetailVC class]]) {
+        self.transitionController.isPushing = NO;
+        return self.transitionController;
+    }
+    
+    
+    if ([fromVC isEqual:self] && [toVC isKindOfClass:[AlbumsVC class]]) {
+        self.navigationController.delegate = nil;
+    }
+    
+    return nil;
 }
  
 #pragma mark - UICollectionViewDelegate
@@ -125,7 +137,14 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+//    animationFrame = [collectionView convertRect:cell.frame toView:self.view];
+    self.transitionController.animationRect = [collectionView convertRect:cell.frame toView:self.view];
+    
+    
     FullScreenCollectionVC *full = [[FullScreenCollectionVC alloc] initWithCollectionViewLayout:[Layouts flowLayoutFullScreen]];
+    full.group = self.group;
+    full.pageIndex = indexPath.row;
     
     [self.navigationController pushViewController:full animated:YES];
 //    [self transitionToMode:ImageModeBig];

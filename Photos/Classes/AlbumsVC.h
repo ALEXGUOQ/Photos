@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 
-@interface AlbumsVC : UIViewController <UITableViewDataSource,UITableViewDelegate>
+@interface AlbumsVC : UIViewController <UITableViewDataSource,UITableViewDelegate,UINavigationControllerDelegate>
 {
     
     

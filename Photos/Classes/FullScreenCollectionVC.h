@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FullScreenCollectionVC : UICollectionViewController
-
+@interface FullScreenCollectionVC : UICollectionViewController <UINavigationBarDelegate>
+{
+    BOOL preferStatusBarHidden;
+}
+@property (nonatomic) NSInteger pageIndex;
+@property (nonatomic,retain) ALAssetsGroup *group;
 @end

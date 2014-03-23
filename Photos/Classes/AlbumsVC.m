@@ -9,6 +9,7 @@
 #import "AlbumsVC.h"
 #import "ImageTableViewCell.h"
 #import "GroupDetailVC.h"
+#import "Layouts.h"
 @interface AlbumsVC ()
 
 @end
@@ -186,6 +187,9 @@
 }
 
 
+#pragma mark - UINavigationControllerDelegate
+
+
 #pragma mark - UIAlertViewDelegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -213,7 +217,7 @@
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    GroupDetailVC *vc= [[GroupDetailVC alloc] init];
+    GroupDetailVC *vc= [[GroupDetailVC alloc] initWithCollectionViewLayout:[Layouts flowLayoutFourEachLine]];;
     vc.group = groupInfo[indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
 }

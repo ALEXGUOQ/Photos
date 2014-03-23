@@ -34,6 +34,7 @@
 		E453A1D718DC8F9F00CDCE79 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65D0290818D6FDF300F09F16 /* InfoPlist.strings */; };
 		E484E0F518DD283800D71AF2 /* SWTTransitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = E484E0F418DD283800D71AF2 /* SWTTransitionController.m */; };
 		E484E0F818DD291100D71AF2 /* SWTTransitionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E484E0F718DD291100D71AF2 /* SWTTransitionLayout.m */; };
+		E4AC41B118DEEAFB005EC652 /* FullScreenCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4AC41B018DEEAFB005EC652 /* FullScreenCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,8 @@
 		E484E0F418DD283800D71AF2 /* SWTTransitionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTTransitionController.m; sourceTree = "<group>"; };
 		E484E0F618DD291100D71AF2 /* SWTTransitionLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTTransitionLayout.h; sourceTree = "<group>"; };
 		E484E0F718DD291100D71AF2 /* SWTTransitionLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTTransitionLayout.m; sourceTree = "<group>"; };
+		E4AC41AF18DEEAFB005EC652 /* FullScreenCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullScreenCell.h; sourceTree = "<group>"; };
+		E4AC41B018DEEAFB005EC652 /* FullScreenCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullScreenCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +187,8 @@
 				65B3B62D18D9A06600417292 /* ImageTableViewCell.m */,
 				65B3B61018D99D4600417292 /* ImageCell.h */,
 				65B3B61118D99D4600417292 /* ImageCell.m */,
+				E4AC41AF18DEEAFB005EC652 /* FullScreenCell.h */,
+				E4AC41B018DEEAFB005EC652 /* FullScreenCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -398,6 +403,7 @@
 				65B3B62218D99D4600417292 /* SharedVC.m in Sources */,
 				E484E0F818DD291100D71AF2 /* SWTTransitionLayout.m in Sources */,
 				65B3B62318D99D4600417292 /* ToolKit.m in Sources */,
+				E4AC41B118DEEAFB005EC652 /* FullScreenCell.m in Sources */,
 				E453A1D618DC8DFD00CDCE79 /* GroupDetailVC.m in Sources */,
 				65B3B62E18D9A06600417292 /* ImageTableViewCell.m in Sources */,
 				65B3B61D18D99D4600417292 /* AlbumsVC.m in Sources */,
