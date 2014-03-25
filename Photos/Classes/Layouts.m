@@ -11,19 +11,10 @@
 @implementation Layouts
 +(UICollectionViewFlowLayout*)flowLayoutFourEachLine
 {
-    
-//     6 + 4x = 320
-    /*
-     4x = 320-6 = 224
-     224/4 = 56
-     x =
-     */
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.itemSize = CGSizeMake(78, 78);
     layout.minimumInteritemSpacing = 2;
     layout.minimumLineSpacing = 2;
-    
-    
     
     return layout;
 }
@@ -33,8 +24,6 @@
 {
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-
-
     layout.itemSize = CGSizeMake(320, [ToolKit screenHeight]);
     layout.minimumInteritemSpacing = 0;
     layout.minimumLineSpacing = 0;
