@@ -15,4 +15,7 @@
 
 //全屏
 +(UICollectionViewFlowLayout*)flowLayoutFullScreen;
+
+//年份
++(UICollectionViewFlowLayout*)flowLayoutYear;
 @end

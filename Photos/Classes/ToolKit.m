@@ -10,6 +10,18 @@
 
 @implementation ToolKit
 
+//AssetsLibrary *library = nil;
+static ALAssetsLibrary *library;
++(ALAssetsLibrary*)sharedAssetsLibrary
+{
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        library = [[ALAssetsLibrary alloc] init];
+    });
+    return library;
+}
+
 +(UIUserInterfaceIdiom)deviceIdiom
 {
     UIDevice *decive = [UIDevice currentDevice];

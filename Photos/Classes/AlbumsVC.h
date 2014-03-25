@@ -13,7 +13,7 @@
 {
     
     
-    ALAssetsLibrary *library;
+    
     IBOutlet UITableView *myTableView;
     
     NSMutableArray *groupInfo;

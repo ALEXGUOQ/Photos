@@ -156,13 +156,11 @@
 		65B3B62418D99D5200417292 /* VCS */ = {
 			isa = PBXGroup;
 			children = (
+				E47806AA18E1A5B00042280E /* 照片 */,
+				E47806AB18E1A5BB0042280E /* 共享 */,
 				E449C40018DE68240008F0FE /* 相簿 */,
-				65B3B61418D99D4600417292 /* PhotosVC.h */,
-				65B3B61518D99D4600417292 /* PhotosVC.m */,
 				65B3B61618D99D4600417292 /* PhotoTabbar.h */,
 				65B3B61718D99D4600417292 /* PhotoTabbar.m */,
-				65B3B61818D99D4600417292 /* SharedVC.h */,
-				65B3B61918D99D4600417292 /* SharedVC.m */,
 			);
 			name = VCS;
 			sourceTree = "<group>";
@@ -277,6 +275,24 @@
 				E449C40218DE68630008F0FE /* FullScreenCollectionVC.m */,
 			);
 			name = "相簿";
+			sourceTree = "<group>";
+		};
+		E47806AA18E1A5B00042280E /* 照片 */ = {
+			isa = PBXGroup;
+			children = (
+				65B3B61418D99D4600417292 /* PhotosVC.h */,
+				65B3B61518D99D4600417292 /* PhotosVC.m */,
+			);
+			name = "照片";
+			sourceTree = "<group>";
+		};
+		E47806AB18E1A5BB0042280E /* 共享 */ = {
+			isa = PBXGroup;
+			children = (
+				65B3B61818D99D4600417292 /* SharedVC.h */,
+				65B3B61918D99D4600417292 /* SharedVC.m */,
+			);
+			name = "共享";
 			sourceTree = "<group>";
 		};
 		E484E0F218DD281600D71AF2 /* Control */ = {

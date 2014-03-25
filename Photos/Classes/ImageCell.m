@@ -31,7 +31,7 @@
 -(void)loadWithALAsset:(ALAsset*)asset
 {
 //    NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
-    UIImage *image = [UIImage imageWithCGImage:[asset aspectRatioThumbnail]];
+    UIImage *image = [UIImage imageWithCGImage:[asset thumbnail]];
     if (image) {
         imageView.image = image;
     }else

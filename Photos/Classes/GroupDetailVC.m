@@ -62,7 +62,10 @@
 
             [self.collectionView reloadData];
             NSInteger numberOfAsst = [_group numberOfAssets];
-            [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:numberOfAsst-1 inSection:0] atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
+            if (numberOfAsst>2) {
+                [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:numberOfAsst-1 inSection:0] atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
+            }
+            
         }
     }];
 }

@@ -48,7 +48,7 @@
 -(void)configModel
 {
     groupInfo = [[NSMutableArray alloc] init];
-    library = [[ALAssetsLibrary alloc] init];
+
     [self loadGroupInfo];
 }
 
@@ -59,6 +59,7 @@
  
     [groupInfo removeAllObjects];
     // Enumerate just the photos and videos group by using ALAssetsGroupSavedPhotos.
+    ALAssetsLibrary *library = [ToolKit sharedAssetsLibrary];
     [library enumerateGroupsWithTypes:ALAssetsGroupAll
                            usingBlock:^(ALAssetsGroup *group, BOOL *stop)
      {
@@ -196,6 +197,7 @@
     if (buttonIndex==1) {
 //        确定
         UITextField *textField = [alert textFieldAtIndex:0];
+        ALAssetsLibrary *library = [ToolKit sharedAssetsLibrary];
         [library addAssetsGroupAlbumWithName:textField.text resultBlock:^(ALAssetsGroup *group) {
             
         } failureBlock:^(NSError *error) {

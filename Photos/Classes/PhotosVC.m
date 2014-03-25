@@ -14,6 +14,7 @@
 
 @implementation PhotosVC
 
+#pragma mark - UICollectionViewController
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -23,7 +24,14 @@
     }
     return self;
 }
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
 
+    }
+    return self;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -34,36 +42,9 @@
     
     
     // Get the assets library
-    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-    return;
-    // Enumerate just the photos and videos group by using ALAssetsGroupSavedPhotos.
-    [library enumerateGroupsWithTypes:ALAssetsGroupAll
-                           usingBlock:^(ALAssetsGroup *group, BOOL *stop)
-     {
-         
-         // Within the group enumeration block, filter to enumerate just photos.
-         [group setAssetsFilter:[ALAssetsFilter allAssets]];
-         
-         // For this example, we're only interested in the first item.
-         [group enumerateAssetsAtIndexes:[NSIndexSet indexSetWithIndex:0]
-                                 options:0
-                              usingBlock:^(ALAsset *alAsset, NSUInteger index, BOOL *innerStop)
-          {
-              
-              // The end of the enumeration is signaled by asset == nil.
-              if (alAsset) {
-//                  ALAssetRepresentation *representation = [alAsset defaultRepresentation];
-//                  NSDictionary *imageMetadata = [representation metadata];
-                  // Do something interesting with the metadata.
-              }
-          }];
-     }
-                         failureBlock: ^(NSError *error)
-     {
-         // Typically you should handle an error more gracefully than this.
-         NSLog(@"No groups");
-     }];
-    
+    [self confgiModel];
+    [self configView];
+    [self loadData];
 
     
 }
@@ -88,7 +69,95 @@
 
 
 #pragma mark - Model
+-(void)confgiModel
+{
+    yearArray = [[NSMutableArray alloc] init];
+    
+    
+}
+
+-(void)loadData
+{
+    NSMutableArray *allYears = [[NSMutableArray alloc] init];
+    
+    for (int i=0; i<200; i++) {
+        NSMutableArray *array = [[NSMutableArray alloc] init];
+        [allYears addObject:array];
+    }
+
+    ALAssetsLibrary *library = [ToolKit sharedAssetsLibrary];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy"];
+    [library enumerateGroupsWithTypes:ALAssetsGroupAll usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+        if (group) {
+            
+            [group setAssetsFilter:[ALAssetsFilter allAssets]];
+            [group enumerateAssetsWithOptions:NSEnumerationConcurrent usingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
+                if (result) {
+//                    [allAsset addObject:result];
+                    NSDate *date = [result valueForProperty:ALAssetPropertyDate];
+                    NSInteger index = [[formatter stringFromDate:date] integerValue];
+                    index = index-1990;
+                    NSMutableArray *array = allYears[index];
+                    [array addObject:result];
+                }
+                
+            }];
+        }else
+        {
+                NSLog(@"枚举完成");
+            for (NSMutableArray *array in allYears) {
+                if ([array count]>0) {
+//                    每个是一年
+                    [yearArray addObject:array];
+                }
+            }
+            [myCollectionView reloadData];
+        }
+    } failureBlock:^(NSError *error) {
+        
+    }];
+}
+
+
 
 #pragma mark - View
+-(void)configView
+{
+    self.title = @"年度";
+    myCollectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:[Layouts flowLayoutYear]];
+    myCollectionView.dataSource = self;
+    myCollectionView.backgroundColor = [UIColor whiteColor];
+    [myCollectionView registerClass:[ImageCell class] forCellWithReuseIdentifier:@"ImageCell"];
+    
+    [self.view addSubview:myCollectionView];
+//    myCollectionView.delegate = self;
+//    [self.collectionView setCollectionViewLayout:[Layouts flowLayoutYear]];
+    
+}
+
+#pragma mark - UICollectionViewDelegate
+
+
+#pragma mark - UICollectionViewDataSource
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return [yearArray count];
+}
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    NSArray *array = yearArray[section];
+    return [array count];
+}
+
+// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ImageCell" forIndexPath:indexPath];
+    NSArray *array = yearArray[indexPath.section];
+    ALAsset *asset = array[indexPath.row];
+    [cell loadWithALAsset:asset];
+    return cell;
+}
 
 @end
