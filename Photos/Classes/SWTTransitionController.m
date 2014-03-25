@@ -15,13 +15,15 @@
 @end
 
 @implementation SWTTransitionController
-
+#define kanimateTime 1
 #pragma mark - UIViewControllerAnimatedTransitioning
 
 - (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext
 {
-    return 2;
+    return kanimateTime;
 }
+
+
 // This method can only  be a nop if the transition is interactive and not a percentDriven interactive transition.
 - (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext
 {
@@ -44,7 +46,7 @@
         to.frame = self.animationRect;
 //        to.frame = CGRectZero;
         
-        [UIView animateWithDuration:0.2 delay:0 usingSpringWithDamping:15 initialSpringVelocity:0.7 options:UIViewAnimationOptionLayoutSubviews animations:^{
+        [UIView animateWithDuration:kanimateTime delay:0 usingSpringWithDamping:15 initialSpringVelocity:0.7 options:UIViewAnimationOptionLayoutSubviews animations:^{
             to.frame = CGRectMake(0, 0, 320, screenHeight);
         } completion:^(BOOL finished) {
             [transitionContext completeTransition:finished];
@@ -56,14 +58,20 @@
         from.frame = CGRectMake(0, 0, 320, screenHeight);
         to.frame = CGRectMake(0, 0, 320, screenHeight);
         [container addSubview:to];
-        [container addSubview:from];
-        [UIView animateKeyframesWithDuration:0.2 delay:0 options:0 animations:^{
+
+        [UIView animateKeyframesWithDuration:kanimateTime delay:0 options:0 animations:^{
             
                 from.frame = self.animationRect;
             
         } completion:^(BOOL finished) {
-            
+            if (finished) {
+
             [transitionContext completeTransition:finished];
+            }else
+            {
+            [transitionContext completeTransition:finished];
+            }
+            
         }];
         
 
