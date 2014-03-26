@@ -21,5 +21,6 @@
     
     
     UIAlertView *alert;
+    NSInteger selectRow;
 }
 @end

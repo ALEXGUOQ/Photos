@@ -32,7 +32,11 @@
     [self configView];
 
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [myTableView deselectRowAtIndexPath:[NSIndexPath indexPathForRow:selectRow inSection:0] animated:YES];
+}
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -219,6 +223,7 @@
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    selectRow = indexPath.row;
     GroupDetailVC *vc= [[GroupDetailVC alloc] initWithCollectionViewLayout:[Layouts flowLayoutFourEachLine]];;
     vc.group = groupInfo[indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
