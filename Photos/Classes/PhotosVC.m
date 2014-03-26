@@ -88,7 +88,7 @@
     ALAssetsLibrary *library = [ToolKit sharedAssetsLibrary];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy"];
-    [library enumerateGroupsWithTypes:ALAssetsGroupAll usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+    [library enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
         if (group) {
             
             [group setAssetsFilter:[ALAssetsFilter allAssets]];
@@ -99,7 +99,10 @@
                     NSInteger index = [[formatter stringFromDate:date] integerValue];
                     index = index-1990;
                     NSMutableArray *array = allYears[index];
-                    [array addObject:result];
+                    if (![array containsObject:result]) {
+                        [array addObject:result];
+                    }
+                    
                 }
                 
             }];
@@ -109,6 +112,7 @@
             for (NSMutableArray *array in allYears) {
                 if ([array count]>0) {
 //                    每个是一年
+
                     [yearArray addObject:array];
                 }
             }
@@ -124,6 +128,8 @@
 #pragma mark - View
 -(void)configView
 {
+    self.navigationController.navigationBar.translucent = NO;
+    
     self.title = @"年度";
     myCollectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:[Layouts flowLayoutYear]];
     myCollectionView.dataSource = self;
