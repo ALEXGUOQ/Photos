@@ -46,4 +46,19 @@ static ALAssetsLibrary *library;
         return NO;
     }
 }
+
++(void)writeImageWithCollections:(NSArray*)collectionArray
+{
+    NSString *documentDir = [NSString stringWithFormat:@"%@/Documents",NSHomeDirectory()];
+    for (int i=0; i<[collectionArray count]; i++) {
+        NSArray *array = collectionArray[i];
+        for (int j=0; j<[array count]; j++) {
+            ALAsset *asset = array[j];
+            UIImage *image = [UIImage imageWithCGImage:[asset thumbnail]];
+            NSData *data = UIImagePNGRepresentation(image);
+            NSString *path = [NSString stringWithFormat:@"%@/第%d组第%d张.png",documentDir,i,j];
+            [data writeToFile:path atomically:YES];
+        }
+    }
+}
 @end

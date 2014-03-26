@@ -71,15 +71,16 @@
 #pragma mark - Model
 -(void)confgiModel
 {
-    yearArray = [[NSMutableArray alloc] init];
-    
+    yearsArray = [[NSMutableArray alloc] init];
+    collectionsArray = [[NSMutableArray alloc] init];
+    momentsArray = [[NSMutableArray alloc] init];
     
 }
 
 -(void)loadData
 {
     NSMutableArray *allYears = [[NSMutableArray alloc] init];
-    
+    NSMutableArray *allAssets = [[NSMutableArray alloc] init];
     for (int i=0; i<200; i++) {
         NSMutableArray *array = [[NSMutableArray alloc] init];
         [allYears addObject:array];
@@ -103,19 +104,58 @@
                         [array addObject:result];
                     }
                     
+                    if (![allAssets containsObject:result]) {
+                        [allAssets addObject:result];
+                    }
+                    
                 }
                 
             }];
         }else
         {
-                NSLog(@"枚举完成");
+//                NSLog(@"枚举完成");
+            
+            
+//           years
+            [yearsArray removeAllObjects];
             for (NSMutableArray *array in allYears) {
                 if ([array count]>0) {
-//                    每个是一年
-
-                    [yearArray addObject:array];
+                    [yearsArray addObject:array];
                 }
             }
+            
+            
+
+            
+            for (int i=0; i<[allAssets count]; i++) {
+                if ([collectionsArray count]==0) {
+                    NSMutableArray *collect = [[NSMutableArray alloc] init];
+                    [collectionsArray addObject:collect];
+                    [collect addObject:allAssets[0]];
+                }else
+                {
+                    NSMutableArray *array = [collectionsArray lastObject];
+                    ALAsset *asset1 = [array lastObject];
+                    ALAsset *asset2 = allAssets[i];
+                    BOOL isInSameCollection = [self alasset:asset1 isInSameCollectionWith:asset2];
+                    if (isInSameCollection) {
+                        [array addObject:asset2];
+                    }else
+                    {
+                        NSMutableArray *newCollection = [[NSMutableArray alloc] init];
+                        [newCollection addObject:asset2];
+                        [collectionsArray addObject:newCollection];
+                    }
+                }
+                
+            }
+            
+//            [ToolKit writeImageWithCollections:collectionsArray];
+            
+            
+            
+            
+            
             [myCollectionView reloadData];
         }
     } failureBlock:^(NSError *error) {
@@ -123,6 +163,68 @@
     }];
 }
 
+//是否在同一个精选组
+-(BOOL)alasset:(ALAsset*)asset1 isInSameCollectionWith:(ALAsset*)asset2
+{
+    BOOL isInSameCollection = NO;
+    if (asset1 && asset2) {
+        CLLocation* location1 = [asset1 valueForProperty:ALAssetPropertyLocation];
+        CLLocation* location2 = [asset2 valueForProperty:ALAssetPropertyLocation];
+        NSDate *date1 = [asset1 valueForProperty:ALAssetPropertyDate];
+        NSDate *date2 = [asset2 valueForProperty:ALAssetPropertyDate];
+        NSTimeInterval time1 = [date1 timeIntervalSince1970];
+        NSTimeInterval time2 = [date2 timeIntervalSince1970];
+        
+        
+        CLLocationDistance distance = [location1 distanceFromLocation:location2];
+        NSTimeInterval timeDistance = time2-time1;
+        
+        
+       
+        if (location1 && location2) {
+            if (distance<50000 && timeDistance<3600*24*50) {
+                isInSameCollection = YES;
+            }
+        }else
+        {
+            if (timeDistance<3600*24*2) {
+                isInSameCollection = YES;
+            }
+        }
+        
+        
+    }
+    
+    
+    return isInSameCollection;
+}
+
+-(BOOL)alasset:(ALAsset*)asset1 isInSameMomentWith:(ALAsset*)asset2
+{
+    BOOL isInSameCollection = NO;
+    if (asset1 && asset2) {
+        CLLocation* location1 = [asset1 valueForProperty:ALAssetPropertyLocation];
+        CLLocation* location2 = [asset2 valueForProperty:ALAssetPropertyLocation];
+        NSDate *date1 = [asset1 valueForProperty:ALAssetPropertyDate];
+        NSDate *date2 = [asset2 valueForProperty:ALAssetPropertyDate];
+        NSTimeInterval time1 = [date1 timeIntervalSince1970];
+        NSTimeInterval time2 = [date2 timeIntervalSince1970];
+        CLLocationDistance distance = [location1 distanceFromLocation:location2];
+        if (!location1) {
+            return isInSameCollection;
+        }
+        if (!location2) {
+            return isInSameCollection;
+        }
+        if (distance<2000 && (time2-time1)<3600*24*50) {
+            isInSameCollection = YES;
+        }
+        
+    }
+    
+    
+    return isInSameCollection;
+}
 
 
 #pragma mark - View
@@ -146,15 +248,19 @@
 
 #pragma mark - UICollectionViewDelegate
 
-
+- (UICollectionViewTransitionLayout *)collectionView:(UICollectionView *)collectionView transitionLayoutForOldLayout:(UICollectionViewLayout *)fromLayout newLayout:(UICollectionViewLayout *)toLayout
+{
+    SWTTransitionLayout *layout = [[SWTTransitionLayout alloc] initWithCurrentLayout:fromLayout nextLayout:toLayout];
+    return layout;
+}
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return [yearArray count];
+    return [yearsArray count];
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    NSArray *array = yearArray[section];
+    NSArray *array = yearsArray[section];
     return [array count];
 }
 
@@ -172,7 +278,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ImageCell" forIndexPath:indexPath];
-    NSArray *array = yearArray[indexPath.section];
+    NSArray *array = yearsArray[indexPath.section];
     ALAsset *asset = array[indexPath.row];
     [cell loadWithALAsset:asset];
     return cell;

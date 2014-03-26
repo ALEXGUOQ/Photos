@@ -19,6 +19,6 @@
 //用来区分是iPhone还是iPad
 +(BOOL)isIphone;
 
-
++(void)writeImageWithCollections:(NSArray*)collectionArray;
 
 @end
