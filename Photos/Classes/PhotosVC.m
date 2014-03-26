@@ -150,7 +150,9 @@
                 
             }
             
-//            [ToolKit writeImageWithCollections:collectionsArray];
+            
+            
+            
             
             
             
