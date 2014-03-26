@@ -39,6 +39,7 @@
     layout.itemSize = CGSizeMake(10, 10);
     layout.minimumInteritemSpacing = 0;
     layout.minimumLineSpacing = 0;
+    layout.headerReferenceSize = CGSizeMake(320, 40);
     return layout;
 }
 @end

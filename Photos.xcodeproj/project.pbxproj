@@ -28,6 +28,7 @@
 		65D0290A18D6FDF300F09F16 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65D0290818D6FDF300F09F16 /* InfoPlist.strings */; };
 		65D0290C18D6FDF300F09F16 /* PhotosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D0290B18D6FDF300F09F16 /* PhotosTests.m */; };
 		65D0292318D704DF00F09F16 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D0292218D704DF00F09F16 /* AssetsLibrary.framework */; };
+		65D2544418E26B5600D54040 /* YearHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D2544318E26B5600D54040 /* YearHeader.m */; };
 		E449C3FE18DE634E0008F0FE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65D028F818D6FDF300F09F16 /* Images.xcassets */; };
 		E449C40318DE68630008F0FE /* FullScreenCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E449C40218DE68630008F0FE /* FullScreenCollectionVC.m */; };
 		E453A1D618DC8DFD00CDCE79 /* GroupDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E453A1D518DC8DFD00CDCE79 /* GroupDetailVC.m */; };
@@ -85,6 +86,8 @@
 		65D0290918D6FDF300F09F16 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		65D0290B18D6FDF300F09F16 /* PhotosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotosTests.m; sourceTree = "<group>"; };
 		65D0292218D704DF00F09F16 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		65D2544218E26B5600D54040 /* YearHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YearHeader.h; sourceTree = "<group>"; };
+		65D2544318E26B5600D54040 /* YearHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YearHeader.m; sourceTree = "<group>"; };
 		65F4D02D18DABADC0058B561 /* Photos-Guides@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Photos-Guides@2x.png"; sourceTree = "<group>"; };
 		65F4D02E18DABADC0058B561 /* Photos-NotificationCenter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Photos-NotificationCenter@2x.png"; sourceTree = "<group>"; };
 		65F4D02F18DABADC0058B561 /* Photos-settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Photos-settings@2x.png"; sourceTree = "<group>"; };
@@ -187,6 +190,8 @@
 				65B3B61118D99D4600417292 /* ImageCell.m */,
 				E4AC41AF18DEEAFB005EC652 /* FullScreenCell.h */,
 				E4AC41B018DEEAFB005EC652 /* FullScreenCell.m */,
+				65D2544218E26B5600D54040 /* YearHeader.h */,
+				65D2544318E26B5600D54040 /* YearHeader.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -410,6 +415,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65B3B62118D99D4600417292 /* PhotoTabbar.m in Sources */,
+				65D2544418E26B5600D54040 /* YearHeader.m in Sources */,
 				E449C40318DE68630008F0FE /* FullScreenCollectionVC.m in Sources */,
 				65B3B61F18D99D4600417292 /* Layouts.m in Sources */,
 				E484E0F518DD283800D71AF2 /* SWTTransitionController.m in Sources */,

@@ -135,7 +135,9 @@
     myCollectionView.dataSource = self;
     myCollectionView.backgroundColor = [UIColor whiteColor];
     [myCollectionView registerClass:[ImageCell class] forCellWithReuseIdentifier:@"ImageCell"];
+    [myCollectionView registerClass:[YearHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"YearHeader"];
     
+//    UICollectionElementKindSectionHeader
     [self.view addSubview:myCollectionView];
 //    myCollectionView.delegate = self;
 //    [self.collectionView setCollectionViewLayout:[Layouts flowLayoutYear]];
@@ -154,6 +156,16 @@
 {
     NSArray *array = yearArray[section];
     return [array count];
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        YearHeader *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"YearHeader" forIndexPath:indexPath];
+        [header setYearText:@" 2013年"];
+        return header;
+    }
+    return nil;
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
