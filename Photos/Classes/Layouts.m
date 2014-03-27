@@ -35,7 +35,7 @@
 +(UICollectionViewFlowLayout*)flowLayoutYear
 {
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-//    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     layout.itemSize = CGSizeMake(10, 10);
     layout.minimumInteritemSpacing = 0;
     layout.minimumLineSpacing = 0;

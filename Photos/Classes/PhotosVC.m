@@ -40,8 +40,8 @@
 
 //        NSLog(@"%ld",(long)NSIntegerMax);
     
-    
-    // Get the assets library
+
+
     [self confgiModel];
     [self configView];
     [self loadData];
@@ -249,6 +249,28 @@
     
 }
 
+#pragma mark - UIViewControllerRotation
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+}
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    [super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation duration:duration];
+    myCollectionView.frame = self.view.bounds;
+    [myCollectionView.collectionViewLayout invalidateLayout];
+}
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    
+    
+//    [myCollectionView reloadData];
+    [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+}
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
