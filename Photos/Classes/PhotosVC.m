@@ -74,7 +74,7 @@
     yearsArray = [[NSMutableArray alloc] init];
     collectionsArray = [[NSMutableArray alloc] init];
     momentsArray = [[NSMutableArray alloc] init];
-    
+    collectionMode = CollectionModeYear;
 }
 
 -(void)loadData
@@ -116,7 +116,7 @@
 //                NSLog(@"枚举完成");
             
             
-//           years
+//  ------------------------------年度------------------------------
             [yearsArray removeAllObjects];
             for (NSMutableArray *array in allYears) {
                 if ([array count]>0) {
@@ -126,7 +126,7 @@
             
             
 
-            
+//  ------------------------------精选------------------------------
             for (int i=0; i<[allAssets count]; i++) {
                 if ([collectionsArray count]==0) {
                     NSMutableArray *collect = [[NSMutableArray alloc] init];
@@ -151,7 +151,7 @@
             }
             
             
-            
+//  ------------------------------时刻------------------------------
             
             
             
@@ -237,11 +237,12 @@
     self.title = @"年度";
     myCollectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:[Layouts flowLayoutYear]];
     myCollectionView.dataSource = self;
+    myCollectionView.delegate = self;
+    myCollectionView.alwaysBounceVertical = YES;
     myCollectionView.backgroundColor = [UIColor whiteColor];
     [myCollectionView registerClass:[ImageCell class] forCellWithReuseIdentifier:@"ImageCell"];
     [myCollectionView registerClass:[YearHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"YearHeader"];
     
-//    UICollectionElementKindSectionHeader
     [self.view addSubview:myCollectionView];
 //    myCollectionView.delegate = self;
 //    [self.collectionView setCollectionViewLayout:[Layouts flowLayoutYear]];
@@ -249,7 +250,24 @@
 }
 
 #pragma mark - UICollectionViewDelegate
-
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (collectionMode == CollectionModeYear) {
+//        年度    从年度应该走到精选
+        ALAsset *asset = yearsArray[indexPath.section][indexPath.row];
+        for (int i=0; i<[yearsArray count]; i++) {
+            NSArray *collections = yearsArray[i];
+            for (int j=0; j<[collections count]; j++) {
+                ALAsset *tmp = collections[j];
+                if ([tmp isEqual:asset]) {
+//                    找到了
+                    
+                }
+            }
+        }
+        
+    }
+}
 - (UICollectionViewTransitionLayout *)collectionView:(UICollectionView *)collectionView transitionLayoutForOldLayout:(UICollectionViewLayout *)fromLayout newLayout:(UICollectionViewLayout *)toLayout
 {
     SWTTransitionLayout *layout = [[SWTTransitionLayout alloc] initWithCurrentLayout:fromLayout nextLayout:toLayout];
