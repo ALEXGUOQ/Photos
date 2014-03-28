@@ -31,6 +31,20 @@
 
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    NSMutableArray *array = [NSMutableArray new];
+    [array addObject:@"Photos"];
+    [array addObject:@"Shared"];
+    [array addObject:@"Albums"];
+    //    arrayWithObjects:@"Photos","Shared",@"Albums",nil
+    for (int i=0;i<[self.tabBar.items count];i++) {
+        UITabBarItem *item = self.tabBar.items[i];
+        item.title = NSLocalizedString(array[i], nil);
+    }
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

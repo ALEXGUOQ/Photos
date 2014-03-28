@@ -18,4 +18,7 @@
 
 //年份
 +(UICollectionViewFlowLayout*)flowLayoutYear;
+
+//精选
++(UICollectionViewFlowLayout*)flowLayoutCollections;
 @end

@@ -35,10 +35,23 @@
 +(UICollectionViewFlowLayout*)flowLayoutYear
 {
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-//    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     layout.itemSize = CGSizeMake(10, 10);
     layout.minimumInteritemSpacing = 0;
     layout.minimumLineSpacing = 0;
+    layout.headerReferenceSize = CGSizeMake(320, 40);
+    return layout;
+}
+
+//32个 10*10 像素
++(UICollectionViewFlowLayout*)flowLayoutCollections
+{
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    //    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    layout.itemSize = CGSizeMake(32, 32);
+    layout.minimumInteritemSpacing = 0;
+    layout.minimumLineSpacing = 0;
+    layout.headerReferenceSize = CGSizeMake(320, 40);
     return layout;
 }
 @end

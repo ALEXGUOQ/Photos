@@ -19,6 +19,10 @@
 //用来区分是iPhone还是iPad
 +(BOOL)isIphone;
 
++(void)writeImageWithCollections:(NSArray*)collectionArray;
 
+
+//年份的日期格式
++(NSDateFormatter*)yearDateFormatter;
 
 @end

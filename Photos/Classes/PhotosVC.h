@@ -10,10 +10,30 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "Layouts.h"
 #import "ImageCell.h"
+#import "YearHeader.h"
+#import "SWTTransitionLayout.h"
+@import CoreLocation;
 
-@interface PhotosVC : UIViewController <UICollectionViewDataSource,UICollectionViewDelegate>
+typedef NS_ENUM(NSInteger, CollectionMode) {
+    CollectionModeYear,                 // 年
+    CollectionModeCollection,           // 精选
+    CollectionModeMoment,               // 时刻
+};
+@interface PhotosVC : UIViewController <UICollectionViewDataSource,UICollectionViewDelegate,YearHeaderDelegate>
 {
-    NSMutableArray *yearArray;
+//    年度
+    NSMutableArray *yearsArray;
+    
+//    精选
+    NSMutableArray *collectionsArray;
+    
+//    时刻
+    NSMutableArray *momentsArray;
+    
     UICollectionView *myCollectionView;
+    
+    
+    CollectionMode collectionMode;
+    
 }
 @end

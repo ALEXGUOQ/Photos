@@ -7,7 +7,7 @@
 //
 
 #import "PhotosVC.h"
-
+#import "MapViewController.h"
 @interface PhotosVC ()
 
 @end
@@ -40,8 +40,8 @@
 
 //        NSLog(@"%ld",(long)NSIntegerMax);
     
-    
-    // Get the assets library
+
+
     [self confgiModel];
     [self configView];
     [self loadData];
@@ -71,15 +71,16 @@
 #pragma mark - Model
 -(void)confgiModel
 {
-    yearArray = [[NSMutableArray alloc] init];
-    
-    
+    yearsArray = [[NSMutableArray alloc] init];
+    collectionsArray = [[NSMutableArray alloc] init];
+    momentsArray = [[NSMutableArray alloc] init];
+    collectionMode = CollectionModeYear;
 }
 
 -(void)loadData
 {
     NSMutableArray *allYears = [[NSMutableArray alloc] init];
-    
+    NSMutableArray *allAssets = [[NSMutableArray alloc] init];
     for (int i=0; i<200; i++) {
         NSMutableArray *array = [[NSMutableArray alloc] init];
         [allYears addObject:array];
@@ -88,30 +89,75 @@
     ALAssetsLibrary *library = [ToolKit sharedAssetsLibrary];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy"];
-    [library enumerateGroupsWithTypes:ALAssetsGroupAll usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+    [library enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
         if (group) {
             
             [group setAssetsFilter:[ALAssetsFilter allAssets]];
-            [group enumerateAssetsWithOptions:NSEnumerationConcurrent usingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
+            
+            [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
                 if (result) {
-//                    [allAsset addObject:result];
+                    //                    [allAsset addObject:result];
                     NSDate *date = [result valueForProperty:ALAssetPropertyDate];
                     NSInteger index = [[formatter stringFromDate:date] integerValue];
                     index = index-1990;
                     NSMutableArray *array = allYears[index];
-                    [array addObject:result];
+                    if (![array containsObject:result]) {
+                        [array addObject:result];
+                    }
+                    
+                    if (![allAssets containsObject:result]) {
+                        [allAssets addObject:result];
+                    }
+                    
                 }
-                
             }];
         }else
         {
-                NSLog(@"枚举完成");
+//                NSLog(@"枚举完成");
+            
+            
+//  ------------------------------年度------------------------------
+            [yearsArray removeAllObjects];
             for (NSMutableArray *array in allYears) {
                 if ([array count]>0) {
-//                    每个是一年
-                    [yearArray addObject:array];
+                    [yearsArray addObject:array];
                 }
             }
+            
+            
+
+//  ------------------------------精选------------------------------
+            for (int i=0; i<[allAssets count]; i++) {
+                if ([collectionsArray count]==0) {
+                    NSMutableArray *collect = [[NSMutableArray alloc] init];
+                    [collectionsArray addObject:collect];
+                    [collect addObject:allAssets[0]];
+                }else
+                {
+                    NSMutableArray *array = [collectionsArray lastObject];
+                    ALAsset *asset1 = [array lastObject];
+                    ALAsset *asset2 = allAssets[i];
+                    BOOL isInSameCollection = [self alasset:asset1 isInSameCollectionWith:asset2];
+                    if (isInSameCollection) {
+                        [array addObject:asset2];
+                    }else
+                    {
+                        NSMutableArray *newCollection = [[NSMutableArray alloc] init];
+                        [newCollection addObject:asset2];
+                        [collectionsArray addObject:newCollection];
+                    }
+                }
+                
+            }
+            
+            
+//  ------------------------------时刻------------------------------
+            
+            
+            
+            
+            
+            
             [myCollectionView reloadData];
         }
     } failureBlock:^(NSError *error) {
@@ -119,16 +165,84 @@
     }];
 }
 
+//是否在同一个精选组
+-(BOOL)alasset:(ALAsset*)asset1 isInSameCollectionWith:(ALAsset*)asset2
+{
+    BOOL isInSameCollection = NO;
+    if (asset1 && asset2) {
+        CLLocation* location1 = [asset1 valueForProperty:ALAssetPropertyLocation];
+        CLLocation* location2 = [asset2 valueForProperty:ALAssetPropertyLocation];
+        NSDate *date1 = [asset1 valueForProperty:ALAssetPropertyDate];
+        NSDate *date2 = [asset2 valueForProperty:ALAssetPropertyDate];
+        NSTimeInterval time1 = [date1 timeIntervalSince1970];
+        NSTimeInterval time2 = [date2 timeIntervalSince1970];
+        
+        
+        CLLocationDistance distance = [location1 distanceFromLocation:location2];
+        NSTimeInterval timeDistance = time2-time1;
+        
+        
+       
+        if (location1 && location2) {
+            if (distance<50000 && timeDistance<3600*24*50) {
+                isInSameCollection = YES;
+            }
+        }else
+        {
+            if (timeDistance<3600*24*2) {
+                isInSameCollection = YES;
+            }
+        }
+        
+        
+    }
+    
+    
+    return isInSameCollection;
+}
+
+-(BOOL)alasset:(ALAsset*)asset1 isInSameMomentWith:(ALAsset*)asset2
+{
+    BOOL isInSameCollection = NO;
+    if (asset1 && asset2) {
+        CLLocation* location1 = [asset1 valueForProperty:ALAssetPropertyLocation];
+        CLLocation* location2 = [asset2 valueForProperty:ALAssetPropertyLocation];
+        NSDate *date1 = [asset1 valueForProperty:ALAssetPropertyDate];
+        NSDate *date2 = [asset2 valueForProperty:ALAssetPropertyDate];
+        NSTimeInterval time1 = [date1 timeIntervalSince1970];
+        NSTimeInterval time2 = [date2 timeIntervalSince1970];
+        CLLocationDistance distance = [location1 distanceFromLocation:location2];
+        if (!location1) {
+            return isInSameCollection;
+        }
+        if (!location2) {
+            return isInSameCollection;
+        }
+        if (distance<2000 && (time2-time1)<3600*24*50) {
+            isInSameCollection = YES;
+        }
+        
+    }
+    
+    
+    return isInSameCollection;
+}
 
 
 #pragma mark - View
 -(void)configView
 {
-    self.title = @"年度";
+    self.navigationController.navigationBar.translucent = NO;
+    
+    self.title = NSLocalizedString(@"Years", @"Years");
+    self.tabBarItem.title = NSLocalizedString(@"Photos", nil);
     myCollectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:[Layouts flowLayoutYear]];
     myCollectionView.dataSource = self;
+    myCollectionView.delegate = self;
+    myCollectionView.alwaysBounceVertical = YES;
     myCollectionView.backgroundColor = [UIColor whiteColor];
     [myCollectionView registerClass:[ImageCell class] forCellWithReuseIdentifier:@"ImageCell"];
+    [myCollectionView registerClass:[YearHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"YearHeader"];
     
     [self.view addSubview:myCollectionView];
 //    myCollectionView.delegate = self;
@@ -136,25 +250,110 @@
     
 }
 
+#pragma mark - YearHeaderDelegate
+-(void)yearHeaderPressed:(YearHeader*)header
+{
+    MapViewController *map = [[MapViewController alloc] init];
+    map.title = [header yearText];
+    map.images = yearsArray[header.sectionIndex];
+    [self.navigationController pushViewController:map animated:YES];
+}
+
+#pragma mark - UIViewControllerRotation
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
+/*
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+}
+ */
+/*
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    [super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation duration:duration];
+    myCollectionView.frame = self.view.bounds;
+    [myCollectionView.collectionViewLayout invalidateLayout];
+}
+ */
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    
+    myCollectionView.frame = self.view.bounds;
+    [myCollectionView.collectionViewLayout invalidateLayout];
+//    [myCollectionView reloadData];
+    [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+}
+
 #pragma mark - UICollectionViewDelegate
+- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingSupplementaryView:(UICollectionReusableView *)view forElementOfKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath
+{
+    if ([elementKind isEqualToString:UICollectionElementKindSectionHeader]) {
+        
+    }
+}
 
-
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (collectionMode == CollectionModeYear) {
+//        年度    从年度应该走到精选
+        ALAsset *asset = yearsArray[indexPath.section][indexPath.row];
+        for (int i=0; i<[yearsArray count]; i++) {
+            NSArray *collections = yearsArray[i];
+            for (int j=0; j<[collections count]; j++) {
+                ALAsset *tmp = collections[j];
+                if ([tmp isEqual:asset]) {
+//                    找到了
+                    
+                }
+            }
+        }
+        
+    }
+}
+- (UICollectionViewTransitionLayout *)collectionView:(UICollectionView *)collectionView transitionLayoutForOldLayout:(UICollectionViewLayout *)fromLayout newLayout:(UICollectionViewLayout *)toLayout
+{
+    SWTTransitionLayout *layout = [[SWTTransitionLayout alloc] initWithCurrentLayout:fromLayout nextLayout:toLayout];
+    return layout;
+}
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return [yearArray count];
+    return [yearsArray count];
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    NSArray *array = yearArray[section];
+    NSArray *array = yearsArray[section];
     return [array count];
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        YearHeader *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"YearHeader" forIndexPath:indexPath];
+        header.delegate = self;
+        header.sectionIndex = indexPath.section;
+        
+        NSArray *year = yearsArray[indexPath.section];
+        ALAsset *asset = [year lastObject];
+        NSDate *date = [asset valueForProperty:ALAssetPropertyDate];
+        NSDateFormatter *formatter = [ToolKit yearDateFormatter];
+        NSString *string = [formatter stringFromDate:date];
+        string = [NSString stringWithFormat:@" %@",string];
+        [header setYearText:string];
+        return header;
+    }
+    return nil;
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ImageCell" forIndexPath:indexPath];
-    NSArray *array = yearArray[indexPath.section];
+    NSArray *array = yearsArray[indexPath.section];
     ALAsset *asset = array[indexPath.row];
     [cell loadWithALAsset:asset];
     return cell;

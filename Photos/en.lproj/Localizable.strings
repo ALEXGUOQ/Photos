@@ -1,0 +1,28 @@
+/* 
+  Localizable.strings
+  Photos
+
+  Created by tag_mac_05 on 14-3-28.
+  Copyright (c) 2014年 tag_ux. All rights reserved.
+*/
+
+//----------------------------------------------------------
+"Photos"="Photos";
+"Years"="Years";
+"Collections"="Collections";
+"Moments"="Moments";
+"Select"="Select";
+"Share"="Share";
+"Cancel"="Cancel";
+"Shared"="Shared";
+"Albums"="Albums";
+"Edit"="Edit";
+"Done"="Done";
+"Camera Roll"="Camera Roll";
+"My Photo Stream"="My Photo Stream";
+"New Album"="New Album";
+"Enter a name for this album."="Enter a name for this album.";
+"Title"="Title";
+"Save"="Save";
+"Panoramas"="Panoramas";
+"Deselect"="Deselect";
