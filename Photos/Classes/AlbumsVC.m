@@ -139,7 +139,8 @@
 }
 -(void)configTitleAndBarButtons
 {
-    self.title = @"相簿";
+    self.title = NSLocalizedString(@"Albums", nil);
+//    self.tabBarItem.title = NSLocalizedString(@"Albums", nil);
     UIBarButtonItem *leftbuttonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(reciveAddButton:)];
     
     self.navigationItem.leftBarButtonItem = leftbuttonItem;
@@ -181,12 +182,14 @@
 -(void)reciveEditButton:(UIBarButtonItem*)sender
 {
     if (myTableView.editing) {
-        [sender setTitle:@"编辑"];
+//        [sender setTitle:@"编辑"];
+        [sender setTitle:NSLocalizedString(@"Edit", nil)];
         [myTableView setEditing:NO animated:YES];
     }else
     {
         [myTableView setEditing:YES animated:YES];
-        [sender setTitle:@"完成"];
+//        [sender setTitle:@"完成"];
+        [sender setTitle:NSLocalizedString(@"Done", nil)];
     }
     
 }

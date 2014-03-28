@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6534028C18E5488A00B24734 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6534028E18E5488A00B24734 /* Localizable.strings */; };
 		65A1D28B18D7E55700CDF709 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65A1D28A18D7E55700CDF709 /* Main_iPad.storyboard */; };
 		65B3B61D18D99D4600417292 /* AlbumsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B3B60F18D99D4600417292 /* AlbumsVC.m */; };
 		65B3B61E18D99D4600417292 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B3B61118D99D4600417292 /* ImageCell.m */; };
@@ -49,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6534028D18E5488A00B24734 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6534028F18E5488D00B24734 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		65A1D28A18D7E55700CDF709 /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main_iPad.storyboard; path = ../Main_iPad.storyboard; sourceTree = "<group>"; };
 		65A396DD18DABE30005BA532 /* Default@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x~iphone.png"; sourceTree = "<group>"; };
 		65B3B60E18D99D4600417292 /* AlbumsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumsVC.h; sourceTree = "<group>"; };
@@ -246,6 +249,7 @@
 		65D028E418D6FDF300F09F16 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6534028E18E5488A00B24734 /* Localizable.strings */,
 				65D028E518D6FDF300F09F16 /* Photos-Info.plist */,
 				65D028E618D6FDF300F09F16 /* InfoPlist.strings */,
 				65D028E918D6FDF300F09F16 /* main.m */,
@@ -397,6 +401,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6534028C18E5488A00B24734 /* Localizable.strings in Resources */,
 				E449C3FE18DE634E0008F0FE /* Images.xcassets in Resources */,
 				65C6CFFF18E4306F0025D365 /* InfoPlist.strings in Resources */,
 				65B3B62B18D99E8900417292 /* Main.storyboard in Resources */,
@@ -456,6 +461,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		6534028E18E5488A00B24734 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6534028D18E5488A00B24734 /* en */,
+				6534028F18E5488D00B24734 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		65D028E618D6FDF300F09F16 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

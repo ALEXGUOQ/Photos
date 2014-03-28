@@ -234,7 +234,8 @@
 {
     self.navigationController.navigationBar.translucent = NO;
     
-    self.title = @"年度";
+    self.title = NSLocalizedString(@"Years", @"Years");
+    self.tabBarItem.title = NSLocalizedString(@"Photos", nil);
     myCollectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:[Layouts flowLayoutYear]];
     myCollectionView.dataSource = self;
     myCollectionView.delegate = self;
