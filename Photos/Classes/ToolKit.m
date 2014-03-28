@@ -61,4 +61,12 @@ static ALAssetsLibrary *library;
         }
     }
 }
+
+
++(NSDateFormatter*)yearDateFormatter
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy"];
+    return formatter;
+}
 @end

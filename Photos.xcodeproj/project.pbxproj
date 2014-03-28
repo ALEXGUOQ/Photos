@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6534028C18E5488A00B24734 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6534028E18E5488A00B24734 /* Localizable.strings */; };
+		6534029118E5531300B24734 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6534029018E5531300B24734 /* MapKit.framework */; };
+		6534029418E55B1900B24734 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6534029318E55B1900B24734 /* MapViewController.m */; };
 		65A1D28B18D7E55700CDF709 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65A1D28A18D7E55700CDF709 /* Main_iPad.storyboard */; };
 		65B3B61D18D99D4600417292 /* AlbumsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B3B60F18D99D4600417292 /* AlbumsVC.m */; };
 		65B3B61E18D99D4600417292 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B3B61118D99D4600417292 /* ImageCell.m */; };
@@ -52,6 +54,9 @@
 /* Begin PBXFileReference section */
 		6534028D18E5488A00B24734 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6534028F18E5488D00B24734 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		6534029018E5531300B24734 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		6534029218E55B1900B24734 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		6534029318E55B1900B24734 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		65A1D28A18D7E55700CDF709 /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main_iPad.storyboard; path = ../Main_iPad.storyboard; sourceTree = "<group>"; };
 		65A396DD18DABE30005BA532 /* Default@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x~iphone.png"; sourceTree = "<group>"; };
 		65B3B60E18D99D4600417292 /* AlbumsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumsVC.h; sourceTree = "<group>"; };
@@ -113,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6534029118E5531300B24734 /* MapKit.framework in Frameworks */,
 				65E76D3C18E2D4D30005C7DB /* CoreLocation.framework in Frameworks */,
 				65D0292318D704DF00F09F16 /* AssetsLibrary.framework in Frameworks */,
 				65D028E018D6FDF300F09F16 /* CoreGraphics.framework in Frameworks */,
@@ -223,6 +229,7 @@
 		65D028DC18D6FDF300F09F16 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6534029018E5531300B24734 /* MapKit.framework */,
 				65E76D3B18E2D4D30005C7DB /* CoreLocation.framework */,
 				65D0292218D704DF00F09F16 /* AssetsLibrary.framework */,
 				65D028DD18D6FDF300F09F16 /* Foundation.framework */,
@@ -293,6 +300,8 @@
 			children = (
 				65B3B61418D99D4600417292 /* PhotosVC.h */,
 				65B3B61518D99D4600417292 /* PhotosVC.m */,
+				6534029218E55B1900B24734 /* MapViewController.h */,
+				6534029318E55B1900B24734 /* MapViewController.m */,
 			);
 			name = "照片";
 			sourceTree = "<group>";
@@ -438,6 +447,7 @@
 				E453A1D618DC8DFD00CDCE79 /* GroupDetailVC.m in Sources */,
 				65B3B62E18D9A06600417292 /* ImageTableViewCell.m in Sources */,
 				65B3B61D18D99D4600417292 /* AlbumsVC.m in Sources */,
+				6534029418E55B1900B24734 /* MapViewController.m in Sources */,
 				65D028EA18D6FDF300F09F16 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

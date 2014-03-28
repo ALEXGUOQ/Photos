@@ -7,7 +7,7 @@
 //
 
 #import "PhotosVC.h"
-
+#import "MapViewController.h"
 @interface PhotosVC ()
 
 @end
@@ -250,6 +250,13 @@
     
 }
 
+#pragma mark - YearHeaderDelegate
+-(void)yearHeaderPressed:(YearHeader*)header
+{
+    MapViewController *map = [[MapViewController alloc] init];
+    [self.navigationController pushViewController:map animated:YES];
+}
+
 #pragma mark - UIViewControllerRotation
 - (BOOL)shouldAutorotate
 {
@@ -280,6 +287,13 @@
 }
 
 #pragma mark - UICollectionViewDelegate
+- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingSupplementaryView:(UICollectionReusableView *)view forElementOfKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath
+{
+    if ([elementKind isEqualToString:UICollectionElementKindSectionHeader]) {
+        
+    }
+}
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (collectionMode == CollectionModeYear) {
@@ -318,7 +332,14 @@
 {
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
         YearHeader *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"YearHeader" forIndexPath:indexPath];
-        [header setYearText:@" 2013年"];
+        header.delegate = self;
+        NSArray *year = yearsArray[indexPath.section];
+        ALAsset *asset = [year lastObject];
+        NSDate *date = [asset valueForProperty:ALAssetPropertyDate];
+        NSDateFormatter *formatter = [ToolKit yearDateFormatter];
+        NSString *string = [formatter stringFromDate:date];
+        string = [NSString stringWithFormat:@" %@",string];
+        [header setYearText:string];
         return header;
     }
     return nil;

@@ -17,8 +17,25 @@
         // Initialization code
         yearLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
         [self addSubview:yearLabel];
+        
+        
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = self.bounds;
+//        button.backgroundColor = [gUIColor redColor];
+
+        button.tag = 1;
+        [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:button];
     }
     return self;
+}
+-(void)buttonPressed:(UIButton*)sender
+{
+    if ([_delegate respondsToSelector:@selector(yearHeaderPressed:)]) {
+        
+        [self.delegate yearHeaderPressed:self];
+    }
 }
 
 -(void)setYearText:(NSString*)text

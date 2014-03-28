@@ -7,13 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+@class YearHeader;
+@protocol YearHeaderDelegate <NSObject>
 
+
+-(void)yearHeaderPressed:(YearHeader*)header;
+
+@end
 @interface YearHeader : UICollectionReusableView
 {
     UILabel* yearLabel;
     UILabel* locationLabel;
     
 }
+@property (nonatomic) NSInteger sectionIndex;
+@property (nonatomic,assign) id<YearHeaderDelegate> delegate;
 
 -(void)setYearText:(NSString*)text;
 
