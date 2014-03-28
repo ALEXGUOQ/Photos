@@ -86,9 +86,10 @@
 #pragma mark - UIViewControllerInteractiveTransitioning
 - (void)startInteractiveTransition:(id <UIViewControllerContextTransitioning>)transitionContext
 {
+    /*
     UICollectionViewController* fromCollectionViewController = (UICollectionViewController*)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UICollectionViewController* toCollectionViewController   = (UICollectionViewController*)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    
+    */
     
 }
 
