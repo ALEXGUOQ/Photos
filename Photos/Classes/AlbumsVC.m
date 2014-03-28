@@ -123,7 +123,7 @@
                             failureBlock: ^(NSError *error)
      {
          // Typically you should handle an error more gracefully than this.
-         NSLog(@"No groups");
+//         NSLog(@"No groups");
      }];
 }
 
@@ -148,7 +148,7 @@
     
     //    UIButton *editButton = [UIButton buttonWithType:UIButtonTypeCustom];
     //    [editButton setTitle:@"编辑" forState:UIControlStateNormal];
-    UIBarButtonItem *rightbuttonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(reciveEditButton:)];
+    UIBarButtonItem *rightbuttonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Edit", nil) style:UIBarButtonItemStylePlain target:self action:@selector(reciveEditButton:)];
     self.navigationItem.rightBarButtonItem = rightbuttonItem;
     
 //    myTableView = [[UITableView alloc] initWithFrame:self.view.frame];
@@ -158,10 +158,14 @@
 }
 -(void)configAlert
 {
-    alert = [[UIAlertView alloc] initWithTitle:@"新建相簿" message:@"请为次相簿输入名称" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"存储", nil];
+    alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"New Album", nil)
+                                       message:NSLocalizedString(@"Enter a name for this album.", nil)
+                                      delegate:self
+                             cancelButtonTitle:NSLocalizedString(@"Cancel", nil)
+                             otherButtonTitles:NSLocalizedString(@"Save", nil), nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     UITextField *textField = [alert textFieldAtIndex:0];
-    textField.placeholder = @"标题";
+    textField.placeholder = NSLocalizedString(@"Title", nil);
 
 }
 
