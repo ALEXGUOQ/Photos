@@ -254,6 +254,8 @@
 -(void)yearHeaderPressed:(YearHeader*)header
 {
     MapViewController *map = [[MapViewController alloc] init];
+    map.title = [header yearText];
+    map.images = yearsArray[header.sectionIndex];
     [self.navigationController pushViewController:map animated:YES];
 }
 
@@ -333,6 +335,8 @@
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
         YearHeader *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"YearHeader" forIndexPath:indexPath];
         header.delegate = self;
+        header.sectionIndex = indexPath.section;
+        
         NSArray *year = yearsArray[indexPath.section];
         ALAsset *asset = [year lastObject];
         NSDate *date = [asset valueForProperty:ALAssetPropertyDate];

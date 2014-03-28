@@ -12,4 +12,5 @@
 {
     MKMapView *mapView;
 }
+@property (nonatomic,retain) NSArray *images;
 @end

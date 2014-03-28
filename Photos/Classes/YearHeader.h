@@ -24,5 +24,5 @@
 @property (nonatomic,assign) id<YearHeaderDelegate> delegate;
 
 -(void)setYearText:(NSString*)text;
-
+-(NSString*)yearText;
 @end

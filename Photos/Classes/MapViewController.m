@@ -33,19 +33,40 @@
     [self configView];
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self loadData];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 #pragma mark - Model
-
+-(void)loadData
+{
+    for (ALAsset *asset in self.images) {
+        CLLocation *location = [asset valueForProperty:ALAssetPropertyLocation];
+        if (location) {
+            
+        }
+    }
+}
 #pragma mark - View
 -(void)configView
 {
     mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:mapView];
+    
+    
+    
 }
+
+//#pragma mark - 
+
+
 
 /*
 #pragma mark - Navigation
