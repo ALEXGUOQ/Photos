@@ -93,9 +93,10 @@
         if (group) {
             
             [group setAssetsFilter:[ALAssetsFilter allAssets]];
-            [group enumerateAssetsWithOptions:NSEnumerationConcurrent usingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
+            
+            [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
                 if (result) {
-//                    [allAsset addObject:result];
+                    //                    [allAsset addObject:result];
                     NSDate *date = [result valueForProperty:ALAssetPropertyDate];
                     NSInteger index = [[formatter stringFromDate:date] integerValue];
                     index = index-1990;
@@ -109,7 +110,6 @@
                     }
                     
                 }
-                
             }];
         }else
         {
@@ -254,16 +254,19 @@
 {
     return YES;
 }
+/*
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
     [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
 }
+ */
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
     [super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation duration:duration];
     myCollectionView.frame = self.view.bounds;
     [myCollectionView.collectionViewLayout invalidateLayout];
 }
+/*
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
     
@@ -271,6 +274,7 @@
 //    [myCollectionView reloadData];
     [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
 }
+ */
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
