@@ -25,11 +25,9 @@
     {
       "size" : "57x57",
       "idiom" : "iphone",
-<<<<<<< HEAD
+
       "filename" : "Photos@2x.png",
-=======
-      "filename" : "Photos@2x~iphone-1.png",
->>>>>>> FETCH_HEAD
+
       "scale" : "2x"
     },
     {
