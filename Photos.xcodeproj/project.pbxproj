@@ -32,6 +32,7 @@
 		E449C40318DE68630008F0FE /* FullScreenCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E449C40218DE68630008F0FE /* FullScreenCollectionVC.m */; };
 		E453A1D618DC8DFD00CDCE79 /* GroupDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E453A1D518DC8DFD00CDCE79 /* GroupDetailVC.m */; };
 		E453A1D718DC8F9F00CDCE79 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65D0290818D6FDF300F09F16 /* InfoPlist.strings */; };
+		E4739DE818E1D1D500BFE367 /* Photos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4739DE718E1D1D500BFE367 /* Photos@2x.png */; };
 		E484E0F518DD283800D71AF2 /* SWTTransitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = E484E0F418DD283800D71AF2 /* SWTTransitionController.m */; };
 		E484E0F818DD291100D71AF2 /* SWTTransitionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E484E0F718DD291100D71AF2 /* SWTTransitionLayout.m */; };
 		E4AC41B118DEEAFB005EC652 /* FullScreenCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4AC41B018DEEAFB005EC652 /* FullScreenCell.m */; };
@@ -93,6 +94,7 @@
 		E449C40218DE68630008F0FE /* FullScreenCollectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullScreenCollectionVC.m; sourceTree = "<group>"; };
 		E453A1D418DC8DFD00CDCE79 /* GroupDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupDetailVC.h; sourceTree = "<group>"; };
 		E453A1D518DC8DFD00CDCE79 /* GroupDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupDetailVC.m; sourceTree = "<group>"; };
+		E4739DE718E1D1D500BFE367 /* Photos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Photos@2x.png"; sourceTree = "<group>"; };
 		E484E0F318DD283800D71AF2 /* SWTTransitionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTTransitionController.h; sourceTree = "<group>"; };
 		E484E0F418DD283800D71AF2 /* SWTTransitionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTTransitionController.m; sourceTree = "<group>"; };
 		E484E0F618DD291100D71AF2 /* SWTTransitionLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTTransitionLayout.h; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				65F4D02D18DABADC0058B561 /* Photos-Guides@2x.png */,
 				65F4D02E18DABADC0058B561 /* Photos-NotificationCenter@2x.png */,
 				65F4D02F18DABADC0058B561 /* Photos-settings@2x.png */,
+				E4739DE718E1D1D500BFE367 /* Photos@2x.png */,
 				65F4D03018DABADC0058B561 /* Photos@2x~iphone.png */,
 				65B3B62A18D99E8900417292 /* Main.storyboard */,
 				65B3B62718D99DBB00417292 /* test.png */,
@@ -387,6 +390,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4739DE818E1D1D500BFE367 /* Photos@2x.png in Resources */,
 				E449C3FE18DE634E0008F0FE /* Images.xcassets in Resources */,
 				E453A1D718DC8F9F00CDCE79 /* InfoPlist.strings in Resources */,
 				65B3B62B18D99E8900417292 /* Main.storyboard in Resources */,
