@@ -4,25 +4,44 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--PhotosVC - First-->
-        <scene sceneID="W3I-pn-N6e">
+        <!--PhotosVC-->
+        <scene sceneID="m3L-DQ-dov">
             <objects>
-                <viewController title="First" id="CZ4-MO-1fc" customClass="PhotosVC" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="s9W-kb-ARv"/>
-                        <viewControllerLayoutGuide type="bottom" id="dtj-EO-iXF"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="2VE-Yg-loa">
+                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="dqu-gv-XaP" customClass="PhotosVC" sceneMemberID="viewController">
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="WDc-uz-Bx6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="照片" image="first" id="u1e-5L-l1D"/>
-                    <navigationItem key="navigationItem" id="smC-D8-UnF"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="xvm-yb-fnG">
+                            <size key="itemSize" width="10" height="10"/>
+                            <size key="headerReferenceSize" width="50" height="50"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="jef-92-nwD">
+                                <rect key="frame" x="0.0" y="114" width="10" height="10"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="10" height="10"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="sXz-uQ-HmH">
+                            <rect key="frame" x="0.0" y="64" width="320" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </collectionReusableView>
+                        <connections>
+                            <outlet property="dataSource" destination="dqu-gv-XaP" id="6wc-tX-4A8"/>
+                            <outlet property="delegate" destination="dqu-gv-XaP" id="5LX-s0-uOx"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="zpd-tF-KOx"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yPD-JM-c9O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1181" y="-258"/>
+            <point key="canvasLocation" x="1176" y="-252"/>
         </scene>
         <!--Navigation Controller - Item-->
         <scene sceneID="9jf-9A-RDb">
@@ -33,7 +52,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="CZ4-MO-1fc" kind="relationship" relationship="rootViewController" id="bQF-XX-O5U"/>
+                        <segue destination="dqu-gv-XaP" kind="relationship" relationship="rootViewController" id="baU-44-Drr"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Af2-oD-x1c" userLabel="First Responder" sceneMemberID="firstResponder"/>

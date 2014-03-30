@@ -8,6 +8,7 @@
 
 #import "PhotosVC.h"
 #import "MapViewController.h"
+#import "CollectionViewController.h"
 @interface PhotosVC ()
 
 @end
@@ -158,7 +159,7 @@
             
             
             
-            [myCollectionView reloadData];
+            [self.collectionView reloadData];
         }
     } failureBlock:^(NSError *error) {
         
@@ -227,7 +228,7 @@
     
     return isInSameCollection;
 }
-
+#pragma mark - Control
 
 #pragma mark - View
 -(void)configView
@@ -236,16 +237,16 @@
     
     self.title = NSLocalizedString(@"Years", @"Years");
     self.tabBarItem.title = NSLocalizedString(@"Photos", nil);
-    myCollectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:[Layouts flowLayoutYear]];
-    myCollectionView.dataSource = self;
-    myCollectionView.delegate = self;
-    myCollectionView.alwaysBounceVertical = YES;
-    myCollectionView.backgroundColor = [UIColor whiteColor];
-    [myCollectionView registerClass:[ImageCell class] forCellWithReuseIdentifier:@"ImageCell"];
-    [myCollectionView registerClass:[YearHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"YearHeader"];
+ 
+    self.collectionView.dataSource = self;
+    self.collectionView.delegate = self;
+    self.collectionView.alwaysBounceVertical = YES;
+    self.collectionView.backgroundColor = [UIColor whiteColor];
+    [self.collectionView registerClass:[ImageCell class] forCellWithReuseIdentifier:@"ImageCell"];
+    [self.collectionView registerClass:[YearHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"YearHeader"];
     
-    [self.view addSubview:myCollectionView];
-//    myCollectionView.delegate = self;
+    [self.view addSubview:self.collectionView];
+//    self.collectionView.delegate = self;
 //    [self.collectionView setCollectionViewLayout:[Layouts flowLayoutYear]];
     
 }
@@ -274,17 +275,17 @@
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
     [super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation duration:duration];
-    myCollectionView.frame = self.view.bounds;
-    [myCollectionView.collectionViewLayout invalidateLayout];
+    self.collectionView.frame = self.view.bounds;
+    [self.collectionView.collectionViewLayout invalidateLayout];
 }
  */
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
     
-    myCollectionView.frame = self.view.bounds;
-    [myCollectionView.collectionViewLayout invalidateLayout];
-//    [myCollectionView reloadData];
+    self.collectionView.frame = self.view.bounds;
+    [self.collectionView.collectionViewLayout invalidateLayout];
+//    [self.collectionView reloadData];
     [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
 }
 
@@ -307,6 +308,13 @@
                 ALAsset *tmp = collections[j];
                 if ([tmp isEqual:asset]) {
 //                    找到了
+                    UICollectionViewFlowLayout *layout = [Layouts flowLayoutCollections];
+//                    collectionMode = CollectionModeCollection;
+                    
+                    CollectionViewController *vc = [[CollectionViewController alloc] initWithCollectionViewLayout:layout];
+                    vc.useLayoutToLayoutNavigationTransitions = YES;
+                    [self.navigationController pushViewController:vc animated:YES];
+                    
                     
                 }
             }
@@ -322,16 +330,56 @@
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return [yearsArray count];
+    switch (collectionMode) {
+            case CollectionModeYear:
+        {
+            return [yearsArray count];
+        }
+            break;
+            case CollectionModeCollection:
+        {
+            return [collectionsArray count];
+        }
+            case CollectionModeMoment:
+        {
+            return [momentsArray count];
+        }
+            
+        default:
+            break;
+    }
+    return 0;
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    NSArray *array = yearsArray[section];
-    return [array count];
+    switch (collectionMode) {
+        case CollectionModeYear:
+        {
+            NSArray *array = yearsArray[section];
+            return [array count];
+            
+        }
+            break;
+        case CollectionModeCollection:
+        {
+            return [collectionsArray[section] count];
+        }
+        case CollectionModeMoment:
+        {
+            return [momentsArray[section] count];
+        }
+            
+        default:
+            break;
+    }
+    return 0;
+    
+    
 }
-
+/*
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
+    
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
         YearHeader *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"YearHeader" forIndexPath:indexPath];
         header.delegate = self;
@@ -348,14 +396,36 @@
     }
     return nil;
 }
+ */
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ImageCell" forIndexPath:indexPath];
-    NSArray *array = yearsArray[indexPath.section];
-    ALAsset *asset = array[indexPath.row];
-    [cell loadWithALAsset:asset];
+    switch (collectionMode) {
+        case CollectionModeYear:
+        {
+            NSArray *array = yearsArray[indexPath.section];
+            ALAsset *asset = array[indexPath.row];
+            [cell loadWithALAsset:asset];
+        }
+            break;
+            case CollectionModeCollection:
+        {
+            NSArray *array = collectionsArray[indexPath.section];
+            ALAsset *asset = array[indexPath.row];
+            [cell loadWithALAsset:asset];
+        }break;
+            case CollectionModeMoment:
+        {
+            
+        }
+            
+        default:
+            break;
+    }
+    
+    
     return cell;
 }
 

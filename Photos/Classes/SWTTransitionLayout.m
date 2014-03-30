@@ -28,25 +28,5 @@
 }
 
 
-- (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
-{
-    NSArray *attributes = [super layoutAttributesForElementsInRect:rect];
-    
-    for (UICollectionViewLayoutAttributes *currentAttribute in attributes)
-    {
-        CGPoint currentCenter = currentAttribute.center;
-        CGPoint updatedCenter = CGPointMake(currentCenter.x + self.offset.horizontal, currentCenter.y + self.offset.vertical);
-        currentAttribute.center = updatedCenter;
-    }
-    return attributes;
-}
 
-- (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    UICollectionViewLayoutAttributes *attributes = [super layoutAttributesForItemAtIndexPath:indexPath];
-    CGPoint currentCenter = attributes.center;
-    CGPoint updatedCenter = CGPointMake(currentCenter.x + self.offset.horizontal, currentCenter.y + self.offset.vertical);
-    attributes.center = updatedCenter;
-    return attributes;
-}
 @end

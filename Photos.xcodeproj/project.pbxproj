@@ -31,6 +31,7 @@
 		E453A1D618DC8DFD00CDCE79 /* GroupDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E453A1D518DC8DFD00CDCE79 /* GroupDetailVC.m */; };
 		E484E0F518DD283800D71AF2 /* SWTTransitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = E484E0F418DD283800D71AF2 /* SWTTransitionController.m */; };
 		E484E0F818DD291100D71AF2 /* SWTTransitionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E484E0F718DD291100D71AF2 /* SWTTransitionLayout.m */; };
+		E49E232918E7B6B3000457C1 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E49E232818E7B6B3000457C1 /* CollectionViewController.m */; };
 		E4AC41B118DEEAFB005EC652 /* FullScreenCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4AC41B018DEEAFB005EC652 /* FullScreenCell.m */; };
 		E4FA932518E5B6EA0067FD11 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4FA932418E5B6EA0067FD11 /* Images.xcassets */; };
 		E4FA933718E5B9040067FD11 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FA933418E5B9040067FD11 /* MapViewController.m */; };
@@ -91,6 +92,8 @@
 		E484E0F418DD283800D71AF2 /* SWTTransitionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTTransitionController.m; sourceTree = "<group>"; };
 		E484E0F618DD291100D71AF2 /* SWTTransitionLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTTransitionLayout.h; sourceTree = "<group>"; };
 		E484E0F718DD291100D71AF2 /* SWTTransitionLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTTransitionLayout.m; sourceTree = "<group>"; };
+		E49E232718E7B6B3000457C1 /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
+		E49E232818E7B6B3000457C1 /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
 		E4AC41AF18DEEAFB005EC652 /* FullScreenCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullScreenCell.h; sourceTree = "<group>"; };
 		E4AC41B018DEEAFB005EC652 /* FullScreenCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullScreenCell.m; sourceTree = "<group>"; };
 		E4FA932418E5B6EA0067FD11 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
@@ -286,6 +289,8 @@
 				E4FA933618E5B9040067FD11 /* YearHeader.m */,
 				65B3B61418D99D4600417292 /* PhotosVC.h */,
 				65B3B61518D99D4600417292 /* PhotosVC.m */,
+				E49E232718E7B6B3000457C1 /* CollectionViewController.h */,
+				E49E232818E7B6B3000457C1 /* CollectionViewController.m */,
 			);
 			name = "照片";
 			sourceTree = "<group>";
@@ -417,6 +422,7 @@
 				65D028EE18D6FDF300F09F16 /* AppDelegate.m in Sources */,
 				65B3B61E18D99D4600417292 /* ImageCell.m in Sources */,
 				65B3B62218D99D4600417292 /* SharedVC.m in Sources */,
+				E49E232918E7B6B3000457C1 /* CollectionViewController.m in Sources */,
 				E484E0F818DD291100D71AF2 /* SWTTransitionLayout.m in Sources */,
 				65B3B62318D99D4600417292 /* ToolKit.m in Sources */,
 				E4AC41B118DEEAFB005EC652 /* FullScreenCell.m in Sources */,
