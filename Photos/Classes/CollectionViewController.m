@@ -8,6 +8,9 @@
 
 #import "CollectionViewController.h"
 #import "ImageCell.h"
+#import "MomentViewController.h"
+#import "ToolKit.h"
+#import "Layouts.h"
 @interface CollectionViewController ()
 
 @end
@@ -35,7 +38,14 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+#pragma mark UICollectionViewDelegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewFlowLayout *flow = [Layouts flowLayoutMoments];
+    MomentViewController *vc = [[MomentViewController alloc] initWithCollectionViewLayout:flow];
+    vc.useLayoutToLayoutNavigationTransitions = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 #pragma mark UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView

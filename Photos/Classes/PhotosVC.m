@@ -307,6 +307,7 @@
     //                    collectionMode = CollectionModeCollection;
     
     CollectionViewController *vc = [[CollectionViewController alloc] initWithCollectionViewLayout:layout];
+    
     vc.title = NSLocalizedString(@"Collections", nil);
     vc.useLayoutToLayoutNavigationTransitions = YES;
     vc.collectionsArray = collectionsArray;

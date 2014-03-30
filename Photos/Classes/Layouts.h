@@ -21,4 +21,8 @@
 
 //精选
 +(UICollectionViewFlowLayout*)flowLayoutCollections;
+
+
+//时刻
++(UICollectionViewFlowLayout*)flowLayoutMoments;
 @end

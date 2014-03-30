@@ -54,4 +54,17 @@
     layout.headerReferenceSize = CGSizeMake(320, 40);
     return layout;
 }
+
+
+//时刻
++(UICollectionViewFlowLayout*)flowLayoutMoments
+{
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    //    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    layout.itemSize = CGSizeMake(78.5, 78.5);
+    layout.minimumInteritemSpacing = 2;
+    layout.minimumLineSpacing = 2;
+    layout.headerReferenceSize = CGSizeMake(320, 40);
+    return layout;
+}
 @end
