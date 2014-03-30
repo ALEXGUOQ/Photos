@@ -251,6 +251,9 @@
     
 }
 
+#pragma mark - UINavigationControllerDelegate
+
+
 #pragma mark - YearHeaderDelegate
 -(void)yearHeaderPressed:(YearHeader*)header
 {
@@ -299,6 +302,23 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    UICollectionViewFlowLayout *layout = [Layouts flowLayoutCollections];
+    //                    collectionMode = CollectionModeCollection;
+    
+    CollectionViewController *vc = [[CollectionViewController alloc] initWithCollectionViewLayout:layout];
+    vc.title = NSLocalizedString(@"Collections", nil);
+    vc.useLayoutToLayoutNavigationTransitions = YES;
+    vc.collectionsArray = collectionsArray;
+    [vc.collectionView performBatchUpdates:^{
+
+    } completion:^(BOOL finished) {
+        
+    }];
+    [self.navigationController pushViewController:vc animated:YES];
+    return;
+    
+    
     if (collectionMode == CollectionModeYear) {
 //        年度    从年度应该走到精选
         ALAsset *asset = yearsArray[indexPath.section][indexPath.row];
@@ -308,12 +328,6 @@
                 ALAsset *tmp = collections[j];
                 if ([tmp isEqual:asset]) {
 //                    找到了
-                    UICollectionViewFlowLayout *layout = [Layouts flowLayoutCollections];
-//                    collectionMode = CollectionModeCollection;
-                    
-                    CollectionViewController *vc = [[CollectionViewController alloc] initWithCollectionViewLayout:layout];
-                    vc.useLayoutToLayoutNavigationTransitions = YES;
-                    [self.navigationController pushViewController:vc animated:YES];
                     
                     
                 }
@@ -330,53 +344,20 @@
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    switch (collectionMode) {
-            case CollectionModeYear:
-        {
+
             return [yearsArray count];
-        }
-            break;
-            case CollectionModeCollection:
-        {
-            return [collectionsArray count];
-        }
-            case CollectionModeMoment:
-        {
-            return [momentsArray count];
-        }
-            
-        default:
-            break;
-    }
-    return 0;
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    switch (collectionMode) {
-        case CollectionModeYear:
-        {
+
             NSArray *array = yearsArray[section];
             return [array count];
             
-        }
-            break;
-        case CollectionModeCollection:
-        {
-            return [collectionsArray[section] count];
-        }
-        case CollectionModeMoment:
-        {
-            return [momentsArray[section] count];
-        }
-            
-        default:
-            break;
-    }
-    return 0;
+
     
     
 }
-/*
+
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -396,35 +377,17 @@
     }
     return nil;
 }
- */
+
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ImageCell" forIndexPath:indexPath];
-    switch (collectionMode) {
-        case CollectionModeYear:
-        {
-            NSArray *array = yearsArray[indexPath.section];
-            ALAsset *asset = array[indexPath.row];
-            [cell loadWithALAsset:asset];
-        }
-            break;
-            case CollectionModeCollection:
-        {
-            NSArray *array = collectionsArray[indexPath.section];
-            ALAsset *asset = array[indexPath.row];
-            [cell loadWithALAsset:asset];
-        }break;
-            case CollectionModeMoment:
-        {
-            
-        }
-            
-        default:
-            break;
-    }
-    
+  
+    NSArray *array = yearsArray[indexPath.section];
+    ALAsset *asset = array[indexPath.row];
+    [cell loadWithALAsset:asset];
+
     
     return cell;
 }

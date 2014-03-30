@@ -19,7 +19,7 @@ typedef NS_ENUM(NSInteger, CollectionMode) {
     CollectionModeCollection,           // 精选
     CollectionModeMoment,               // 时刻
 };
-@interface PhotosVC : UICollectionViewController <UICollectionViewDataSource,UICollectionViewDelegate,YearHeaderDelegate>
+@interface PhotosVC : UICollectionViewController <UICollectionViewDataSource,UICollectionViewDelegate,YearHeaderDelegate,UINavigationControllerDelegate>
 {
 //    年度
     NSMutableArray *yearsArray;

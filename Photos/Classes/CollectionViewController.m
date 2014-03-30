@@ -7,7 +7,7 @@
 //
 
 #import "CollectionViewController.h"
-
+#import "ImageCell.h"
 @interface CollectionViewController ()
 
 @end
@@ -27,12 +27,38 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+     [self.collectionView registerClass:[ImageCell class] forCellWithReuseIdentifier:@"ImageCell"];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark UICollectionViewDataSource
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return [_collectionsArray count];
+}
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    NSArray *array = _collectionsArray[section];
+    return [array count];
+}
+
+// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ImageCell" forIndexPath:indexPath];
+    
+    NSArray *array = _collectionsArray[indexPath.section];
+    ALAsset *asset = array[indexPath.row];
+    [cell loadWithALAsset:asset];
+    
+    
+    return cell;
 }
 
 /*

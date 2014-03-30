@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--PhotosVC-->
+        <!--PhotosVC - Item-->
         <scene sceneID="m3L-DQ-dov">
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="dqu-gv-XaP" customClass="PhotosVC" sceneMemberID="viewController">
@@ -37,6 +37,7 @@
                             <outlet property="delegate" destination="dqu-gv-XaP" id="5LX-s0-uOx"/>
                         </connections>
                     </collectionView>
+                    <tabBarItem key="tabBarItem" title="Item" image="first" id="Ggv-AP-WRl"/>
                     <navigationItem key="navigationItem" id="zpd-tF-KOx"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yPD-JM-c9O" userLabel="First Responder" sceneMemberID="firstResponder"/>
