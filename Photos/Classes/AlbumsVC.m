@@ -15,12 +15,20 @@
 @end
 
 @implementation AlbumsVC
-
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [self configModel];
+        [self configView];
+    }
+    return self;
+}
 - (instancetype)initWithCoder:(NSCoder *)coder
 {
     self = [super initWithCoder:coder];
     if (self) {
-        [self configModel];
+        
     }
     return self;
 }
@@ -29,7 +37,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self configView];
+    
 
 }
 -(void)viewWillAppear:(BOOL)animated
@@ -133,8 +141,14 @@
 {
     [self configTitleAndBarButtons];
     [self configAlert];
+
     
+    myTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    myTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.view addSubview:myTableView];
     
+    myTableView.dataSource = self;
+    myTableView.delegate = self;
     [myTableView registerClass:[ImageTableViewCell class] forCellReuseIdentifier:@"ImageTableViewCell"];
 }
 -(void)configTitleAndBarButtons

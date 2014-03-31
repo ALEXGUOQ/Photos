@@ -11,6 +11,8 @@
 @interface FullScreenCollectionVC : UICollectionViewController <UINavigationBarDelegate>
 {
     BOOL preferStatusBarHidden;
+    
+    BOOL tabbarStatus;
 }
 @property (nonatomic) NSInteger pageIndex;
 @property (nonatomic,retain) ALAssetsGroup *group;

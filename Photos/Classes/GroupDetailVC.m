@@ -24,8 +24,14 @@
     self = [super initWithCollectionViewLayout:layout];
     if (self) {
         [self configModel];
+
     }
     return self;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
 }
 - (void)viewDidLoad
 {
@@ -75,7 +81,7 @@
     self.navigationController.delegate = self;
     imageMode = ImageModeSmall;
     [self.collectionView registerClass:[ImageCell class] forCellWithReuseIdentifier:@"ImageCell"];
-    
+    self.collectionView.backgroundColor = [UIColor whiteColor];
     
     self.title = [_group valueForProperty:ALAssetsGroupPropertyName];
 }
@@ -101,6 +107,17 @@
 }
 
 #pragma mark - UINavigationControllerDelegate
+
+
+/*
+- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    
+}
+ 
+ */
+
+
 - (id <UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController
                           interactionControllerForAnimationController:(id <UIViewControllerAnimatedTransitioning>) animationController
 {

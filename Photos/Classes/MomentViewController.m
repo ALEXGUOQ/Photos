@@ -18,6 +18,7 @@
     self = [super initWithCollectionViewLayout:layout];
     if (self) {
         self.title = NSLocalizedString(@"Moments", nil);
+        
     }
     return self;
     
@@ -57,7 +58,6 @@
     if (editing) {
         sender.title = NSLocalizedString(@"Select", nil);
 
-        
     }else
     {
         sender.title = NSLocalizedString(@"Deselect", nil);
@@ -67,6 +67,11 @@
     
     editing = !editing;
 }
+
+#pragma mark - UICollectionViewDelegate
+
+
+#pragma mark - UICollectionViewDataSource
 
 /*
 #pragma mark - Navigation

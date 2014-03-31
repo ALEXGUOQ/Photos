@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		65A1D28B18D7E55700CDF709 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65A1D28A18D7E55700CDF709 /* Main_iPad.storyboard */; };
 		65B3B61D18D99D4600417292 /* AlbumsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B3B60F18D99D4600417292 /* AlbumsVC.m */; };
 		65B3B61E18D99D4600417292 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B3B61118D99D4600417292 /* ImageCell.m */; };
 		65B3B61F18D99D4600417292 /* Layouts.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B3B61318D99D4600417292 /* Layouts.m */; };
@@ -15,7 +14,6 @@
 		65B3B62118D99D4600417292 /* PhotoTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B3B61718D99D4600417292 /* PhotoTabbar.m */; };
 		65B3B62218D99D4600417292 /* SharedVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B3B61918D99D4600417292 /* SharedVC.m */; };
 		65B3B62318D99D4600417292 /* ToolKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B3B61B18D99D4600417292 /* ToolKit.m */; };
-		65B3B62B18D99E8900417292 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65B3B62A18D99E8900417292 /* Main.storyboard */; };
 		65B3B62E18D9A06600417292 /* ImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B3B62D18D9A06600417292 /* ImageTableViewCell.m */; };
 		65D028DE18D6FDF300F09F16 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D028DD18D6FDF300F09F16 /* Foundation.framework */; };
 		65D028E018D6FDF300F09F16 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D028DF18D6FDF300F09F16 /* CoreGraphics.framework */; };
@@ -54,7 +52,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		65A1D28A18D7E55700CDF709 /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main_iPad.storyboard; path = ../Main_iPad.storyboard; sourceTree = "<group>"; };
 		65B3B60E18D99D4600417292 /* AlbumsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumsVC.h; sourceTree = "<group>"; };
 		65B3B60F18D99D4600417292 /* AlbumsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumsVC.m; sourceTree = "<group>"; };
 		65B3B61018D99D4600417292 /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = "<group>"; };
@@ -70,7 +67,6 @@
 		65B3B61A18D99D4600417292 /* ToolKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolKit.h; sourceTree = "<group>"; };
 		65B3B61B18D99D4600417292 /* ToolKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolKit.m; sourceTree = "<group>"; };
 		65B3B62718D99DBB00417292 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
-		65B3B62A18D99E8900417292 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Photos/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		65B3B62C18D9A06600417292 /* ImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTableViewCell.h; sourceTree = "<group>"; };
 		65B3B62D18D9A06600417292 /* ImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTableViewCell.m; sourceTree = "<group>"; };
 		65D028DA18D6FDF300F09F16 /* Photos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photos.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,9 +155,7 @@
 				E4FA934B18E5C7FF0067FD11 /* Settings.bundle */,
 				E4FA934118E5BBCE0067FD11 /* Photos-Info.plist */,
 				E4FA932418E5B6EA0067FD11 /* Images.xcassets */,
-				65B3B62A18D99E8900417292 /* Main.storyboard */,
 				65B3B62718D99DBB00417292 /* test.png */,
-				65A1D28A18D7E55700CDF709 /* Main_iPad.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -403,9 +397,7 @@
 			files = (
 				E4FA932518E5B6EA0067FD11 /* Images.xcassets in Resources */,
 				E4FA939718E5C9540067FD11 /* InfoPlist.strings in Resources */,
-				65B3B62B18D99E8900417292 /* Main.storyboard in Resources */,
 				E4FA939818E5C9540067FD11 /* Localizable.strings in Resources */,
-				65A1D28B18D7E55700CDF709 /* Main_iPad.storyboard in Resources */,
 				E4FA934C18E5C7FF0067FD11 /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
