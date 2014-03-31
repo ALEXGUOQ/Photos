@@ -7,7 +7,11 @@
 //
 #import "ToolKit.h"
 #import "PhotoTabbar.h"
-
+#import "PhotosVC.h"
+#import "SharedVC.h"
+#import "AlbumsVC.h"
+#import "Layouts.h"
+#import "AppData.h"
 @interface PhotoTabbar ()
 
 @end
@@ -19,6 +23,23 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        NSMutableArray *vcs = [[NSMutableArray alloc] init];
+        
+        PhotosVC *vc = [[PhotosVC alloc] initWithCollectionViewLayout:[Layouts flowLayoutYear]];
+        UINavigationController *navi1 = [[UINavigationController alloc] initWithRootViewController:vc];
+        [vcs addObject:navi1];
+         if ([AppData sharedAppData].hasSharedVC) {
+             SharedVC *shared = [[SharedVC alloc] init];
+             UINavigationController *navi2 = [[UINavigationController alloc] initWithRootViewController:shared];
+             [vcs addObject:navi2];
+         }
+        
+        AlbumsVC *album = [[AlbumsVC alloc]init];
+        UINavigationController *navi3 = [[UINavigationController alloc] initWithRootViewController:album];
+        
+        [vcs addObject:navi3];
+        [self setViewControllers:vcs];
+        
     }
     return self;
 }
@@ -27,7 +48,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+ 
 
 }
 

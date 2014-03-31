@@ -8,12 +8,21 @@
 #import "ToolKit.h"
 #import "AppDelegate.h"
 #import "AppData.h"
+
+#import "PhotoTabbar.h"
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    self.window  =[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
     [[AppData sharedAppData] loadSettingBundleData];
-    // Override point for customization after application launch.
+    
+    PhotoTabbar *tabbar = [[PhotoTabbar alloc] init];
+    self.window.rootViewController = tabbar;
+    
     return YES;
 }
 							

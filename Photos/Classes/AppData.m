@@ -26,18 +26,7 @@ static AppData *sharedAppData = nil;
     
     NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
     
-    BOOL name=[[defaults objectForKey:@"enabled_preference"] boolValue];
-    if (name) {
-        NSLog(@"yes");
-    }else
-    {
-        NSLog(@"no");
-    }
-//    NSLog(@"=======%@",name);
-    return;
-    NSBundle *bundle = [NSBundle bundleWithPath:NSHomeDirectory()];
-    NSString *path = [bundle pathForResource:@"Root" ofType:@"plist"];
-    NSDictionary *settingsDict = [NSDictionary dictionaryWithContentsOfFile:path];
-    NSLog(@"%@",settingsDict);
+    BOOL hasPhotoStream = [[defaults objectForKey:@"enabled_preference"] boolValue];
+    self.hasSharedVC = hasPhotoStream;
 }
 @end
