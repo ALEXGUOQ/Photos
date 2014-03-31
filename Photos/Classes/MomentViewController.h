@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MomentViewController : UICollectionViewController
-
+{
+    BOOL editing;
+}
 @end

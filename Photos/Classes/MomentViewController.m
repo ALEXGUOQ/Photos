@@ -35,12 +35,37 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Select", nil) style:UIBarButtonItemStylePlain target:self action:@selector(selectButtonPressed:)];
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Model
+-(void)configModel
+{
+    editing = NO;
+}
+
+#pragma mark - Control
+-(void)selectButtonPressed:(UIBarButtonItem*)sender
+{
+    if (editing) {
+        sender.title = NSLocalizedString(@"Select", nil);
+
+        
+    }else
+    {
+        sender.title = NSLocalizedString(@"Deselect", nil);
+        
+        
+    }
+    
+    editing = !editing;
 }
 
 /*

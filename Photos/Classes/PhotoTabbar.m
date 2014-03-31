@@ -57,11 +57,14 @@
     [super viewWillAppear:animated];
     NSMutableArray *array = [NSMutableArray new];
     [array addObject:@"Photos"];
+    if ([AppData sharedAppData].hasSharedVC) {
     [array addObject:@"Shared"];
+    }
     [array addObject:@"Albums"];
     //    arrayWithObjects:@"Photos","Shared",@"Albums",nil
     for (int i=0;i<[self.tabBar.items count];i++) {
         UITabBarItem *item = self.tabBar.items[i];
+        item.image = [UIImage imageNamed:@"first"];
         item.title = NSLocalizedString(array[i], nil);
     }
 }
