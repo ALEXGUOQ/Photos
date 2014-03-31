@@ -7,12 +7,12 @@
 //
 #import "ToolKit.h"
 #import "AppDelegate.h"
-
+#import "AppData.h"
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-
+    [[AppData sharedAppData] loadSettingBundleData];
     // Override point for customization after application launch.
     return YES;
 }

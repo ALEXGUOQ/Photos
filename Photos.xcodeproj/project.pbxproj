@@ -27,6 +27,7 @@
 		65D0290218D6FDF300F09F16 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D028E118D6FDF300F09F16 /* UIKit.framework */; };
 		65D0290C18D6FDF300F09F16 /* PhotosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D0290B18D6FDF300F09F16 /* PhotosTests.m */; };
 		65D0292318D704DF00F09F16 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D0292218D704DF00F09F16 /* AssetsLibrary.framework */; };
+		65F0B20E18E9612E0091B0EE /* AppData.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F0B20D18E9612E0091B0EE /* AppData.m */; };
 		E449C40318DE68630008F0FE /* FullScreenCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E449C40218DE68630008F0FE /* FullScreenCollectionVC.m */; };
 		E453A1D618DC8DFD00CDCE79 /* GroupDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E453A1D518DC8DFD00CDCE79 /* GroupDetailVC.m */; };
 		E484E0F518DD283800D71AF2 /* SWTTransitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = E484E0F418DD283800D71AF2 /* SWTTransitionController.m */; };
@@ -85,6 +86,8 @@
 		65D0290718D6FDF300F09F16 /* PhotosTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PhotosTests-Info.plist"; sourceTree = "<group>"; };
 		65D0290B18D6FDF300F09F16 /* PhotosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotosTests.m; sourceTree = "<group>"; };
 		65D0292218D704DF00F09F16 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		65F0B20C18E9612E0091B0EE /* AppData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppData.h; sourceTree = "<group>"; };
+		65F0B20D18E9612E0091B0EE /* AppData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppData.m; sourceTree = "<group>"; };
 		E449C40118DE68630008F0FE /* FullScreenCollectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullScreenCollectionVC.h; sourceTree = "<group>"; };
 		E449C40218DE68630008F0FE /* FullScreenCollectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullScreenCollectionVC.m; sourceTree = "<group>"; };
 		E453A1D418DC8DFD00CDCE79 /* GroupDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupDetailVC.h; sourceTree = "<group>"; };
@@ -184,6 +187,8 @@
 				65B3B61318D99D4600417292 /* Layouts.m */,
 				E484E0F618DD291100D71AF2 /* SWTTransitionLayout.h */,
 				E484E0F718DD291100D71AF2 /* SWTTransitionLayout.m */,
+				65F0B20C18E9612E0091B0EE /* AppData.h */,
+				65F0B20D18E9612E0091B0EE /* AppData.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -438,6 +443,7 @@
 				65B3B62E18D9A06600417292 /* ImageTableViewCell.m in Sources */,
 				65B3B61D18D99D4600417292 /* AlbumsVC.m in Sources */,
 				65D028EA18D6FDF300F09F16 /* main.m in Sources */,
+				65F0B20E18E9612E0091B0EE /* AppData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

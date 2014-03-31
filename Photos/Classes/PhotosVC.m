@@ -317,25 +317,6 @@
         
     }];
     [self.navigationController pushViewController:vc animated:YES];
-    return;
-    
-    
-    if (collectionMode == CollectionModeYear) {
-//        年度    从年度应该走到精选
-        ALAsset *asset = yearsArray[indexPath.section][indexPath.row];
-        for (int i=0; i<[yearsArray count]; i++) {
-            NSArray *collections = yearsArray[i];
-            for (int j=0; j<[collections count]; j++) {
-                ALAsset *tmp = collections[j];
-                if ([tmp isEqual:asset]) {
-//                    找到了
-                    
-                    
-                }
-            }
-        }
-        
-    }
 }
 - (UICollectionViewTransitionLayout *)collectionView:(UICollectionView *)collectionView transitionLayoutForOldLayout:(UICollectionViewLayout *)fromLayout newLayout:(UICollectionViewLayout *)toLayout
 {
