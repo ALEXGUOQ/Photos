@@ -10,6 +10,7 @@
 #import "ImageTableViewCell.h"
 #import "GroupDetailVC.h"
 #import "Layouts.h"
+#import "FullScreenCollectionVC.h"
 @interface AlbumsVC ()
 
 @end
@@ -21,6 +22,7 @@
     if (self) {
         [self configModel];
         [self configView];
+        
     }
     return self;
 }
@@ -37,7 +39,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
+    self.navigationController.delegate = self;
 
 }
 -(void)viewWillAppear:(BOOL)animated
@@ -214,7 +216,14 @@
 
 
 #pragma mark - UINavigationControllerDelegate
+- (id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+                                   animationControllerForOperation:(UINavigationControllerOperation)operation
+                                                fromViewController:(UIViewController *)fromVC
+                                                  toViewController:(UIViewController *)toVC
+{
 
+    return nil;
+}
 
 #pragma mark - UIAlertViewDelegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

@@ -11,7 +11,6 @@
 
 
 @interface SWTTransitionController : NSObject <UIViewControllerAnimatedTransitioning,UIViewControllerInteractiveTransitioning>
-@property (nonatomic) BOOL isPushing;
 @property (nonatomic) CGRect animationRect;
 
 

@@ -36,7 +36,7 @@
         
         AlbumsVC *album = [[AlbumsVC alloc]init];
         UINavigationController *navi3 = [[UINavigationController alloc] initWithRootViewController:album];
-        
+        album.navigationController.delegate = album;
         [vcs addObject:navi3];
         [self setViewControllers:vcs];
         

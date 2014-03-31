@@ -13,7 +13,7 @@ typedef NS_ENUM(NSInteger, ImageMode) {
     ImageModeSmall,         // slow at beginning and end
     ImageModeBig
 };
-@interface GroupDetailVC : UICollectionViewController <UICollectionViewDataSource,UICollectionViewDelegate,UINavigationControllerDelegate>
+@interface GroupDetailVC : UICollectionViewController <UICollectionViewDataSource,UICollectionViewDelegate>
 {
     ImageMode imageMode;
     
@@ -23,5 +23,6 @@ typedef NS_ENUM(NSInteger, ImageMode) {
     
 //    CGRect animationFrame;
 }
+@property (nonatomic) CGRect pressRect;
 @property (nonatomic,retain) ALAssetsGroup *group;
 @end

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <AssetsLibrary/AssetsLibrary.h>
-
+#import "SWTTransitionController.h"
 @interface AlbumsVC : UIViewController <UITableViewDataSource,UITableViewDelegate,UINavigationControllerDelegate>
 {
     

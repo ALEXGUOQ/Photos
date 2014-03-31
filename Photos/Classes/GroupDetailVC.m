@@ -24,7 +24,7 @@
     self = [super initWithCollectionViewLayout:layout];
     if (self) {
         [self configModel];
-
+        
     }
     return self;
 }
@@ -78,7 +78,7 @@
 #pragma mark - View
 -(void)configView
 {
-    self.navigationController.delegate = self;
+
     imageMode = ImageModeSmall;
     [self.collectionView registerClass:[ImageCell class] forCellWithReuseIdentifier:@"ImageCell"];
     self.collectionView.backgroundColor = [UIColor whiteColor];
@@ -106,65 +106,17 @@
     }
 }
 
-#pragma mark - UINavigationControllerDelegate
 
-
-/*
-- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
-{
-    
-}
- 
- */
-
-
-- (id <UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController
-                          interactionControllerForAnimationController:(id <UIViewControllerAnimatedTransitioning>) animationController
-{
-    return nil;
-}
-- (id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
-                                   animationControllerForOperation:(UINavigationControllerOperation)operation
-                                                fromViewController:(UIViewController *)fromVC
-                                                  toViewController:(UIViewController *)toVC
-{
-    
-//    UIViewControllerAnimatedTransitioning
-    if ([fromVC isKindOfClass:[GroupDetailVC class]] && [toVC isKindOfClass:[FullScreenCollectionVC class ]]) {
-        self.transitionController.isPushing = YES;
-        return self.transitionController;
-    }
-    
-    if ([fromVC isKindOfClass:[FullScreenCollectionVC class]] && [toVC isKindOfClass:[GroupDetailVC class]]) {
-        self.transitionController.isPushing = NO;
-        return self.transitionController;
-    }
-    
-    
-    if ([fromVC isEqual:self] && [toVC isKindOfClass:[AlbumsVC class]]) {
-        self.navigationController.delegate = nil;
-    }
-    
-    return nil;
-}
- 
 #pragma mark - UICollectionViewDelegate
-- (UICollectionViewTransitionLayout *)collectionView:(UICollectionView *)collectionView transitionLayoutForOldLayout:(UICollectionViewLayout *)fromLayout newLayout:(UICollectionViewLayout *)toLayout
-{
-    SWTTransitionLayout *layout = [[SWTTransitionLayout alloc] initWithCurrentLayout:fromLayout nextLayout:toLayout];
-    return layout;
-}
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-//    animationFrame = [collectionView convertRect:cell.frame toView:self.view];
-    self.transitionController.animationRect = [collectionView convertRect:cell.frame toView:self.view];
     
+    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    self.pressRect = [collectionView convertRect:cell.frame toView:self.view];
     
     FullScreenCollectionVC *full = [[FullScreenCollectionVC alloc] initWithCollectionViewLayout:[Layouts flowLayoutFullScreen]];
-    full.group = self.group;
-    full.pageIndex = indexPath.row;
+    full.useLayoutToLayoutNavigationTransitions = YES;
     
     [self.navigationController pushViewController:full animated:YES];
 //    [self transitionToMode:ImageModeBig];

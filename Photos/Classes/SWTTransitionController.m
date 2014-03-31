@@ -9,6 +9,9 @@
 #import "SWTTransitionController.h"
 #import "SWTTransitionLayout.h"
 #import "ToolKit.h"
+#import "FullScreenCollectionVC.h"
+#import "GroupDetailVC.h"
+
 @interface SWTTransitionController()
 
 
@@ -38,13 +41,15 @@
     to.frame = container.bounds;
     from.frame = container.bounds;
     
-    
-//    [container bringSubviewToFront:to];
+    BOOL isPushing = NO;
+    if ([toController isKindOfClass:[FullScreenCollectionVC class]]) {
+        isPushing = YES;
+    }
     [container addSubview:to];
-    if (self.isPushing) {
+    if (isPushing) {
         
-        to.frame = self.animationRect;
-//        to.frame = CGRectZero;
+        to.frame = ((GroupDetailVC*)fromController).pressRect;
+        
         
         [UIView animateWithDuration:kanimateTime delay:0 usingSpringWithDamping:15 initialSpringVelocity:0.7 options:UIViewAnimationOptionLayoutSubviews animations:^{
             to.frame = CGRectMake(0, 0, 320, screenHeight);
@@ -71,26 +76,8 @@
             {
             [transitionContext completeTransition:finished];
             }
-            
         }];
-        
-
     }
-    
-    
-    
-    
-    
-}
-
-#pragma mark - UIViewControllerInteractiveTransitioning
-- (void)startInteractiveTransition:(id <UIViewControllerContextTransitioning>)transitionContext
-{
-    /*
-    UICollectionViewController* fromCollectionViewController = (UICollectionViewController*)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    UICollectionViewController* toCollectionViewController   = (UICollectionViewController*)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    */
-    
 }
 
 @end
