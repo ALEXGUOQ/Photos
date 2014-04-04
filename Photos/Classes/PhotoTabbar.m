@@ -12,6 +12,8 @@
 #import "AlbumsVC.h"
 #import "Layouts.h"
 #import "AppData.h"
+#import "CollectionViewController.h"
+#import "MomentViewController.h"
 @interface PhotoTabbar ()
 
 @end
@@ -26,7 +28,14 @@
         NSMutableArray *vcs = [[NSMutableArray alloc] init];
         
         PhotosVC *vc = [[PhotosVC alloc] initWithCollectionViewLayout:[Layouts flowLayoutYear]];
-        UINavigationController *navi1 = [[UINavigationController alloc] initWithRootViewController:vc];
+        CollectionViewController *collectionVC = [[CollectionViewController alloc] initWithCollectionViewLayout:[Layouts flowLayoutCollections]];
+        collectionVC.title = NSLocalizedString(@"Collections", nil);
+        collectionVC.useLayoutToLayoutNavigationTransitions = YES;
+        MomentViewController *momentVC = [[MomentViewController alloc] initWithCollectionViewLayout:[Layouts flowLayoutMoments]];
+        momentVC.useLayoutToLayoutNavigationTransitions = YES;
+        
+        UINavigationController *navi1 = [[UINavigationController alloc] init];
+        [navi1 setViewControllers:@[vc,collectionVC,momentVC] animated:YES];
         [vcs addObject:navi1];
          if ([AppData sharedAppData].hasSharedVC) {
              SharedVC *shared = [[SharedVC alloc] init];

@@ -69,7 +69,10 @@
 }
 
 #pragma mark - UICollectionViewDelegate
-
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
 
 #pragma mark - UICollectionViewDataSource
 

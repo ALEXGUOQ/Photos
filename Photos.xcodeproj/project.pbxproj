@@ -366,6 +366,17 @@
 				TargetAttributes = {
 					65D028D918D6FDF300F09F16 = {
 						DevelopmentTeam = 6L5VW84399;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.DataProtection = {
+								enabled = 0;
+							};
+							com.apple.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 					65D028FD18D6FDF300F09F16 = {
 						TestTargetID = 65D028D918D6FDF300F09F16;
