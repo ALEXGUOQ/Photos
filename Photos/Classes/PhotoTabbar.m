@@ -36,6 +36,7 @@
         
         UINavigationController *navi1 = [[UINavigationController alloc] init];
         [navi1 setViewControllers:@[vc,collectionVC,momentVC] animated:YES];
+        navi1.delegate = vc;
         [vcs addObject:navi1];
          if ([AppData sharedAppData].hasSharedVC) {
              SharedVC *shared = [[SharedVC alloc] init];

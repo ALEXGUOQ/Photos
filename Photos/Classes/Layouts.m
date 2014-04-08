@@ -22,11 +22,13 @@
 
 +(UICollectionViewFlowLayout*)flowLayoutFullScreen
 {
+    
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    layout.itemSize = CGSizeMake(320, 320);
-    layout.minimumInteritemSpacing = 0;
-    layout.minimumLineSpacing = 0;
+    layout.itemSize = CGSizeMake(320, [ToolKit screenHeight]);
+//    layout.minimumInteritemSpacing = 0;
+    layout.minimumLineSpacing = 40;
+    layout.footerReferenceSize = CGSizeMake(40, [ToolKit screenHeight]);
     return layout;
 }
 

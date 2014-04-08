@@ -33,6 +33,12 @@
      [self.collectionView registerClass:[ImageCell class] forCellWithReuseIdentifier:@"ImageCell"];
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

@@ -7,6 +7,9 @@
 //
 
 #import "MomentViewController.h"
+#import "FullScreenCollectionVC.h"
+#import "Layouts.h"
+
 
 @interface MomentViewController ()
 
@@ -38,6 +41,14 @@
     // Do any additional setup after loading the view.
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Select", nil) style:UIBarButtonItemStylePlain target:self action:@selector(selectButtonPressed:)];
     
+    
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    self.collectionView.pagingEnabled = NO;
+    self.collectionView.alwaysBounceVertical = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,7 +82,9 @@
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    FullScreenCollectionVC *full = [[FullScreenCollectionVC alloc] initWithCollectionViewLayout:[Layouts flowLayoutFullScreen]];
+    full.useLayoutToLayoutNavigationTransitions = YES;
+    [self.navigationController pushViewController:full animated:YES];
 }
 
 #pragma mark - UICollectionViewDataSource

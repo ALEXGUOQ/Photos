@@ -9,6 +9,10 @@
 #import "PhotosVC.h"
 #import "MapViewController.h"
 #import "CollectionViewController.h"
+#import "FullScreenCollectionVC.h"
+#import "MomentViewController.h"
+
+
 @interface PhotosVC ()
 
 @end
@@ -76,6 +80,7 @@
     collectionsArray = [[NSMutableArray alloc] init];
     momentsArray = [[NSMutableArray alloc] init];
     collectionMode = CollectionModeYear;
+    
 }
 
 -(void)loadData
@@ -246,13 +251,21 @@
     [self.collectionView registerClass:[YearHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"YearHeader"];
     
     [self.view addSubview:self.collectionView];
+    
+
+
 //    self.collectionView.delegate = self;
 //    [self.collectionView setCollectionViewLayout:[Layouts flowLayoutYear]];
     
 }
 
 #pragma mark - UINavigationControllerDelegate
-
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    if ([viewController isKindOfClass:[FullScreenCollectionVC class]]) {
+        collectionMode = CollectionModeFullScreen;
+    }
+}
 
 #pragma mark - YearHeaderDelegate
 -(void)yearHeaderPressed:(YearHeader*)header
@@ -293,6 +306,23 @@
 }
 
 #pragma mark - UICollectionViewDelegate
+- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (collectionMode) {
+        case CollectionModeFullScreen:
+        {
+            ALAsset *asset = yearsArray[indexPath.section][indexPath.row];
+            ImageCell *imagecell =  (ImageCell*)cell;
+            [imagecell loadWithFullScreen:asset];
+            
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
 - (void)collectionView:(UICollectionView *)collectionView didEndDisplayingSupplementaryView:(UICollectionReusableView *)view forElementOfKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath
 {
     if ([elementKind isEqualToString:UICollectionElementKindSectionHeader]) {
