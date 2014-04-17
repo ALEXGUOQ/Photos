@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		65B3B61D18D99D4600417292 /* AlbumsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B3B60F18D99D4600417292 /* AlbumsVC.m */; };
 		65B3B61E18D99D4600417292 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B3B61118D99D4600417292 /* ImageCell.m */; };
-		65B3B61F18D99D4600417292 /* Layouts.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B3B61318D99D4600417292 /* Layouts.m */; };
 		65B3B62018D99D4600417292 /* PhotosVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B3B61518D99D4600417292 /* PhotosVC.m */; };
 		65B3B62118D99D4600417292 /* PhotoTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B3B61718D99D4600417292 /* PhotoTabbar.m */; };
 		65B3B62218D99D4600417292 /* SharedVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B3B61918D99D4600417292 /* SharedVC.m */; };
@@ -56,8 +55,6 @@
 		65B3B60F18D99D4600417292 /* AlbumsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumsVC.m; sourceTree = "<group>"; };
 		65B3B61018D99D4600417292 /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = "<group>"; };
 		65B3B61118D99D4600417292 /* ImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCell.m; sourceTree = "<group>"; };
-		65B3B61218D99D4600417292 /* Layouts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Layouts.h; sourceTree = "<group>"; };
-		65B3B61318D99D4600417292 /* Layouts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Layouts.m; sourceTree = "<group>"; };
 		65B3B61418D99D4600417292 /* PhotosVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosVC.h; sourceTree = "<group>"; };
 		65B3B61518D99D4600417292 /* PhotosVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosVC.m; sourceTree = "<group>"; };
 		65B3B61618D99D4600417292 /* PhotoTabbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoTabbar.h; sourceTree = "<group>"; };
@@ -177,8 +174,6 @@
 			children = (
 				65B3B61A18D99D4600417292 /* ToolKit.h */,
 				65B3B61B18D99D4600417292 /* ToolKit.m */,
-				65B3B61218D99D4600417292 /* Layouts.h */,
-				65B3B61318D99D4600417292 /* Layouts.m */,
 				E484E0F618DD291100D71AF2 /* SWTTransitionLayout.h */,
 				E484E0F718DD291100D71AF2 /* SWTTransitionLayout.m */,
 				65F0B20C18E9612E0091B0EE /* AppData.h */,
@@ -432,7 +427,6 @@
 			files = (
 				65B3B62118D99D4600417292 /* PhotoTabbar.m in Sources */,
 				E449C40318DE68630008F0FE /* FullScreenCollectionVC.m in Sources */,
-				65B3B61F18D99D4600417292 /* Layouts.m in Sources */,
 				E484E0F518DD283800D71AF2 /* SWTTransitionController.m in Sources */,
 				65B3B62018D99D4600417292 /* PhotosVC.m in Sources */,
 				65D028EE18D6FDF300F09F16 /* AppDelegate.m in Sources */,

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@import CoreLocation;
 typedef NS_ENUM(NSInteger, CollectionMode) {
     CollectionModeYear,                 // 年
     CollectionModeCollection,           // 精选
