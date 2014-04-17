@@ -333,7 +333,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    UICollectionViewFlowLayout *layout = [Layouts flowLayoutCollections];
+    UICollectionViewFlowLayout *layout = [ToolKit flowLayoutCollections];
     //                    collectionMode = CollectionModeCollection;
     
     CollectionViewController *vc = [[CollectionViewController alloc] initWithCollectionViewLayout:layout];

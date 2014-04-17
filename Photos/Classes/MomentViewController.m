@@ -8,7 +8,6 @@
 
 #import "MomentViewController.h"
 #import "FullScreenCollectionVC.h"
-#import "Layouts.h"
 
 
 @interface MomentViewController ()
@@ -82,7 +81,7 @@
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    FullScreenCollectionVC *full = [[FullScreenCollectionVC alloc] initWithCollectionViewLayout:[Layouts flowLayoutFullScreen]];
+    FullScreenCollectionVC *full = [[FullScreenCollectionVC alloc] initWithCollectionViewLayout:[ToolKit flowLayoutFullScreen]];
     full.useLayoutToLayoutNavigationTransitions = YES;
     [self.navigationController pushViewController:full animated:YES];
 }

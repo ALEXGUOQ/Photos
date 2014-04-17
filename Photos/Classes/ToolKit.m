@@ -71,6 +71,11 @@ static ALAssetsLibrary *library;
 }
 
 
+
+
+#pragma mark - Layout
+
+//一行4个
 +(UICollectionViewFlowLayout*)flowLayoutFourEachLine
 {
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
@@ -81,7 +86,7 @@ static ALAssetsLibrary *library;
     return layout;
 }
 
-#pragma mark - Layout
+//全屏
 +(UICollectionViewFlowLayout*)flowLayoutFullScreen
 {
     

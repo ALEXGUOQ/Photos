@@ -10,7 +10,6 @@
 #import "ImageCell.h"
 #import "MomentViewController.h"
 #import "ToolKit.h"
-#import "Layouts.h"
 @interface CollectionViewController ()
 
 @end
@@ -47,7 +46,7 @@
 #pragma mark UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewFlowLayout *flow = [Layouts flowLayoutMoments];
+    UICollectionViewFlowLayout *flow = [ToolKit flowLayoutMoments];
     MomentViewController *vc = [[MomentViewController alloc] initWithCollectionViewLayout:flow];
     vc.useLayoutToLayoutNavigationTransitions = YES;
     [self.navigationController pushViewController:vc animated:YES];

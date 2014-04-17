@@ -10,7 +10,6 @@
 #import "PhotosVC.h"
 #import "SharedVC.h"
 #import "AlbumsVC.h"
-#import "Layouts.h"
 #import "AppData.h"
 #import "CollectionViewController.h"
 #import "MomentViewController.h"
@@ -27,11 +26,11 @@
         // Custom initialization
         NSMutableArray *vcs = [[NSMutableArray alloc] init];
         
-        PhotosVC *vc = [[PhotosVC alloc] initWithCollectionViewLayout:[Layouts flowLayoutYear]];
-        CollectionViewController *collectionVC = [[CollectionViewController alloc] initWithCollectionViewLayout:[Layouts flowLayoutCollections]];
+        PhotosVC *vc = [[PhotosVC alloc] initWithCollectionViewLayout:[ToolKit flowLayoutYear]];
+        CollectionViewController *collectionVC = [[CollectionViewController alloc] initWithCollectionViewLayout:[ToolKit flowLayoutCollections]];
         collectionVC.title = NSLocalizedString(@"Collections", nil);
         collectionVC.useLayoutToLayoutNavigationTransitions = YES;
-        MomentViewController *momentVC = [[MomentViewController alloc] initWithCollectionViewLayout:[Layouts flowLayoutMoments]];
+        MomentViewController *momentVC = [[MomentViewController alloc] initWithCollectionViewLayout:[ToolKit flowLayoutMoments]];
         momentVC.useLayoutToLayoutNavigationTransitions = YES;
         
         UINavigationController *navi1 = [[UINavigationController alloc] init];

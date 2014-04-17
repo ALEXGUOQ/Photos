@@ -27,6 +27,10 @@
 
 
 #pragma mark - Layout
+
++(UICollectionViewFlowLayout*)flowLayoutFourEachLine;
+
+
 //全屏
 +(UICollectionViewFlowLayout*)flowLayoutFullScreen;
 

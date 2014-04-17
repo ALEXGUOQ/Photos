@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <AssetsLibrary/AssetsLibrary.h>
-#import "Layouts.h"
 #import "ImageCell.h"
 #import "YearHeader.h"
 #import "SWTTransitionLayout.h"

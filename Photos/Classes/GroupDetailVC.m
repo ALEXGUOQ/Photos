@@ -7,7 +7,6 @@
 //
 
 #import "GroupDetailVC.h"
-#import "Layouts.h"
 #import "ImageCell.h"
 #import "SWTTransitionController.h"
 #import "FullScreenCollectionVC.h"
@@ -93,7 +92,7 @@
         
         
         
-            [self.collectionView setCollectionViewLayout:[Layouts flowLayoutFullScreen] animated:YES completion:^(BOOL finished) {
+            [self.collectionView setCollectionViewLayout:[ToolKit flowLayoutFullScreen] animated:YES completion:^(BOOL finished) {
                 if (finished) {
                     
                 }
@@ -115,7 +114,7 @@
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
     self.pressRect = [collectionView convertRect:cell.frame toView:self.view];
     
-    FullScreenCollectionVC *full = [[FullScreenCollectionVC alloc] initWithCollectionViewLayout:[Layouts flowLayoutFullScreen]];
+    FullScreenCollectionVC *full = [[FullScreenCollectionVC alloc] initWithCollectionViewLayout:[ToolKit flowLayoutFullScreen]];
     full.useLayoutToLayoutNavigationTransitions = YES;
     
     [self.navigationController pushViewController:full animated:YES];
