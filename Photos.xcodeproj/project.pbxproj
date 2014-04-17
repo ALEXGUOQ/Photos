@@ -15,6 +15,10 @@
 		65B3B62318D99D4600417292 /* ToolKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B3B61B18D99D4600417292 /* ToolKit.m */; };
 		65B3B62E18D9A06600417292 /* ImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B3B62D18D9A06600417292 /* ImageTableViewCell.m */; };
 		65CA7C5618FFB3E10089A417 /* WTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CA7C5518FFB3E10089A417 /* WTViewController.m */; };
+		65CA7C5C18FFB5CB0089A417 /* YearVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CA7C5B18FFB5CB0089A417 /* YearVC.m */; };
+		65CA7C5F18FFB5D60089A417 /* CollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CA7C5E18FFB5D60089A417 /* CollectionVC.m */; };
+		65CA7C6218FFB5E20089A417 /* MomentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CA7C6118FFB5E20089A417 /* MomentVC.m */; };
+		65CA7C6518FFB5FA0089A417 /* FullScreenVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CA7C6418FFB5FA0089A417 /* FullScreenVC.m */; };
 		65D028DE18D6FDF300F09F16 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D028DD18D6FDF300F09F16 /* Foundation.framework */; };
 		65D028E018D6FDF300F09F16 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D028DF18D6FDF300F09F16 /* CoreGraphics.framework */; };
 		65D028E218D6FDF300F09F16 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D028E118D6FDF300F09F16 /* UIKit.framework */; };
@@ -69,6 +73,14 @@
 		65B3B62D18D9A06600417292 /* ImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTableViewCell.m; sourceTree = "<group>"; };
 		65CA7C5418FFB3E10089A417 /* WTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTViewController.h; sourceTree = "<group>"; };
 		65CA7C5518FFB3E10089A417 /* WTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTViewController.m; sourceTree = "<group>"; };
+		65CA7C5A18FFB5CB0089A417 /* YearVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YearVC.h; sourceTree = "<group>"; };
+		65CA7C5B18FFB5CB0089A417 /* YearVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YearVC.m; sourceTree = "<group>"; };
+		65CA7C5D18FFB5D60089A417 /* CollectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionVC.h; sourceTree = "<group>"; };
+		65CA7C5E18FFB5D60089A417 /* CollectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionVC.m; sourceTree = "<group>"; };
+		65CA7C6018FFB5E20089A417 /* MomentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentVC.h; sourceTree = "<group>"; };
+		65CA7C6118FFB5E20089A417 /* MomentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentVC.m; sourceTree = "<group>"; };
+		65CA7C6318FFB5FA0089A417 /* FullScreenVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullScreenVC.h; sourceTree = "<group>"; };
+		65CA7C6418FFB5FA0089A417 /* FullScreenVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullScreenVC.m; sourceTree = "<group>"; };
 		65D028DA18D6FDF300F09F16 /* Photos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65D028DD18D6FDF300F09F16 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		65D028DF18D6FDF300F09F16 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -194,6 +206,8 @@
 				65B3B61118D99D4600417292 /* ImageCell.m */,
 				E4AC41AF18DEEAFB005EC652 /* FullScreenCell.h */,
 				E4AC41B018DEEAFB005EC652 /* FullScreenCell.m */,
+				E4FA933518E5B9040067FD11 /* YearHeader.h */,
+				E4FA933618E5B9040067FD11 /* YearHeader.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -274,8 +288,6 @@
 				65B3B60F18D99D4600417292 /* AlbumsVC.m */,
 				E453A1D418DC8DFD00CDCE79 /* GroupDetailVC.h */,
 				E453A1D518DC8DFD00CDCE79 /* GroupDetailVC.m */,
-				E449C40118DE68630008F0FE /* FullScreenCollectionVC.h */,
-				E449C40218DE68630008F0FE /* FullScreenCollectionVC.m */,
 			);
 			name = "相簿";
 			sourceTree = "<group>";
@@ -287,14 +299,22 @@
 				65CA7C5518FFB3E10089A417 /* WTViewController.m */,
 				E4FA933318E5B9040067FD11 /* MapViewController.h */,
 				E4FA933418E5B9040067FD11 /* MapViewController.m */,
-				E4FA933518E5B9040067FD11 /* YearHeader.h */,
-				E4FA933618E5B9040067FD11 /* YearHeader.m */,
 				65B3B61418D99D4600417292 /* PhotosVC.h */,
 				65B3B61518D99D4600417292 /* PhotosVC.m */,
 				E49E232718E7B6B3000457C1 /* CollectionViewController.h */,
 				E49E232818E7B6B3000457C1 /* CollectionViewController.m */,
 				E49E232A18E7C66A000457C1 /* MomentViewController.h */,
 				E49E232B18E7C66A000457C1 /* MomentViewController.m */,
+				E449C40118DE68630008F0FE /* FullScreenCollectionVC.h */,
+				E449C40218DE68630008F0FE /* FullScreenCollectionVC.m */,
+				65CA7C5A18FFB5CB0089A417 /* YearVC.h */,
+				65CA7C5B18FFB5CB0089A417 /* YearVC.m */,
+				65CA7C5D18FFB5D60089A417 /* CollectionVC.h */,
+				65CA7C5E18FFB5D60089A417 /* CollectionVC.m */,
+				65CA7C6018FFB5E20089A417 /* MomentVC.h */,
+				65CA7C6118FFB5E20089A417 /* MomentVC.m */,
+				65CA7C6318FFB5FA0089A417 /* FullScreenVC.h */,
+				65CA7C6418FFB5FA0089A417 /* FullScreenVC.m */,
 			);
 			name = "照片";
 			sourceTree = "<group>";
@@ -430,6 +450,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65CA7C5C18FFB5CB0089A417 /* YearVC.m in Sources */,
 				65B3B62118D99D4600417292 /* PhotoTabbar.m in Sources */,
 				E449C40318DE68630008F0FE /* FullScreenCollectionVC.m in Sources */,
 				E484E0F518DD283800D71AF2 /* SWTTransitionController.m in Sources */,
@@ -437,10 +458,12 @@
 				65D028EE18D6FDF300F09F16 /* AppDelegate.m in Sources */,
 				65B3B61E18D99D4600417292 /* ImageCell.m in Sources */,
 				65B3B62218D99D4600417292 /* SharedVC.m in Sources */,
+				65CA7C5F18FFB5D60089A417 /* CollectionVC.m in Sources */,
 				E49E232918E7B6B3000457C1 /* CollectionViewController.m in Sources */,
 				E484E0F818DD291100D71AF2 /* SWTTransitionLayout.m in Sources */,
 				65B3B62318D99D4600417292 /* ToolKit.m in Sources */,
 				E49E232C18E7C66A000457C1 /* MomentViewController.m in Sources */,
+				65CA7C6518FFB5FA0089A417 /* FullScreenVC.m in Sources */,
 				E4AC41B118DEEAFB005EC652 /* FullScreenCell.m in Sources */,
 				E4FA933718E5B9040067FD11 /* MapViewController.m in Sources */,
 				E4FA933818E5B9040067FD11 /* YearHeader.m in Sources */,
@@ -448,6 +471,7 @@
 				65B3B62E18D9A06600417292 /* ImageTableViewCell.m in Sources */,
 				65B3B61D18D99D4600417292 /* AlbumsVC.m in Sources */,
 				65D028EA18D6FDF300F09F16 /* main.m in Sources */,
+				65CA7C6218FFB5E20089A417 /* MomentVC.m in Sources */,
 				65F0B20E18E9612E0091B0EE /* AppData.m in Sources */,
 				65CA7C5618FFB3E10089A417 /* WTViewController.m in Sources */,
 			);

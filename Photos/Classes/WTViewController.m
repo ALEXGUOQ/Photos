@@ -8,12 +8,16 @@
 
 #import "WTViewController.h"
 #import "AppData.h"
+#import "ImageCell.h"
 @interface WTViewController ()
 
 @end
 
 @implementation WTViewController
-
++(NSString*)reuseId
+{
+    return @"reuseId";
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -21,6 +25,34 @@
         // Custom initialization
     }
     return self;
+}
+- (id)initWithCollectionViewLayout:(UICollectionViewLayout *)layout
+{
+    self = [super initWithCollectionViewLayout:layout];
+    if (self) {
+        [self.collectionView registerClass:[ImageCell class] forCellWithReuseIdentifier:[WTViewController reuseId]];
+        [self.collectionView setBackgroundColor:[UIColor redColor]];
+        
+        
+        
+        
+    }
+    return self;
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserverForName:AppDataRefreshDataNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
+//        UIViewController *top = self.navigationController.topViewController;
+        [self.collectionView reloadData];
+        //            [self.collectionViewLayout invalidateLayout];
+        //            [self.collectionView reloadData];
+    }];
+}
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:AppDataRefreshDataNotification object:nil];
 }
 
 - (void)viewDidLoad
@@ -40,14 +72,74 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     NSInteger number = 0;
+    AppData *data  =[AppData sharedAppData];
+    switch (data.collectionMode) {
+        case CollectionModeYear:
+        {
+            number = [data.allArray count];
+        }
+            break;
+            case CollectionModeCollection:
+        {
+            number = [data.allArray count];
+        }break;
+            case CollectionModeMoment:
+        {
+            number = [data.allArray count];
+        }break;
+            case CollectionModeFullScreen:
+        {
+            number = [data.allArray count];
+        }break;
+            
+        default:
+            break;
+    }
     return number;
     
 }
-
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    
+
+    
+    NSString *reuseId = [WTViewController reuseId];
+    ImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseId forIndexPath:indexPath];
+    
+    
+    AppData *data  =[AppData sharedAppData];
+    ALAsset *asset = nil;
+    asset = data.allArray[indexPath.row];
+    [cell loadWithALAsset:asset];
+    return cell;
+    switch (data.collectionMode) {
+        case CollectionModeYear:
+        {
+            asset = data.yearsArray[indexPath.section][indexPath.row];
+            [cell loadWithALAsset:asset];
+        }
+            break;
+        case CollectionModeCollection:
+        {
+            asset = data.collectionsArray[indexPath.section][indexPath.row];
+            [cell loadWithALAsset:asset];
+        }break;
+        case CollectionModeMoment:
+        {
+            asset = data.momentsArray[indexPath.section][indexPath.row];
+            [cell loadWithALAsset:asset];
+        }break;
+        case CollectionModeFullScreen:
+        {
+            asset = data.allArray[indexPath.row];
+            [cell loadWithFullScreen:asset];
+        }break;
+            
+        default:
+            break;
+    }
+    return cell;
 }
 /*
 #pragma mark - Navigation

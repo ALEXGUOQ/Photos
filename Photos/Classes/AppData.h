@@ -7,6 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+//const NSString *AppDataRefreshDataNotification = @"AppDataRefreshDataNotification";
+
+
 @import CoreLocation;
 typedef NS_ENUM(NSInteger, CollectionMode) {
     CollectionModeYear,                 // 年
@@ -16,7 +19,9 @@ typedef NS_ENUM(NSInteger, CollectionMode) {
 };
 
 @interface AppData : NSObject
-
+{
+//    UIApplication
+}
 
 +(instancetype)sharedAppData;
 
@@ -34,4 +39,15 @@ typedef NS_ENUM(NSInteger, CollectionMode) {
 @property (nonatomic,retain) NSMutableArray *momentsArray;
 
 @property (nonatomic,retain) NSMutableArray *allArray;
+
+
+
+
+#pragma mark - Notification
+
 @end
+
+//数据更新
+const NSString *AppDataRefreshDataNotification = @"AppDataRefreshDataNotification";
+
+#define AppDataRefreshDataNotification @"AppDataRefreshDataNotification"

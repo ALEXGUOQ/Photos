@@ -22,9 +22,12 @@ static AppData *sharedAppData = nil;
 {
     self = [super init];
     if (self) {
+        
+//        AppDataRefreshDataNotification = @"AppDataRefreshDataNotification";
+        
         _collectionMode = CollectionModeMoment;
         
-        
+//        UIApplication
         self.yearsArray = [[NSMutableArray alloc] init];
         self.collectionsArray = [[NSMutableArray alloc] init];
         self.momentsArray = [[NSMutableArray alloc] init];
@@ -115,10 +118,10 @@ static AppData *sharedAppData = nil;
             //  ------------------------------时刻------------------------------
             
             
+            [self.allArray addObjectsFromArray:allAssets];
             
             
-            
-            
+            [[NSNotificationCenter defaultCenter] postNotificationName:AppDataRefreshDataNotification object:nil];
 //            [self.collectionView reloadData];
         }
     } failureBlock:^(NSError *error) {
