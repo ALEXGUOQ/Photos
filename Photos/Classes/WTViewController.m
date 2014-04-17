@@ -42,7 +42,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.collectionViewLayout invalidateLayout];
+   
 }
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -53,6 +53,7 @@
         //            [self.collectionViewLayout invalidateLayout];
         //            [self.collectionView reloadData];
     }];
+    
 }
 -(void)viewWillDisappear:(BOOL)animated
 {
@@ -159,6 +160,7 @@
     switch (data.collectionMode) {
         case CollectionModeYear:
         {
+            
             asset = data.yearsArray[indexPath.section][indexPath.row];
             [cell loadWithALAsset:asset];
         }

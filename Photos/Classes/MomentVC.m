@@ -27,8 +27,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    UIViewController *con = self.navigationController.viewControllers[0];
-    self.navigationController.delegate = con;
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -36,7 +35,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+}
 /*
 #pragma mark - Navigation
 
