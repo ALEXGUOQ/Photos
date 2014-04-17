@@ -9,7 +9,8 @@
 #import "YearVC.h"
 #import "CollectionVC.h"
 #import "ToolKit.h"
-
+#import "AppData.h"
+#import "MomentVC.h"
 @interface YearVC ()
 
 @end
@@ -24,7 +25,11 @@
     }
     return self;
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -38,7 +43,22 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+#pragma mark - UINavigationControllerDelegate
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    AppData *data = [AppData sharedAppData];
+    
+    if ([viewController isKindOfClass:[self class]]) {
+        data.collectionMode = CollectionModeYear;
+    }
+    if ([viewController isKindOfClass:[CollectionVC class]]) {
+        data.collectionMode = CollectionModeCollection;
+    }
+    if ([viewController isKindOfClass:[MomentVC class]]) {
+        data.collectionMode = CollectionModeMoment;
+    }
+    
+}
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {

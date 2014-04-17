@@ -39,6 +39,11 @@
     }
     return self;
 }
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.collectionViewLayout invalidateLayout];
+}
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -69,6 +74,39 @@
 
 
 #pragma mark - UICollectionViewDataSource
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    NSInteger number = 0;
+    AppData *data  =[AppData sharedAppData];
+    switch (data.collectionMode) {
+        case CollectionModeYear:
+        {
+            number = [data.yearsArray count];
+        }
+            break;
+        case CollectionModeCollection:
+        {
+            number = [data.collectionsArray count];
+        }
+            break;
+        case CollectionModeMoment:
+        {
+            number = [data.momentsArray count];
+        }
+            break;
+        case CollectionModeFullScreen:
+        {
+            number = 1;
+        }
+            break;
+            
+        default:
+            break;
+    }
+    return number;
+    
+}
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     NSInteger number = 0;
@@ -76,17 +114,21 @@
     switch (data.collectionMode) {
         case CollectionModeYear:
         {
-            number = [data.allArray count];
+            number = [data.yearsArray[section] count];
         }
             break;
             case CollectionModeCollection:
         {
-            number = [data.allArray count];
-        }break;
+            NSArray *array = data.collectionsArray[section];
+            number = [array count];
+
+        }
+            break;
             case CollectionModeMoment:
         {
-            number = [data.allArray count];
-        }break;
+            number = [data.momentsArray[section] count];
+        }
+            break;
             case CollectionModeFullScreen:
         {
             number = [data.allArray count];
@@ -110,9 +152,10 @@
     
     AppData *data  =[AppData sharedAppData];
     ALAsset *asset = nil;
-    asset = data.allArray[indexPath.row];
-    [cell loadWithALAsset:asset];
-    return cell;
+    
+    
+//    asset = data.allArray[indexPath.row];
+//    [cell loadWithALAsset:asset];
     switch (data.collectionMode) {
         case CollectionModeYear:
         {

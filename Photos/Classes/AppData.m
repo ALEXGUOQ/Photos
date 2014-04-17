@@ -116,8 +116,33 @@ static AppData *sharedAppData = nil;
             
             
             //  ------------------------------时刻------------------------------
+            for (int i=0; i<[allAssets count]; i++) {
+                if ([_collectionsArray count]==0) {
+                    NSMutableArray *collect = [[NSMutableArray alloc] init];
+                    [_collectionsArray addObject:collect];
+                    [collect addObject:allAssets[0]];
+                }else
+                {
+                    NSMutableArray *array = [_collectionsArray lastObject];
+                    ALAsset *asset1 = [array lastObject];
+                    ALAsset *asset2 = allAssets[i];
+                    BOOL isInSameCollection = [self alasset:asset1 isInSameMomentWith:asset2];
+                    if (isInSameCollection) {
+                        [array addObject:asset2];
+                    }else
+                    {
+                        NSMutableArray *newCollection = [[NSMutableArray alloc] init];
+                        [newCollection addObject:asset2];
+                        [_momentsArray addObject:newCollection];
+                    }
+                }
+                
+            }
             
             
+            
+            
+            //  ------------------------------全部------------------------------
             [self.allArray addObjectsFromArray:allAssets];
             
             
@@ -155,6 +180,43 @@ static AppData *sharedAppData = nil;
         }else
         {
             if (timeDistance<3600*24*2) {
+                isInSameCollection = YES;
+            }
+        }
+        
+        
+    }
+    
+    
+    return isInSameCollection;
+}
+
+
+//是否在同一个时刻
+-(BOOL)alasset:(ALAsset*)asset1 isInSameMomentWith:(ALAsset*)asset2
+{
+    BOOL isInSameCollection = NO;
+    if (asset1 && asset2) {
+        CLLocation* location1 = [asset1 valueForProperty:ALAssetPropertyLocation];
+        CLLocation* location2 = [asset2 valueForProperty:ALAssetPropertyLocation];
+        NSDate *date1 = [asset1 valueForProperty:ALAssetPropertyDate];
+        NSDate *date2 = [asset2 valueForProperty:ALAssetPropertyDate];
+        NSTimeInterval time1 = [date1 timeIntervalSince1970];
+        NSTimeInterval time2 = [date2 timeIntervalSince1970];
+        
+        
+        CLLocationDistance distance = [location1 distanceFromLocation:location2];
+        NSTimeInterval timeDistance = time2-time1;
+        
+        
+        
+        if (location1 && location2) {
+            if (distance<50000 && timeDistance<3600*24*5) {
+                isInSameCollection = YES;
+            }
+        }else
+        {
+            if (timeDistance<3600*24*7) {
                 isInSameCollection = YES;
             }
         }
