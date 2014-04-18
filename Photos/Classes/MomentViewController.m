@@ -8,8 +8,11 @@
 
 #import "MomentViewController.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #import "FullScreenCollectionVC.h"
 
+=======
+>>>>>>> parent of 1bc2def... ci
 =======
 >>>>>>> parent of 1bc2def... ci
 
@@ -77,9 +80,13 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     FullScreenCollectionVC *full = [[FullScreenCollectionVC alloc] initWithCollectionViewLayout:[ToolKit flowLayoutFullScreen]];
     full.useLayoutToLayoutNavigationTransitions = YES;
     [self.navigationController pushViewController:full animated:YES];
+=======
+    
+>>>>>>> parent of 1bc2def... ci
 =======
     
 >>>>>>> parent of 1bc2def... ci

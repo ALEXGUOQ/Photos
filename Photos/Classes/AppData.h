@@ -10,6 +10,7 @@
 //const NSString *AppDataRefreshDataNotification = @"AppDataRefreshDataNotification";
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 @import CoreLocation;
 typedef NS_ENUM(NSInteger, CollectionMode) {
@@ -27,11 +28,15 @@ typedef NS_ENUM(NSInteger, CollectionMode) {
 =======
 @interface AppData : NSObject
 >>>>>>> parent of 1bc2def... ci
+=======
+@interface AppData : NSObject
+>>>>>>> parent of 1bc2def... ci
 +(instancetype)sharedAppData;
 
 -(void)loadSettingBundleData;
 
 @property (nonatomic) BOOL hasSharedVC;
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 
@@ -50,6 +55,8 @@ typedef NS_ENUM(NSInteger, CollectionMode) {
 
 #pragma mark - Notification
 
+=======
+>>>>>>> parent of 1bc2def... ci
 =======
 >>>>>>> parent of 1bc2def... ci
 @end
