@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class ALAssetsLibrary;
 typedef NS_ENUM(NSInteger, CollectionMode) {
     CollectionModeYear,                 // 年
     CollectionModeCollection,           // 精选
@@ -20,8 +20,13 @@ typedef NS_ENUM(NSInteger, CollectionMode) {
 
 +(instancetype)sharedAppData;
 
--(void)loadSettingBundleData;
 
+
+//刷新数据
+-(void)loadData;
+
+
+//是否有共享
 @property (nonatomic) BOOL hasSharedVC;
 
 
@@ -34,4 +39,10 @@ typedef NS_ENUM(NSInteger, CollectionMode) {
 @property (nonatomic,retain) NSMutableArray *momentsArray;
 
 @property (nonatomic,retain) NSMutableArray *allArray;
+
+
+
+#pragma mark - Notifications
+//刷新数据
+extern NSString * const AppDataDidRefreshALAssetsLibraryData;
 @end

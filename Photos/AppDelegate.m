@@ -18,7 +18,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    [[AppData sharedAppData] loadSettingBundleData];
+    [AppData sharedAppData];
     
     PhotoTabbar *tabbar = [[PhotoTabbar alloc] init];
     self.window.rootViewController = tabbar;
