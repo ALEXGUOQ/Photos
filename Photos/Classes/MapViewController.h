@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 @import MapKit;
-#import "WTViewController.h"
 @interface MapViewController : UIViewController
 {
     MKMapView *mapView;

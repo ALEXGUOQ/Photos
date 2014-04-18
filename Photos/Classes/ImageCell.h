@@ -14,4 +14,6 @@
 }
 -(void)loadWithALAsset:(ALAsset*)asset;
 
+
+-(void)loadWithFullScreen:(ALAsset*)asset;
 @end

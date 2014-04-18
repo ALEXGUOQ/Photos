@@ -9,6 +9,7 @@
 #import "AlbumsVC.h"
 #import "ImageTableViewCell.h"
 #import "GroupDetailVC.h"
+#import "Layouts.h"
 #import "FullScreenCollectionVC.h"
 @interface AlbumsVC ()
 
@@ -253,7 +254,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     selectRow = indexPath.row;
-    GroupDetailVC *vc= [[GroupDetailVC alloc] initWithCollectionViewLayout:[ToolKit flowLayoutFourEachLine]];;
+    GroupDetailVC *vc= [[GroupDetailVC alloc] initWithCollectionViewLayout:[Layouts flowLayoutFourEachLine]];;
     vc.group = groupInfo[indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
 }

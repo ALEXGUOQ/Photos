@@ -10,6 +10,7 @@
 #import "ImageCell.h"
 #import "MomentViewController.h"
 #import "ToolKit.h"
+#import "Layouts.h"
 @interface CollectionViewController ()
 
 @end
@@ -32,6 +33,12 @@
      [self.collectionView registerClass:[ImageCell class] forCellWithReuseIdentifier:@"ImageCell"];
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -40,7 +47,7 @@
 #pragma mark UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewFlowLayout *flow = [ToolKit flowLayoutMoments];
+    UICollectionViewFlowLayout *flow = [Layouts flowLayoutMoments];
     MomentViewController *vc = [[MomentViewController alloc] initWithCollectionViewLayout:flow];
     vc.useLayoutToLayoutNavigationTransitions = YES;
     [self.navigationController pushViewController:vc animated:YES];

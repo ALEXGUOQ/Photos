@@ -10,14 +10,10 @@
 #import "PhotosVC.h"
 #import "SharedVC.h"
 #import "AlbumsVC.h"
+#import "Layouts.h"
 #import "AppData.h"
 #import "CollectionViewController.h"
 #import "MomentViewController.h"
-
-
-#import "YearVC.h"
-#import "CollectionVC.h"
-#import "MomentVC.h"
 @interface PhotoTabbar ()
 
 @end
@@ -31,20 +27,17 @@
         // Custom initialization
         NSMutableArray *vcs = [[NSMutableArray alloc] init];
         
-        YearVC *vc = [[YearVC alloc] initWithCollectionViewLayout:[ToolKit flowLayoutYear]];
-//        vc.useLayoutToLayoutNavigationTransitions = YES;
-        vc.title = NSLocalizedString(@"Years", nil);
-        CollectionVC *collectionVC = [[CollectionVC alloc] initWithCollectionViewLayout:[ToolKit flowLayoutCollections]];
+        PhotosVC *vc = [[PhotosVC alloc] initWithCollectionViewLayout:[Layouts flowLayoutYear]];
+        CollectionViewController *collectionVC = [[CollectionViewController alloc] initWithCollectionViewLayout:[Layouts flowLayoutCollections]];
         collectionVC.title = NSLocalizedString(@"Collections", nil);
-//        collectionVC.useLayoutToLayoutNavigationTransitions = YES;
-        MomentVC *momentVC = [[MomentVC alloc] initWithCollectionViewLayout:[ToolKit flowLayoutMoments]];
-//        momentVC.useLayoutToLayoutNavigationTransitions = YES;
-        momentVC.title = NSLocalizedString(@"Moments", nil);
+        collectionVC.useLayoutToLayoutNavigationTransitions = YES;
+        MomentViewController *momentVC = [[MomentViewController alloc] initWithCollectionViewLayout:[Layouts flowLayoutMoments]];
+        momentVC.useLayoutToLayoutNavigationTransitions = YES;
         
         UINavigationController *navi1 = [[UINavigationController alloc] init];
         [navi1 setViewControllers:@[vc,collectionVC,momentVC] animated:YES];
+        navi1.delegate = vc;
         [vcs addObject:navi1];
-        
          if ([AppData sharedAppData].hasSharedVC) {
              SharedVC *shared = [[SharedVC alloc] init];
              UINavigationController *navi2 = [[UINavigationController alloc] initWithRootViewController:shared];

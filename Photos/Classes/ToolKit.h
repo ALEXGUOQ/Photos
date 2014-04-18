@@ -25,22 +25,4 @@
 //年份的日期格式
 +(NSDateFormatter*)yearDateFormatter;
 
-
-#pragma mark - Layout
-
-+(UICollectionViewFlowLayout*)flowLayoutFourEachLine;
-
-
-//全屏
-+(UICollectionViewFlowLayout*)flowLayoutFullScreen;
-
-//年份
-+(UICollectionViewFlowLayout*)flowLayoutYear;
-
-//精选
-+(UICollectionViewFlowLayout*)flowLayoutCollections;
-
-
-//时刻
-+(UICollectionViewFlowLayout*)flowLayoutMoments;
 @end
