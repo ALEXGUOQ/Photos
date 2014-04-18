@@ -7,8 +7,11 @@
 //
 
 #import "MomentViewController.h"
+<<<<<<< HEAD
 #import "FullScreenCollectionVC.h"
 
+=======
+>>>>>>> parent of 1bc2def... ci
 
 @interface MomentViewController ()
 
@@ -40,14 +43,6 @@
     // Do any additional setup after loading the view.
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Select", nil) style:UIBarButtonItemStylePlain target:self action:@selector(selectButtonPressed:)];
     
-    
-}
-
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    self.collectionView.pagingEnabled = NO;
-    self.collectionView.alwaysBounceVertical = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -81,9 +76,13 @@
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+<<<<<<< HEAD
     FullScreenCollectionVC *full = [[FullScreenCollectionVC alloc] initWithCollectionViewLayout:[ToolKit flowLayoutFullScreen]];
     full.useLayoutToLayoutNavigationTransitions = YES;
     [self.navigationController pushViewController:full animated:YES];
+=======
+    
+>>>>>>> parent of 1bc2def... ci
 }
 
 #pragma mark - UICollectionViewDataSource

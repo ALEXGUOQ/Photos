@@ -42,11 +42,7 @@
 //    }];
 //    [[NSOperationQueue mainQueue] addOperation:operation];
 }
--(void)loadWithFullScreen:(ALAsset*)asset
-{
-    NSDictionary *dict = [asset valueForProperty:ALAssetPropertyURLs];
-    NSLog(@"%@",dict);
-}
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

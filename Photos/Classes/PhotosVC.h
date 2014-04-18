@@ -13,7 +13,11 @@
 #import "SWTTransitionLayout.h"
 @import CoreLocation;
 
-#import "AppData.h"
+typedef NS_ENUM(NSInteger, CollectionMode) {
+    CollectionModeYear,                 // 年
+    CollectionModeCollection,           // 精选
+    CollectionModeMoment,               // 时刻
+};
 @interface PhotosVC : UICollectionViewController <UICollectionViewDataSource,UICollectionViewDelegate,YearHeaderDelegate,UINavigationControllerDelegate>
 {
 //    年度

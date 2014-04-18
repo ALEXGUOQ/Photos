@@ -29,7 +29,6 @@
     self = [super initWithCollectionViewLayout:layout];
     if (self) {
         self.hidesBottomBarWhenPushed = YES;
-        
     }
     return self;
 }
@@ -64,7 +63,7 @@
 }
 - (UIStatusBarAnimation)preferredStatusBarUpdateAnimation
 {
-    return UIStatusBarAnimationSlide;
+    return UIStatusBarAnimationFade;
 }
 #pragma mark - Model
 -(void)configModel
@@ -85,11 +84,6 @@
 -(void)configView
 {
     self.collectionView.pagingEnabled = YES;
-    self.navigationController.navigationBar.translucent = YES;
-    
-    self.collectionView.frame = CGRectMake(0, -20, 320+40, [ToolKit screenHeight]);
-    self.collectionView.alwaysBounceVertical = NO;
-    self.collectionView.pagingEnabled = YES;
 //    self.collectionView.dataSource = self;
 //    [self.collectionView registerClass:[ImageCell class] forCellWithReuseIdentifier:@"FullScreenCollectionVC"];
     
@@ -100,35 +94,19 @@
 {
     BOOL flag = [UIApplication sharedApplication].statusBarHidden;
     preferStatusBarHidden = !flag;
-    [self.navigationController setNavigationBarHidden:preferStatusBarHidden animated:YES];
-    [UIView animateWithDuration:0 delay:0.2 options:0 animations:^{
-        [self setNeedsStatusBarAppearanceUpdate];
-        
-    } completion:^(BOOL finished) {
-        if (finished) {
-            if (preferStatusBarHidden) {
-                self.collectionView.frame = CGRectMake(0, 0, 320+40, [ToolKit screenHeight]);
-            }else
-            {
-                self.collectionView.frame = CGRectMake(0, -20, 320+40, [ToolKit screenHeight]);
-            }
-        }
-    }];
-    
-    
-    
+    [self setNeedsStatusBarAppearanceUpdate];
     
 }
 
 
 
-#pragma mark - UICollectionViewDelegate
-- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"xxx");
-}
+
+
 #pragma mark - UICollectionViewDataSource
-
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 3;
+}
 /*
 #pragma mark - Navigation
 
